@@ -1,0 +1,17 @@
+https://devtalk.nvidia.com/default/topic/751707/jetson-tk1-kernel-recompile-guide/
+https://devtalk.nvidia.com/default/topic/750463/embedded-systems/kernel-rebuilding-/
+
+If the necessary drivers can be built as kernel modules, that's a lot easier than reflashing the kernel. Here's approximately how I got my usb wifi dongle going. (Take this with a grain of salt as it's my first time fooling around with kernel sources in about 10 years!)
+
+On the TK1, download and unpack the L4T kernel sources to ~/kernel (or whatever) https://developer.nvidia.com/sites/default/files/akamai/mobile/files/L4T/kernel_src.tbz2
+zcat /proc/config.gz > ~/kernel/.config
+make menuconfig
+find the goodies you need and set them to compile as modules...for wifi I think you need cfg80211, mac80211, and the driver for your particular device
+make prepare; make modules_prepare
+make modules SUBDIRS=net/wireless, make modules SUBDIRS=net/mac80211, make modules SUBDIRS=drivers/net/wireless, and so on for any other relevant subdirectories of the kernel source tree containing modules you need
+copy the built .ko files to /lib/modules/$(uname -r)/kernel
+depmod -a
+apt-get install linux-firmware
+add entries for the necessary modules to /etc/modules and reboot
+
+I got bluetooth working this way too (bluetooth, hidp, btusb, and dongle-specific driver). I've hit a wall with my TV tuner stick though, which seems to need some stuff in the kernel that can't be built as modules. So I'd also like to see NVIDIA provide a step-by-step for compiling and installing a kernel (ideally without resetting the whole root FS).

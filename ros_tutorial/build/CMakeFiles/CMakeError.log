@@ -1,0 +1,53 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec294530890/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec294530890.dir/build.make CMakeFiles/cmTryCompileExec294530890.dir/build
+make[1]: Entering directory `/home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec294530890.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec294530890.dir/CheckSymbolExists.c.o   -c /home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec294530890
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec294530890.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec294530890.dir/CheckSymbolExists.c.o  -o cmTryCompileExec294530890 -rdynamic 
+CMakeFiles/cmTryCompileExec294530890.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec294530890] Error 1
+make[1]: Leaving directory `/home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec294530890/fast] Error 2
+
+File /home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec26975465/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec26975465.dir/build.make CMakeFiles/cmTryCompileExec26975465.dir/build
+make[1]: Entering directory `/home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec26975465.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec26975465.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec26975465
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec26975465.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec26975465.dir/CheckFunctionExists.c.o  -o cmTryCompileExec26975465 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec26975465] Error 1
+make[1]: Leaving directory `/home/dat/Documents/racecar/ros_tutorial/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec26975465/fast] Error 2
+
+
