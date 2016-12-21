@@ -1,4 +1,4 @@
-"""
+'''
 Control Servos using Arduino through Serial Port
 
 Requirements:
@@ -7,7 +7,8 @@ Requirements:
 3. Arduino is connected to computer via micro-USB
 
 Troubleshooting:
-"""
+'''
+
 import serial
 import time
 import serial.tools.list_ports
@@ -116,6 +117,7 @@ if __name__ == "__main__":
     arduino = initialize()
     # warm it up
     validate_steering_servo(arduino)
+    time.sleep(1)
     validate_esc_servo(arduino)
 
     print("\n\nClosing Serial Port...")
