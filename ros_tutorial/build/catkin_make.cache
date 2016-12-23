@@ -1,2 +1,0 @@
-
--DCATKIN_DEVEL_PREFIX=/home/dat/Documents/racecar/ros_tutorial/devel -DCMAKE_INSTALL_PREFIX=/home/dat/Documents/racecar/ros_tutorial/install -G Unix Makefiles
