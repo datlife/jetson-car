@@ -2,6 +2,12 @@
 
 Autonomous RC Car using Deep Learning.
 
+
+### Goals:
+* Get hands-on experience on autonomous vehicle development.
+* Understand Deep Learning concepts.
+* For Fun ( I probably end up taking the car to some autonomous racing competition. We'll see).
+
 ### Hardwares:
 
 * RC Car - RedCat Volcano EPX (stock - no mod)
