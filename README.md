@@ -26,11 +26,12 @@ Autonomous RC Car using Deep Learning.
 * TensorFlow
 
 ### Installation Guide:
+Will be updated while working on the project
+
  * Hardware Setup
  
  * Software Setup
 
-Will be updated while working on the project
 
 ### Author(s):
 * [**Dat Nguyen**](https://github.com/dat-ai)
@@ -40,4 +41,9 @@ Will be updated while working on the project
 * [JetsonHacks](http://www.jetsonhacks.com/) website provides helpful tips and tricks to work with Jetson TK1. JetsonHacks nicely simplifies the installation process with many ready-to-use scripts
 * [DuckieTown](http://duckietown.mit.edu), an MIT Course,  is a great place to learn about developing autonomous vehicles.
 * UPenn F1/10 Tutorials give a nice introduction to ROS, Hardware installation, and System Architecture for RC Car.
+
+### TODO:
+* Program ROS to take control over ESC and Steering motors.
+* Create an interface to switch between autonomous/maunual mode. (could it be semi-autonomous? like level 2/3)
+* Apply the advantage of Intel Realsense (IR camera) to better reconigze objects.
 
