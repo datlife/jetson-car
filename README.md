@@ -1,5 +1,12 @@
 # Jetson Autonomous RC Car
-Building an RC Autonomous Car from stratch.
+
+Autonomous RC Car using Deep Learning.
+
+
+### Goals:
+* Get hands-on experience on autonomous vehicle development.
+* Understand Deep Learning concepts.
+* For Fun ( I probably end up taking the car to some autonomous racing competition. We'll see).
 
 ### Hardwares:
 
@@ -10,23 +17,33 @@ Building an RC Autonomous Car from stratch.
 * Ultrasonic Sensor
 * Real-Time-Clock (RTC) DS3231
 
-#### Softwares:
+### Softwares:
 
 * Stock OS for Jetson TK1 (JetPack 21.5)
 * Grinch Kernel 21.4
 * ROS Indingo for ARM
+* OpenCV
+* TensorFlow
 
 ### Installation Guide:
-
 Will be updated while working on the project
 
-#### Author:
+ * Hardware Setup
+ 
+ * Software Setup
+
+
+### Author(s):
 * [**Dat Nguyen**](https://github.com/dat-ai)
+* I am very happy if anyone would like to work with me on this project. please shoot me an email at tdat.nguyen93@gmail.com
 
-### License
-
-### Resources:
+### Acknowledgements:
 * [JetsonHacks](http://www.jetsonhacks.com/) website provides helpful tips and tricks to work with Jetson TK1. JetsonHacks nicely simplifies the installation process with many ready-to-use scripts
-* MIT Course on [DuckieTown](http://duckietown.mit.edu) is a great place to learn about autonomous vehicles
-* UPenn F1/10 Tutorials give a nice introduction to ROS and Hardware installation for RC Car.
+* [DuckieTown](http://duckietown.mit.edu), an MIT Course,  is a great place to learn about developing autonomous vehicles.
+* UPenn F1/10 Tutorials give a nice introduction to ROS, Hardware installation, and System Architecture for RC Car.
+
+### TODO:
+* Program ROS to take control over ESC and Steering motors.
+* Create an interface to switch between autonomous/maunual mode. (could it be semi-autonomous? like level 2/3)
+* Apply the advantage of Intel Realsense (IR camera) to better reconigze objects.
 
