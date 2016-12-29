@@ -9,6 +9,7 @@
 #define ACCELERATE     43      // '+' on keyboard (ASCII Chart)
 #define BRAKE          47      // '/' on keyboard (ASCII CHART)
 #define REVERSE        45      // '-'(minus sign) on keyboard (ASCII chart)
+#define NEUTRAL_POS    44      //  ',' (comma sign) (ASCII chart)
 
 //Signals for STEERING Servo to turn
 #define TURN_LEFT      60     // '<' on keyboard (ASCII Chart)
@@ -25,7 +26,7 @@
 #define MAX_LEFT       125     //MAXIMUM left signal value for servo
 #define MIDDLE         95      //NEUTRAL singal value for servo
 #define MAX_RIGHT      60      //MAXIMUM right singal value for servo
-#define STEER_RATE     5
+#define STEER_RATE     8
 
 Servo STEER_SERVO;           // steering servo of my RC car [RedCat Volcano EPX]
 Servo ESC;                   // Electric Speed Control for RC
@@ -68,13 +69,20 @@ void loop()
                 ESC.writeMicroseconds(current_speed);
               }
             }   
-              break;          
+              break; 
+              
         case BRAKE:{
-                current_speed = NEUTRAL;
+                current_speed = NEUTRAL-100;
                 //ESC.write(current_speed);
                 ESC.writeMicroseconds(current_speed);
         }
-          break;              
+          break;
+                    
+        case NEUTRAL_POS:{
+                ESC.writeMicroseconds(NEUTRAL);
+        }
+         break;
+         
         case REVERSE:{
                 if ((current_speed - ACC_RATE) > MAX_REVERSE){
                   current_speed -= ACC_RATE;

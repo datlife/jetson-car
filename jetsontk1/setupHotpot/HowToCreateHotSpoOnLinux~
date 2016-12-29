@@ -1,0 +1,120 @@
+After I saw this link offered by vasishath, I managed to setup a wireless hotspot to share the internet connection from the same single wireless interface device. This wireless device must to use an Atheros driver that is already build with nl80211 support. Next I will show you how.
+Detect if your wireless device will work with this method
+
+Run the following command in terminal:
+
+lsmod | grep ath
+
+If the output is null or if the string cfg80211 is not in the output, it makes no sense to continue and you should pay attention at second and third point from this answer.
+Tools needed
+
+Check whether all the below mentioned packages are installed: iw, hostapd, iptables, udhcpd, udhcpc, macchanger.
+
+You can install these with
+
+sudo apt-get install iw hostapd iptables udhcpd udhcpc macchanger
+
+Edit some files
+
+Run the following command in terminal to edit corresponding files:
+
+sudo -H gedit /etc/hostapd.conf /etc/udhcpd.conf /etc/default/udhcpd /etc/wpa_supplicant.conf
+
+    In hostapd.conf file add the following code:
+
+    interface=new1
+    driver=nl80211
+    ssid=my_wifi_hotspot      #Change the ssid name as you wish
+    channel=11                #I sugest you to use the same channel as your wireless network
+    hw_mode=g
+    wme_enabled=1
+    macaddr_acl=0
+    auth_algs=1
+    ignore_broadcast_ssid=0
+    wpa=3
+    wpa_passphrase=1234567890 #Change the passphrase as you wish
+    wpa_key_mgmt=WPA-PSK
+    wpa_pairwise=TKIP
+    rsn_pairwise=CCMP
+
+    In udhcpd.conf file comment all the current lines (by adding a # character in front of the line) and add the following new lines:
+
+    start 192.168.0.102         #These IPs must to be in the same subset as your current default route
+    end 192.168.0.117 
+    interface new1 
+
+    opt dns 192.168.0.1         #Your current default route (Gateway)
+    option subnet 255.255.255.0
+    opt router 192.168.0.101    #This IP must to be in the same subset as your current default route
+    option  domain  localhost
+
+    In /etc/default/udhcp, comment the line that says DHCPD_ENABLED="no".
+
+    In wpa_supplicant.conf you must provide the settings of your current wireless network. See man wpa_supplicant for some quick examples. And you probably have more examples in /usr/share/doc/wpa_supplicant/ directory. I used something like:
+
+    ctrl_interface=/var/run/wpa_supplicant
+    network={
+      ssid="my_wifi_network"
+      key_mgmt=WPA-PSK
+      proto=WPA
+      pairwise=CCMP
+      group=CCMP
+      psk="mypassphrase"
+    }
+
+    Save all the files and close them.
+
+    Note: All of these edits doesn't affect with nothing your current network configuration.
+
+Make a shell script
+
+    In a terminal run mkdir -p bin - this command will make a bin directory in your home folder if you don't already have it.
+    After run gedit ~/bin/hotspotsetup.sh - this will create the new file change_sources.sh in gedit.
+    Copy and paste the following script in the new created file:
+
+#!/bin/bash
+
+service network-manager stop
+sleep 1
+
+pkill -15 nm-applet
+sleep 1
+
+ifconfig wlan0 down             #wlan0 - the name of your wireless adapter
+sleep 1
+
+iw phy phy0 interface add new0 type station
+iw phy phy0 interface add new1 type __ap
+sleep 2
+
+ifconfig new0 down
+macchanger --mac 00:11:22:33:44:55 new0
+ifconfig new1 down
+macchanger --mac 00:11:22:33:44:66 new1
+ifconfig new0 up
+ifconfig new1 up
+
+ifconfig new1 192.168.0.101 up  #192.168.0.101 - the same IP defined for router in 'udhcpd.conf' file 
+hostapd /etc/hostapd.conf &
+sleep 2
+
+service udhcpd start
+
+wpa_supplicant -inew0 -c/etc/wpa_supplicant.conf &
+sleep 10
+
+udhcpc -i new0
+
+echo "1" > /proc/sys/net/ipv4/ip_forward
+iptables --table nat --append POSTROUTING --out-interface new0 -j MASQUERADE
+iptables --append FORWARD --in-interface new1 -j ACCEPT
+
+    Save the file and close it.
+    Go back into terminal and run: chmod +x ~/bin/hotspotsetup.sh - to grant execute access for the script.
+
+Start the wireless hotspot being connected to a wireless network from the same wireless adapter
+
+Run the above script in terminal with root privileges:
+
+sudo ~/bin/hotspotsetup.sh
+
