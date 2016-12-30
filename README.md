@@ -1,6 +1,6 @@
 # Jetson Autonomous RC Car
 
-Autonomous RC Car using Deep Learning.
+Autonomous RC Car using Deep Learning. Inspired by JetsonHacks
 
 ![alt tag](https://github.com/dat-ai/jetson-car/raw/master/docs/img/jetson-car.jpg)
 
