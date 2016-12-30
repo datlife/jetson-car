@@ -1,0 +1,7 @@
+Notes to launch the teleop for the Arduino interface
+with the Nyko controller
+
+roscore
+# /dev/ttyUSB0 is the Arduino Car Controller port
+rosrun rosserial_python serial_node.py /dev/ttyUSB0
+roslaunch jetsoncar_teleop nyko_teleop.launch

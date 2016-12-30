@@ -1,0 +1,24 @@
+# ===================================================
+In the associated video and article on JetsonHacks a 
+Chinese version of an Arduiono Nano was used. Instead
+of a FTDI chip, a CH340 serial to USB chip is used.
+
+On the Jetson TK1, a kernel module is needed to interface
+with the CH340. In the kernel config file, the entry is listed
+as:
+
+USB Winchiphead CH341 Single Port Serial Driver
+
+After compile the kernel, it may be necessary to copy zImage to /boot
+
+One issue that presented itself is that if the rosserial node was used
+more than once, the Nano would hang. This appears to be related on this
+particular chip to the pyserial library. On the Jetson, pyserial is 2.6 which exhibits the issue. Rolling back to version 2.5 seems to fix the problem for this particular board.
+
+To install pyserial 2.5:
+
+sudo apt-get install python-pip -y
+pip install --user 'pyserial==2.5'
+
+For more information see:
+https://github.com/ros-drivers/rosserial/issues/219
