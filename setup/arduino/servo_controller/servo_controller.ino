@@ -17,9 +17,9 @@
 #define STRAIGHT       61      // '=' on keyboard (ANSCII chart)
 
 // Maximum variables of ESC SERVO
-#define MAX_FORWARD    2000 //120     //MAX SPEED value for servo to turn to          (pulse = 2000ms)
+#define MAX_FORWARD    1600 //120     //MAX SPEED value for servo to turn to          (pulse = 2000ms)
 #define NEUTRAL        1500 //95      //NEUTRAL singal value for servo                (pulse = 1500ms)
-#define MAX_REVERSE    1000 //60      //MAX REVERSE SPEED value for servo to turn to  (pulse = 1000ms)
+#define MAX_REVERSE    1400 //60      //MAX REVERSE SPEED value for servo to turn to  (pulse = 1000ms)
 #define ACC_RATE       10              //ACCELERATE RATE
 
 // Maximum Turn Degrees - 90 is in the middle

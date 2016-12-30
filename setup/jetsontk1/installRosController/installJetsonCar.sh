@@ -16,12 +16,15 @@ git clone https://github.com/jetsonhacks/jetsoncar_teleop.git
 cd ..
 catkin_make
 
-# Copy Arduino code 
+# Copy Arduino
 cd ~/installJetsonCar
 cp -r Arduino\ Firmware/* '/home/ubuntu/sketchbook'
+# Add ROS libraries into Arduino IDE
 sudo apt-get install ros-indigo-rosserial-arduino ros-indigo-rosserial ros-indigo-angles -y
 cd ~/sketchbook/libraries
 rm -rf ros_lib
+
+# Add jetsoncar as default Ros environment
 source ~/jetsoncar/devel/setup.bash
 rosrun rosserial_arduino make_libraries.py ~/sketchbook/libraries
 cd ~/installJetsonCar
