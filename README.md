@@ -2,7 +2,7 @@
 
 Autonomous RC Car using Deep Learning.
 
-[[https://github.com/dat-ai/jetson-car/raw/master/img/jetson-car.jpg]]
+![alt tag](https://github.com/dat-ai/jetson-car/raw/master/img/jetson-car.jpg)
 
 ### Goals:
 * Get hands-on experience on autonomous vehicle development.
