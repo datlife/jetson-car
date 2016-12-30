@@ -1,6 +1,6 @@
 # Jetson Autonomous RC Car
 
-Autonomous RC Car using Deep Learning.
+Autonomous RC Car using Deep Learning. Inspired by JetsonHacks
 
 ![alt tag](https://github.com/dat-ai/jetson-car/raw/master/docs/img/jetson-car.jpg)
 
@@ -10,7 +10,7 @@ Autonomous RC Car using Deep Learning.
 * For Fun ( I probably end up taking the car to some autonomous racing competition. We'll see).
 
 ### Dependencies:
- ## Hardwares:
+#### Hardwares:
 
 	* RC Car - RedCat Volcano EPX (stock - no mod)
 	* NVIDIA Jetson TK1
@@ -19,7 +19,7 @@ Autonomous RC Car using Deep Learning.
 	* Ultrasonic Sensor
 	* Real-Time-Clock (RTC) DS3231
 
- ## Softwares:
+#### Softwares:
 
 	* Stock OS for Jetson TK1 (JetPack 21.5)
 	* Grinch Kernel 21.4
