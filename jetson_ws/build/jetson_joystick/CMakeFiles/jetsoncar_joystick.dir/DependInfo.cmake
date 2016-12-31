@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/datinfo/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp" "/home/datinfo/jetson_ws/build/jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o"
+  "/home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp" "/home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

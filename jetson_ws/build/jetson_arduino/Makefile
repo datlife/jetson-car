@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/datinfo/jetson_ws/src
+CMAKE_SOURCE_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/datinfo/jetson_ws/build
+CMAKE_BINARY_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -123,14 +123,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/datinfo/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/jetson_ws/build/CMakeFiles /home/datinfo/jetson_ws/build/jetson_arduino/CMakeFiles/progress.marks
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/jetson_ws/build/CMakeFiles 0
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_arduino/CMakeFiles/progress.marks
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/clean
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/clean
 .PHONY : clean
 
 # The main clean target
@@ -139,22 +139,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/preinstall
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/preinstall
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/datinfo/jetson_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/rule:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/rule
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/rule
 .PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -163,12 +163,12 @@ rosserial_arduino_generate_messages_cpp: jetson_arduino/CMakeFiles/rosserial_ard
 
 # fast build rule for target.
 rosserial_arduino_generate_messages_cpp/fast:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build
 .PHONY : rosserial_arduino_generate_messages_cpp/fast
 
 # Convenience name for target.
 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule
 .PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -177,12 +177,12 @@ rosserial_arduino_generate_messages_lisp: jetson_arduino/CMakeFiles/rosserial_ar
 
 # fast build rule for target.
 rosserial_arduino_generate_messages_lisp/fast:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build
 .PHONY : rosserial_arduino_generate_messages_lisp/fast
 
 # Convenience name for target.
 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
 .PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -191,7 +191,7 @@ rosserial_arduino_generate_messages_py: jetson_arduino/CMakeFiles/rosserial_ardu
 
 # fast build rule for target.
 rosserial_arduino_generate_messages_py/fast:
-	cd /home/datinfo/jetson_ws/build && $(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
 .PHONY : rosserial_arduino_generate_messages_py/fast
 
 # Help Target
@@ -221,6 +221,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/datinfo/jetson_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

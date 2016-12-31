@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o"
-  "/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick.pdb"
-  "/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick"
+  "/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick.pdb"
+  "/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick"
 )
 
 # Per-language clean rules from dependency scanning.

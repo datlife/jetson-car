@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/datinfo/jetson_ws/src
+CMAKE_SOURCE_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/datinfo/jetson_ws/build
+CMAKE_BINARY_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/build
 
 # Include any dependencies generated for this target.
 include jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/depend.make
@@ -53,18 +53,18 @@ include jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/progress.make
 include jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/flags.make
 
 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/flags.make
-jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o: /home/datinfo/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/jetson_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
+jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o: /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o"
-	cd /home/datinfo/jetson_ws/build/jetson_joystick && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o -c /home/datinfo/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o -c /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp
 
 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.i"
-	cd /home/datinfo/jetson_ws/build/jetson_joystick && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/datinfo/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp > CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.i
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp > CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.i
 
 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.s"
-	cd /home/datinfo/jetson_ws/build/jetson_joystick && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/datinfo/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp -o CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.s
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick/src/jetson_joystick_node.cpp -o CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.s
 
 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o.requires:
 .PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o.requires
@@ -82,41 +82,41 @@ jetsoncar_joystick_OBJECTS = \
 # External object files for target jetsoncar_joystick
 jetsoncar_joystick_EXTERNAL_OBJECTS =
 
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build.make
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libroscpp.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librosconsole.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librosconsole_log4cxx.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librosconsole_backend_interface.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/liblog4cxx.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libxmlrpcpp.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libroscpp_serialization.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librostime.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libcpp_common.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick"
-	cd /home/datinfo/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/jetsoncar_joystick.dir/link.txt --verbose=$(VERBOSE)
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build.make
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libroscpp.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librosconsole.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librosconsole_log4cxx.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librosconsole_backend_interface.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/liblog4cxx.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libxmlrpcpp.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libroscpp_serialization.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/librostime.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /opt/ros/indigo/lib/libcpp_common.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick"
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/jetsoncar_joystick.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build: /home/datinfo/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick
+jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build: /home/datinfo/Documents/jetson-car/jetson_ws/devel/lib/jetson_joystick/jetsoncar_joystick
 .PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build
 
 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/requires: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/src/jetson_joystick_node.cpp.o.requires
 .PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/requires
 
 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean:
-	cd /home/datinfo/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -P CMakeFiles/jetsoncar_joystick.dir/cmake_clean.cmake
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -P CMakeFiles/jetsoncar_joystick.dir/cmake_clean.cmake
 .PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean
 
 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/depend:
-	cd /home/datinfo/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/datinfo/jetson_ws/src /home/datinfo/jetson_ws/src/jetson_joystick /home/datinfo/jetson_ws/build /home/datinfo/jetson_ws/build/jetson_joystick /home/datinfo/jetson_ws/build/jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/datinfo/Documents/jetson-car/jetson_ws/src /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick /home/datinfo/Documents/jetson-car/jetson_ws/build /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/depend
 

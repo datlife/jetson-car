@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/datinfo/jetson_ws/src
+CMAKE_SOURCE_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/datinfo/jetson_ws/build
+CMAKE_BINARY_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/build
 
 # Utility rule file for rosserial_arduino_generate_messages_py.
 
@@ -59,10 +59,10 @@ jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build: ross
 .PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
 
 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/clean:
-	cd /home/datinfo/jetson_ws/build/jetson_arduino && $(CMAKE_COMMAND) -P CMakeFiles/rosserial_arduino_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_arduino && $(CMAKE_COMMAND) -P CMakeFiles/rosserial_arduino_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/clean
 
 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/depend:
-	cd /home/datinfo/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/datinfo/jetson_ws/src /home/datinfo/jetson_ws/src/jetson_arduino /home/datinfo/jetson_ws/build /home/datinfo/jetson_ws/build/jetson_arduino /home/datinfo/jetson_ws/build/jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/datinfo/Documents/jetson-car/jetson_ws/src /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_arduino /home/datinfo/Documents/jetson-car/jetson_ws/build /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_arduino /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/depend
 

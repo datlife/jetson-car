@@ -1,8 +1,8 @@
-# Install script for directory: /home/datinfo/jetson_ws/src/jetson_arduino
+# Install script for directory: /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_arduino
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/datinfo/jetson_ws/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/datinfo/Documents/jetson-car/jetson_ws/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/datinfo/jetson_ws/build/jetson_arduino/catkin_generated/installspace/jetson_arduino.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_arduino/catkin_generated/installspace/jetson_arduino.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jetson_arduino/cmake" TYPE FILE FILES
-    "/home/datinfo/jetson_ws/build/jetson_arduino/catkin_generated/installspace/jetson_arduinoConfig.cmake"
-    "/home/datinfo/jetson_ws/build/jetson_arduino/catkin_generated/installspace/jetson_arduinoConfig-version.cmake"
+    "/home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_arduino/catkin_generated/installspace/jetson_arduinoConfig.cmake"
+    "/home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_arduino/catkin_generated/installspace/jetson_arduinoConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jetson_arduino" TYPE FILE FILES "/home/datinfo/jetson_ws/src/jetson_arduino/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jetson_arduino" TYPE FILE FILES "/home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_arduino/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

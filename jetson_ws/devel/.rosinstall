@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/datinfo/jetson_ws/devel/setup.sh
+    local-name: /home/datinfo/Documents/jetson-car/jetson_ws/devel/setup.sh

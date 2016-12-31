@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/datinfo/jetson_ws/src
+CMAKE_SOURCE_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/datinfo/jetson_ws/build
+CMAKE_BINARY_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/build
 
 # Utility rule file for rosgraph_msgs_generate_messages_py.
 
@@ -59,10 +59,10 @@ jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build: rosgrap
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
-	cd /home/datinfo/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend:
-	cd /home/datinfo/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/datinfo/jetson_ws/src /home/datinfo/jetson_ws/src/jetson_joystick /home/datinfo/jetson_ws/build /home/datinfo/jetson_ws/build/jetson_joystick /home/datinfo/jetson_ws/build/jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/datinfo/Documents/jetson-car/jetson_ws/src /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick /home/datinfo/Documents/jetson-car/jetson_ws/build /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
 
