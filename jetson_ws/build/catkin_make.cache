@@ -1,0 +1,2 @@
+jetson_arduino:jetson_joystick
+-DCATKIN_DEVEL_PREFIX=/home/datinfo/jetson_ws/devel -DCMAKE_INSTALL_PREFIX=/home/datinfo/jetson_ws/install -G Unix Makefiles

@@ -4,9 +4,9 @@
 */
 
 #if defined(ARDUINO) && ARDUINO >= 100
-    #include "Arduino.h"
+#include "Arduino.h"
 #else
-    #include <WProgram.h>
+#include <WProgram.h>
 #endif
 
 #include <Servo.h>
@@ -34,53 +34,71 @@
 Servo STEER_SERVO;         // steering servo of my RC car [RedCat Volcano EPX]
 Servo ESC;                 // Electric Speed Control for RC
 
-int   current_speed;       // current speed value
-int   current_pos;         // current position of the wheel
-
 // Set up ROS nodes
 ros::NodeHandle nh_;
-std_msgs::String str_msg;
+std_msgs::Int32 str_msg;
 ros::Publisher chatter("arduino_publisher", &str_msg);
-ros::Subscriber<geometry_msgs::Twist> driveSubscriber("/jetson_teleop_joystick/cmd_vel", &driveCallback) ;
 
 //////////////////////////FUNCTION PROTOTYPES///////////////////////////////////////
-void drive_callback(const geometery::geometry_msgs::Twist& signal){
-    control_steering(signal);
-    control_esc(signal);
-}
-int control_steering(const geometery::geometry_msgs::Twist);
-int control_esc(const geometery::geometry_msgs::Twist);
+void drive_callback(const geometry_msgs::Twist& signal);
+void control_steering(const geometry_msgs::Twist&);
+void control_esc(const geometry_msgs::Twist& signal);
 int convert_signal(double, double, double, double , double);
+
+ros::Subscriber<geometry_msgs::Twist> driveSubscriber("/jetson_teleop/cmd_vel", &drive_callback) ;
 
 void setup(){
     nh_.initNode();
-    nh.advertise(chatter);
-    nh.subsribe(driveSubscriber);
+    nh_.advertise(chatter);
+    nh_.subscribe(driveSubscriber);
 
-    current_speed = NEUTRAL;
-    current_pos = MIDDLE;
     // Connect ESC and Steering Servo to PIN 7 and 8 respectively
     ESC.attach(RC_ESC_PIN);
     STEER_SERVO.attach(RC_STEER_PIN);
 
     // Set everything to neutral
-    ESC.write(NEUTRAL);
+    ESC.writeMicroseconds(NEUTRAL);
     STEER_SERVO.write(MIDDLE);
 
     //Set up Serial library at 9600 bps (how many bytes can send in a second)
-    Serial.begin(9600);
+    Serial.begin(115200);
     Serial.println("Arduino starting");
+    delay(30);
 }
 
 void loop(){
-    str_msg.data = "First Test";
-    chatter.publis(str_msg);
     nh_.spinOnce();
-    delay(1000);
+    delay(10);
 }
 
-int control_steering(const geometery::geometry_msgs::Twist  signal){
-    int steer_angle = convert_signal()
+
+void drive_callback(const geometry_msgs::Twist& signal){
+    control_steering(signal);
+    control_esc(signal);
+}
+void control_steering(const geometry_msgs::Twist& signal){
+    int steer_angle = convert_signal(signal.angular.z, 0.0, 1.0, MAX_RIGHT, MAX_LEFT);
+
+    if (steer_angle < MAX_RIGHT) steer_angle = MAX_RIGHT;
+    if (steer_angle > MAX_LEFT)  steer_angle = MAX_LEFT;
+
+    STEER_SERVO.write(steer_angle);
+    Serial.println(STEER_SERVO.read());
+    str_msg.data = STEER_SERVO.read();
+    chatter.publish(&str_msg);
+    
+
+}
+
+void control_esc(const geometry_msgs::Twist& signal) {
+    int throttle = convert_signal(signal.linear.x, 0.5, 1.0, NEUTRAL, MAX_FORWARD);
+
+    if (throttle < MAX_REVERSE) throttle = MAX_REVERSE;
+    if (throttle > MAX_FORWARD)  throttle = MAX_FORWARD;
+
+    ESC.writeMicroseconds(throttle);
+    Serial.println(ESC.read());
+
 }
 int convert_signal(double toMap, double in_min, double in_max, double out_min, double out_max){
     return (toMap - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
