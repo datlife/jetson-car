@@ -1,0 +1,1 @@
+PATH = './trainig_data/'
