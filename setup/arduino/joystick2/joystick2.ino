@@ -18,10 +18,11 @@
 #include <std_msgs/Empty.h>
 #include <geometry_msgs/Twist.h>
 
-///////////////////////////////DEFAULT PINS/////////////////////////////////////////
-#define RC_ESC_PIN     7       // PWM PIN 7 for RC ESC Servo
-#define RC_STEER_PIN   8       // PWM PIN 13 for RC Steer Servo
-///////////////////////////////DEFAULT SERVO VALUES////////////////////////////////
+//====================================DEFAULT PINS============================================
+#define RC_ESC_PIN     4       // PWM PIN 7 for RC ESC Servo
+#define RC_STEER_PIN   5       // PWM PIN 13 for RC Steer Servo
+
+//===================================DEFAULT SERVO VALUES=====================================
 //Constant ESC SERVO values
 #define MAX_FORWARD    1750 //120     //MAX SPEED signal         (pulse = 2000ms)
 #define NEUTRAL        1500 //95      //NEUTRAL signal           (pulse = 1500ms)
@@ -31,7 +32,7 @@
 #define MAX_LEFT       140
 #define MIDDLE         95
 #define MAX_RIGHT      50
-//////////////////////////////GLOBAL VARIABLES/////////////////////////////////////
+//=================================GLOBAL VARIABLES============================================
 Servo STEER_SERVO;         // steering servo of my RC car [RedCat Volcano EPX]
 Servo ESC;                 // Electric Speed Control for RC
 
@@ -40,7 +41,7 @@ ros::NodeHandle nh_;
 //std_msgs::Int32 str_msg;
 //ros::Publisher chatter("arduino_publisher", &str_msg);
 
-//////////////////////////FUNCTION PROTOTYPES///////////////////////////////////////
+//================================FUNCTION PROTOTYPES==========================================
 void drive_callback(const geometry_msgs::Twist& signal);
 void control_steering(const geometry_msgs::Twist&);
 void control_esc(const geometry_msgs::Twist& signal);
