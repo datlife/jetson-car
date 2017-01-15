@@ -1,23 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec4136385584/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec4136385584.dir/build.make CMakeFiles/cmTryCompileExec4136385584.dir/build
-make[1]: Entering directory `/home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec4136385584.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4136385584.dir/CheckSymbolExists.c.o   -c /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTryCompileExec4136385584
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4136385584.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec4136385584.dir/CheckSymbolExists.c.o  -o cmTryCompileExec4136385584 -rdynamic 
-CMakeFiles/cmTryCompileExec4136385584.dir/CheckSymbolExists.c.o: In function `main':
-CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+Run Build Command:/usr/bin/make "cmTryCompileExec1047201066/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1047201066.dir/build.make CMakeFiles/cmTryCompileExec1047201066.dir/build
+make[1]: Entering directory `/home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1047201066.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1047201066.dir/CheckSymbolExists.c.o   -c /home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1047201066
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1047201066.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1047201066.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1047201066 -rdynamic 
+CMakeFiles/cmTryCompileExec1047201066.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
+CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec4136385584] Error 1
-make[1]: Leaving directory `/home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec4136385584/fast] Error 2
+make[1]: Leaving directory `/home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec1047201066] Error 1
+make: *** [cmTryCompileExec1047201066/fast] Error 2
 
-File /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -33,21 +34,21 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec681063972/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec681063972.dir/build.make CMakeFiles/cmTryCompileExec681063972.dir/build
-make[1]: Entering directory `/home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec681063972.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec681063972.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec681063972
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec681063972.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec681063972.dir/CheckFunctionExists.c.o  -o cmTryCompileExec681063972 -rdynamic -lpthreads 
+Run Build Command:/usr/bin/make "cmTryCompileExec2684265872/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2684265872.dir/build.make CMakeFiles/cmTryCompileExec2684265872.dir/build
+make[1]: Entering directory `/home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2684265872.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2684265872.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2684265872
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2684265872.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2684265872.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2684265872 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec681063972] Error 1
-make[1]: Leaving directory `/home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec681063972/fast] Error 2
+make[1]: Leaving directory `/home/ubuntu/jetson_ws/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2684265872] Error 1
+make: *** [cmTryCompileExec2684265872/fast] Error 2
 
 

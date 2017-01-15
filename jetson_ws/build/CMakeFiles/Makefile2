@@ -46,14 +46,11 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/jetson_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/jetson_ws/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/clean_test_results.dir
@@ -62,15 +59,15 @@ CMAKE_BINARY_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/build
 CMakeFiles/clean_test_results.dir/all:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/depend
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target clean_test_results"
 .PHONY : CMakeFiles/clean_test_results.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/clean_test_results.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/clean_test_results.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : CMakeFiles/clean_test_results.dir/rule
 
 # Convenience name for target.
@@ -93,15 +90,15 @@ clean: CMakeFiles/clean_test_results.dir/clean
 CMakeFiles/download_extra_data.dir/all:
 	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/depend
 	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target download_extra_data"
 .PHONY : CMakeFiles/download_extra_data.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/download_extra_data.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/download_extra_data.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : CMakeFiles/download_extra_data.dir/rule
 
 # Convenience name for target.
@@ -124,15 +121,15 @@ clean: CMakeFiles/download_extra_data.dir/clean
 CMakeFiles/doxygen.dir/all:
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/depend
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target doxygen"
 .PHONY : CMakeFiles/doxygen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/doxygen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/doxygen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : CMakeFiles/doxygen.dir/rule
 
 # Convenience name for target.
@@ -155,15 +152,15 @@ clean: CMakeFiles/doxygen.dir/clean
 CMakeFiles/run_tests.dir/all:
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/depend
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target run_tests"
 .PHONY : CMakeFiles/run_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/run_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : CMakeFiles/run_tests.dir/rule
 
 # Convenience name for target.
@@ -186,15 +183,15 @@ clean: CMakeFiles/run_tests.dir/clean
 CMakeFiles/tests.dir/all:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target tests"
 .PHONY : CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : CMakeFiles/tests.dir/rule
 
 # Convenience name for target.
@@ -233,15 +230,15 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles  1
 	@echo "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
@@ -264,15 +261,15 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles  2
 	@echo "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.
@@ -292,7 +289,7 @@ clean: gtest/CMakeFiles/gtest_main.dir/clean
 # Directory level rules for directory jetson_joystick
 
 # Convenience name for "all" pass in the directory.
-jetson_joystick/all: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/all
+jetson_joystick/all: jetson_joystick/CMakeFiles/jetson_joystick_node.dir/all
 .PHONY : jetson_joystick/all
 
 # Convenience name for "clean" pass in the directory.
@@ -302,7 +299,7 @@ jetson_joystick/clean: jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messa
 jetson_joystick/clean: jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 jetson_joystick/clean: jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 jetson_joystick/clean: jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-jetson_joystick/clean: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean
+jetson_joystick/clean: jetson_joystick/CMakeFiles/jetson_joystick_node.dir/clean
 jetson_joystick/clean: jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 jetson_joystick/clean: jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 jetson_joystick/clean: jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/clean
@@ -328,15 +325,15 @@ jetson_joystick/preinstall:
 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target diagnostic_msgs_generate_messages_cpp"
 .PHONY : jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -359,15 +356,15 @@ clean: jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/clea
 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target diagnostic_msgs_generate_messages_lisp"
 .PHONY : jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -390,15 +387,15 @@ clean: jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/cle
 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target diagnostic_msgs_generate_messages_py"
 .PHONY : jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -421,15 +418,15 @@ clean: jetson_joystick/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/clean
 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target geometry_msgs_generate_messages_cpp"
 .PHONY : jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -452,15 +449,15 @@ clean: jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target geometry_msgs_generate_messages_lisp"
 .PHONY : jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -483,15 +480,15 @@ clean: jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target geometry_msgs_generate_messages_py"
 .PHONY : jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -508,38 +505,38 @@ clean: jetson_joystick/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target jetson_joystick/CMakeFiles/jetsoncar_joystick.dir
+# Target rules for target jetson_joystick/CMakeFiles/jetson_joystick_node.dir
 
 # All Build rule for target.
-jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/all:
-	$(MAKE) -f jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build.make jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/depend
-	$(MAKE) -f jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build.make jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles  3
-	@echo "Built target jetsoncar_joystick"
-.PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/all
+jetson_joystick/CMakeFiles/jetson_joystick_node.dir/all:
+	$(MAKE) -f jetson_joystick/CMakeFiles/jetson_joystick_node.dir/build.make jetson_joystick/CMakeFiles/jetson_joystick_node.dir/depend
+	$(MAKE) -f jetson_joystick/CMakeFiles/jetson_joystick_node.dir/build.make jetson_joystick/CMakeFiles/jetson_joystick_node.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles  3
+	@echo "Built target jetson_joystick_node"
+.PHONY : jetson_joystick/CMakeFiles/jetson_joystick_node.dir/all
 
 # Include target in all.
-all: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/all
+all: jetson_joystick/CMakeFiles/jetson_joystick_node.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
-.PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/rule
+jetson_joystick/CMakeFiles/jetson_joystick_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/jetson_joystick_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+.PHONY : jetson_joystick/CMakeFiles/jetson_joystick_node.dir/rule
 
 # Convenience name for target.
-jetsoncar_joystick: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/rule
-.PHONY : jetsoncar_joystick
+jetson_joystick_node: jetson_joystick/CMakeFiles/jetson_joystick_node.dir/rule
+.PHONY : jetson_joystick_node
 
 # clean rule for target.
-jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean:
-	$(MAKE) -f jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/build.make jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean
-.PHONY : jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean
+jetson_joystick/CMakeFiles/jetson_joystick_node.dir/clean:
+	$(MAKE) -f jetson_joystick/CMakeFiles/jetson_joystick_node.dir/build.make jetson_joystick/CMakeFiles/jetson_joystick_node.dir/clean
+.PHONY : jetson_joystick/CMakeFiles/jetson_joystick_node.dir/clean
 
 # clean rule for target.
-clean: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean
+clean: jetson_joystick/CMakeFiles/jetson_joystick_node.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -549,15 +546,15 @@ clean: jetson_joystick/CMakeFiles/jetsoncar_joystick.dir/clean
 jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target roscpp_generate_messages_cpp"
 .PHONY : jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -580,15 +577,15 @@ clean: jetson_joystick/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target roscpp_generate_messages_lisp"
 .PHONY : jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -611,15 +608,15 @@ clean: jetson_joystick/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target roscpp_generate_messages_py"
 .PHONY : jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -642,15 +639,15 @@ clean: jetson_joystick/CMakeFiles/roscpp_generate_messages_py.dir/clean
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target rosgraph_msgs_generate_messages_cpp"
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -673,15 +670,15 @@ clean: jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target rosgraph_msgs_generate_messages_lisp"
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -704,15 +701,15 @@ clean: jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target rosgraph_msgs_generate_messages_py"
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -735,15 +732,15 @@ clean: jetson_joystick/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target sensor_msgs_generate_messages_cpp"
 .PHONY : jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -766,15 +763,15 @@ clean: jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target sensor_msgs_generate_messages_lisp"
 .PHONY : jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -797,15 +794,15 @@ clean: jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target sensor_msgs_generate_messages_py"
 .PHONY : jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -828,15 +825,15 @@ clean: jetson_joystick/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target std_msgs_generate_messages_cpp"
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -859,15 +856,15 @@ clean: jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target std_msgs_generate_messages_lisp"
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -890,15 +887,15 @@ clean: jetson_joystick/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/build.make jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
 	@echo "Built target std_msgs_generate_messages_py"
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -915,113 +912,186 @@ clean: jetson_joystick/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory jetson_arduino
+# Directory level rules for directory usb_cam
 
 # Convenience name for "all" pass in the directory.
-jetson_arduino/all:
-.PHONY : jetson_arduino/all
+usb_cam/all: usb_cam/CMakeFiles/usb_cam.dir/all
+usb_cam/all: usb_cam/CMakeFiles/usb_cam_node.dir/all
+.PHONY : usb_cam/all
 
 # Convenience name for "clean" pass in the directory.
-jetson_arduino/clean: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/clean
-jetson_arduino/clean: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/clean
-jetson_arduino/clean: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/clean
-.PHONY : jetson_arduino/clean
+usb_cam/clean: usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/clean
+usb_cam/clean: usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean
+usb_cam/clean: usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/clean
+usb_cam/clean: usb_cam/CMakeFiles/usb_cam.dir/clean
+usb_cam/clean: usb_cam/CMakeFiles/usb_cam_node.dir/clean
+.PHONY : usb_cam/clean
 
 # Convenience name for "preinstall" pass in the directory.
-jetson_arduino/preinstall:
-.PHONY : jetson_arduino/preinstall
+usb_cam/preinstall:
+.PHONY : usb_cam/preinstall
 
 #=============================================================================
-# Target rules for target jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir
+# Target rules for target usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir
 
 # All Build rule for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/all:
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/depend
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
-	@echo "Built target rosserial_arduino_generate_messages_cpp"
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/all
+usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/all:
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/depend
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
+	@echo "Built target std_srvs_generate_messages_cpp"
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/rule
+usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-rosserial_arduino_generate_messages_cpp: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/rule
-.PHONY : rosserial_arduino_generate_messages_cpp
+std_srvs_generate_messages_cpp: usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : std_srvs_generate_messages_cpp
 
 # clean rule for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/clean:
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/clean
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/clean
+usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/clean
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/clean
 
 # clean rule for target.
-clean: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_cpp.dir/clean
+clean: usb_cam/CMakeFiles/std_srvs_generate_messages_cpp.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir
+# Target rules for target usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir
 
 # All Build rule for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/all:
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/depend
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
-	@echo "Built target rosserial_arduino_generate_messages_lisp"
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/all
+usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/all:
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/depend
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
+	@echo "Built target std_srvs_generate_messages_lisp"
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule
+usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-rosserial_arduino_generate_messages_lisp: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/rule
-.PHONY : rosserial_arduino_generate_messages_lisp
+std_srvs_generate_messages_lisp: usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+.PHONY : std_srvs_generate_messages_lisp
 
 # clean rule for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/clean:
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/clean
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/clean
+usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean
 
 # clean rule for target.
-clean: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_lisp.dir/clean
+clean: usb_cam/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir
+# Target rules for target usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir
 
 # All Build rule for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/all:
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/depend
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 
-	@echo "Built target rosserial_arduino_generate_messages_py"
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/all
+usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/all:
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/depend
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles 
+	@echo "Built target std_srvs_generate_messages_py"
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/datinfo/Documents/jetson-car/jetson_ws/build/CMakeFiles 0
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
+usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-rosserial_arduino_generate_messages_py: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/rule
-.PHONY : rosserial_arduino_generate_messages_py
+std_srvs_generate_messages_py: usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : std_srvs_generate_messages_py
 
 # clean rule for target.
-jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/clean:
-	$(MAKE) -f jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/build.make jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/clean
-.PHONY : jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/clean
+usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/clean:
+	$(MAKE) -f usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/build.make usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/clean
+.PHONY : usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/clean
 
 # clean rule for target.
-clean: jetson_arduino/CMakeFiles/rosserial_arduino_generate_messages_py.dir/clean
+clean: usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target usb_cam/CMakeFiles/usb_cam.dir
+
+# All Build rule for target.
+usb_cam/CMakeFiles/usb_cam.dir/all:
+	$(MAKE) -f usb_cam/CMakeFiles/usb_cam.dir/build.make usb_cam/CMakeFiles/usb_cam.dir/depend
+	$(MAKE) -f usb_cam/CMakeFiles/usb_cam.dir/build.make usb_cam/CMakeFiles/usb_cam.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles  4
+	@echo "Built target usb_cam"
+.PHONY : usb_cam/CMakeFiles/usb_cam.dir/all
+
+# Include target in all.
+all: usb_cam/CMakeFiles/usb_cam.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+usb_cam/CMakeFiles/usb_cam.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 usb_cam/CMakeFiles/usb_cam.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+.PHONY : usb_cam/CMakeFiles/usb_cam.dir/rule
+
+# Convenience name for target.
+usb_cam: usb_cam/CMakeFiles/usb_cam.dir/rule
+.PHONY : usb_cam
+
+# clean rule for target.
+usb_cam/CMakeFiles/usb_cam.dir/clean:
+	$(MAKE) -f usb_cam/CMakeFiles/usb_cam.dir/build.make usb_cam/CMakeFiles/usb_cam.dir/clean
+.PHONY : usb_cam/CMakeFiles/usb_cam.dir/clean
+
+# clean rule for target.
+clean: usb_cam/CMakeFiles/usb_cam.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target usb_cam/CMakeFiles/usb_cam_node.dir
+
+# All Build rule for target.
+usb_cam/CMakeFiles/usb_cam_node.dir/all: usb_cam/CMakeFiles/usb_cam.dir/all
+	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/depend
+	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/jetson_ws/build/CMakeFiles  5
+	@echo "Built target usb_cam_node"
+.PHONY : usb_cam/CMakeFiles/usb_cam_node.dir/all
+
+# Include target in all.
+all: usb_cam/CMakeFiles/usb_cam_node.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+usb_cam/CMakeFiles/usb_cam_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 usb_cam/CMakeFiles/usb_cam_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/jetson_ws/build/CMakeFiles 0
+.PHONY : usb_cam/CMakeFiles/usb_cam_node.dir/rule
+
+# Convenience name for target.
+usb_cam_node: usb_cam/CMakeFiles/usb_cam_node.dir/rule
+.PHONY : usb_cam_node
+
+# clean rule for target.
+usb_cam/CMakeFiles/usb_cam_node.dir/clean:
+	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/clean
+.PHONY : usb_cam/CMakeFiles/usb_cam_node.dir/clean
+
+# clean rule for target.
+clean: usb_cam/CMakeFiles/usb_cam_node.dir/clean
 .PHONY : clean
 
 #=============================================================================

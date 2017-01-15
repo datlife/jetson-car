@@ -1,2 +1,2 @@
-jetson_arduino:jetson_joystick
--DCATKIN_DEVEL_PREFIX=/home/datinfo/Documents/jetson-car/jetson_ws/devel -DCMAKE_INSTALL_PREFIX=/home/datinfo/Documents/jetson-car/jetson_ws/install -G Unix Makefiles
+jetson_joystick:usb_cam
+-DCATKIN_DEVEL_PREFIX=/home/ubuntu/jetson_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/jetson_ws/install -G Unix Makefiles

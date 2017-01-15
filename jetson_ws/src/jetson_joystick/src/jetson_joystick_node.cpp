@@ -27,10 +27,11 @@ class JetsonJoyStick{
 
         int             linear_;
         int             angular_;
+        bool            emergency_brake;
         double          l_scale_;
         double          a_scale_;
 
-        int             brake_;
+        float           previous[2];
         void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
     public:
         // Default Constructor
@@ -39,12 +40,12 @@ class JetsonJoyStick{
 
 JetsonJoyStick::JetsonJoyStick():
         linear_(3) ,
-        angular_(0),
-        brake_(4)
+        angular_(0)
 {
 
     a_scale_ = 0.9;
     l_scale_ = 0.3;
+    emergency_brake = 1;
 
     //Set up parameters
     node_handle_.param("axis_linear", linear_, linear_);
@@ -57,15 +58,29 @@ JetsonJoyStick::JetsonJoyStick():
     joy_sub_ = node_handle_.subscribe<sensor_msgs::Joy>("joy", 10, &JetsonJoyStick::joyCallback, this);
 }
 
-void JetsonJoyStick::joyCallback(const sensor_msgs::Joy::ConstPtr &joy) {
+void JetsonJoyStick::joyCallback(const sensor_msgs::Joy::ConstPtr &joy) 
+{
     geometry_msgs::Twist twist; // create a Twist message to publish
-    twist.angular.z = a_scale_*joy->axes[angular_];
-    twist.linear.x = l_scale_*joy->axes[linear_];
+
+    //If emergency brake is pressed
+    if (emergency_brake == joy->buttons[4] || emergency_brake == joy->buttons[5])
+    {
+        twist.linear.x  = l_scale_*-1.0; //oposite value of current value to stop the car..
+    }
+    else
+    {
+        twist.angular.z = a_scale_*joy->axes[angular_];
+        twist.linear.x = l_scale_*joy->axes[linear_];
+    }
+
     vel_pub_.publish(twist);
+    previous[0] =  twist.angular.z;
+    previous[1] = twist.linear.x;
 }
 
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
     ros::init(argc, argv, "jetson_teleop");
     JetsonJoyStick jetson_teleop;
     std::cout << "Jetson Joystick Node activated" << std::endl;

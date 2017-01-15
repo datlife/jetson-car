@@ -53,9 +53,9 @@ IS_WINDOWS = (system == 'Windows')
 ENV_VAR_SUBFOLDERS = {
     'CMAKE_PREFIX_PATH': '',
     'CPATH': 'include',
-    'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os.path.join('lib', 'x86_64-linux-gnu')],
+    'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os.path.join('lib', 'arm-linux-gnueabihf')],
     'PATH': 'bin',
-    'PKG_CONFIG_PATH': [os.path.join('lib', 'pkgconfig'), os.path.join('lib', 'x86_64-linux-gnu', 'pkgconfig')],
+    'PKG_CONFIG_PATH': [os.path.join('lib', 'pkgconfig'), os.path.join('lib', 'arm-linux-gnueabihf', 'pkgconfig')],
     'PYTHONPATH': 'lib/python2.7/dist-packages',
 }
 
@@ -263,7 +263,7 @@ if __name__ == '__main__':
             sys.exit(1)
 
         # environment at generation time
-        CMAKE_PREFIX_PATH = '/home/datinfo/jetson_ws/devel;/opt/ros/indigo'.split(';')
+        CMAKE_PREFIX_PATH = '/home/ubuntu/jetson_ws/devel;/opt/ros/indigo'.split(';')
         # prepend current workspace if not already part of CPP
         base_path = os.path.dirname(__file__)
         if base_path not in CMAKE_PREFIX_PATH:

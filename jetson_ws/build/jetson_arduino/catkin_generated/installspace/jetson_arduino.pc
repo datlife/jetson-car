@@ -1,8 +1,0 @@
-prefix=/home/datinfo/Documents/jetson-car/jetson_ws/install
-
-Name: jetson_arduino
-Description: Description of jetson_arduino
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/datinfo/Documents/jetson-car/jetson_ws/install/lib 
-Requires: 

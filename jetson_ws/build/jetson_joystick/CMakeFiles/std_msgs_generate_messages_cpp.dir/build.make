@@ -34,14 +34,11 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/jetson_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/datinfo/Documents/jetson-car/jetson_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/jetson_ws/build
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -59,10 +56,10 @@ jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/build: std_msgs_ge
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	cd /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/ubuntu/jetson_ws/build/jetson_joystick && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /home/datinfo/Documents/jetson-car/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/datinfo/Documents/jetson-car/jetson_ws/src /home/datinfo/Documents/jetson-car/jetson_ws/src/jetson_joystick /home/datinfo/Documents/jetson-car/jetson_ws/build /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick /home/datinfo/Documents/jetson-car/jetson_ws/build/jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/jetson_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/jetson_ws/src /home/ubuntu/jetson_ws/src/jetson_joystick /home/ubuntu/jetson_ws/build /home/ubuntu/jetson_ws/build/jetson_joystick /home/ubuntu/jetson_ws/build/jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jetson_joystick/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 
