@@ -59,15 +59,14 @@ void setup(){
     STEER_SERVO.write(MIDDLE);
     pinMode(13, OUTPUT);
 
-    //Set up Serial library at 9600 bps (how many bytes can send in a second)
-    Serial.begin(57600);
+    //Set up Serial library / baundrate (how many bytes can send in a second)
+    Serial.begin(115200);
     Serial.println("Arduino starting");
     delay(30);
     nh_.initNode();
     //nh_.advertise(chatter);
     nh_.subscribe(driveSubscriber);
     delay(1000);
-
 }
 
 void loop(){
@@ -87,6 +86,8 @@ void control_steering(const geometry_msgs::Twist& signal){
     if (steer_angle > MAX_LEFT)  steer_angle = MAX_LEFT;
     
     STEER_SERVO.write(steer_angle);
+    //str_msg.data = steer_angle;
+    //chatter.publish(&str_msg);
 }
 
 void control_esc(const geometry_msgs::Twist& signal) {
