@@ -1,0 +1,25 @@
+<package>
+
+  <name>car_info_msg</name>
+  <version>1.0.0</version>
+
+  <description>
+	ROS message definitions for throttle and steering angle of a car.
+  </description>
+
+  <maintainer email="tdat.nguyen93@gmail.com">Dat Nguyen</maintainer>
+  <author email="tdat.nguyen93@gmail.com">Dat Nguyen</author>
+  <license>Open-Source</license>
+
+  <url type="repository">https://github.com/dat-ai/jetson-car</url>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>std_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  
+  <run_depend>std_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+
+</package>
