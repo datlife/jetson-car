@@ -1,6 +1,6 @@
 # Jetson Autonomous RC Car
 
-Autonomous RC Car using Deep Learning. Inspired by JetsonHacks
+Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 
 ![alt tag](https://github.com/dat-ai/jetson-car/raw/master/docs/img/jetson-car.jpg)
 
@@ -11,24 +11,23 @@ Autonomous RC Car using Deep Learning. Inspired by JetsonHacks
 
 ### Dependencies:
 #### Hardwares:
+1. RC Car - RedCat Volcano EPX (stock - no mod) + Extra battery
+2. NVIDIA Jetson TK1
+3. Teensy 3.2
+3. Intel RealSense R200
+4. Intel Network 7260
+5. Ultrasonic Sensor
 
-	* RC Car - RedCat Volcano EPX (stock - no mod)
-	* NVIDIA Jetson TK1
-	* Arduino UNO  (probably upgrade to Teensy 3.2 later)
-	* Intel RealSense R200
-	* Ultrasonic Sensor
-	* Real-Time-Clock (RTC) DS3231
 
 #### Softwares:
 
-	* Stock OS for Jetson TK1 (JetPack 21.5)
-	* Grinch Kernel 21.4
-	* ROS Indingo for ARM
-	* OpenCV
-	* TensorFlow
+1. Stock OS for Jetson TK1 (JetPack 21.5)
+2. Grinch Kernel 21.4
+3. ROS Indingo for ARM
+4. Keras using TensorFlow as backend
 
 ### Installation Guide:
-Will be updated while working on the project
+Will be updated
 
  * Hardware Setup
  
