@@ -30,11 +30,19 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 
 ### Installation Guide:
 ----------------------
-Will be updated
-
- * Hardware Setup
  
- * Software Setup
+#### Software Setup
+
+JetsonHacks provides many helpful scripts to automate the process. I will avoid to reproduce his wonderful works.
+
+ 1. Install [JetPack 21.5](https://developer.nvidia.com/embedded/jetpack) (Ubuntu + CUDA 6.5 + cuDNN v2 + OpenCV4Tegra)
+ 2. Install [postFlash](https://github.com/jetsonhacks/postFlash) (Enabled USB 3.0, some helpful tools for development) 
+ 3. Install [grinch Kernel](http://www.jetsonhacks.com/2015/05/26/install-grinch-kernel-for-l4t-21-3-on-nvidia-jetson-tk1) (allow to have more driver options)
+ 4. Install [ROS Indigo for ARM](http://www.jetsonhacks.com/2015/05/27/robot-operating-system-ros-on-nvidia-jetson-tk1/) (yes! another helpful script)
+ 
+ 
+#### Hardware Setup
+
 
 
 ### Author(s):
