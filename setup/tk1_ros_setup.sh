@@ -40,5 +40,5 @@ sudo apt-get install gcc-avr
 sudo apt-get install arduino -y
 sudo apt-get install ros-indigo-rosserial-arduino ros-indigo-rosserial ros-indigo-angles -y
 sudo apt-get install ros-indigo-joy -y
-
+sudo apt-get install ros-indigo-usb-cam -y
 
