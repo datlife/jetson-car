@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ubuntu/jetson-car/jetson_ws/devel/setup.sh

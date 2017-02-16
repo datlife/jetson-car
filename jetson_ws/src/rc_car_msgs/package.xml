@@ -5,11 +5,7 @@
   <description>ROS Messsage definitions for RC Cars. Provide SPEED, STEER ANGLE, THROOTLE</description>
 
   <maintainer email="tdat.nguyen93@gmail.com">Dat Nguyen</maintainer>
-
-
   <license>MIT</license>
-
-
   <url type="repository">https://github.com/dat-ai/jetson-car</url>
   <author email="tdat.nguyen93@gmail.com">Dat Nguyen</author>
 
@@ -18,7 +14,7 @@
   <build_depend>message_generation</build_depend>
   <build_depend>std_msgs</build_depend>
 
-   <run_depend>std_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
   <run_depend>message_runtime</run_depend>
   <!-- The export tag contains other, unspecified, tags -->
   <export>

@@ -16,6 +16,10 @@
     <param name="dev" type="string" value="/dev/input/js0" />
     <param name="deadzone" value="0.12" />
   </node>
+ 
+ <!-- Recorder -->
+  <node pkg="record_data" name="recorder" type="start.py" output="screen"> 
+  </node>
 
  <!-- Axes -->
   <param name="axis_linear" value="3" type="int"/>

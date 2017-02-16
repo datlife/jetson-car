@@ -1,4 +1,4 @@
 .idea/
-./jetson_ws/build/
-./jetson_ws/devel/
+./jetson_ws/build/*
+./jetson_ws/devel/*
 
