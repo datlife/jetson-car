@@ -14,6 +14,7 @@ add_message_files(
 generate_messages(
    DEPENDENCIES
    std_msgs
+   rc_car_msgs
  )
 
 catkin_package(

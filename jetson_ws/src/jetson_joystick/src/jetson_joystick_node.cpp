@@ -4,6 +4,7 @@
 #include <ros/ros.h>
 #include <sensor_msgs/Joy.h>      // Joy msg for Jetson JoyStick to subscribe signals from joystick.
 #include <rc_car_msgs/CarInfo.h> // Tesing simpler message
+
 #define START_BUTTON  6
 #define STEERING_JOY  0
 #define THROTTLE_JOY  3
@@ -40,8 +41,7 @@ class JoyStick{
 	bool		is_recording;
 
         void 		joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
-	void 		_recorder(const sensor_msgs::Joy::ConstPtr& joy);
-	void		_driver(const sensor_msgs::Joy::ConstPtr& joy);
+	void 		_driver(const sensor_msgs::Joy::ConstPtr& joy);
     public:
         // Default Constructor
         JoyStick();
@@ -97,15 +97,10 @@ void JoyStick::_driver(const sensor_msgs::Joy::ConstPtr& joy){
     previous[1] =  car.throttle;
 }
 
-void   JoyStick::_recorder(const sensor_msgs::Joy::ConstPtr& joy){	
-    }
-	// Not implemented yet.
-}
 
 void JoyStick::joyCallback(const sensor_msgs::Joy::ConstPtr &joy) 
 {
 	_driver(joy);
-	_recorder(joy);
 }
 
 int main(int argc, char** argv) 
