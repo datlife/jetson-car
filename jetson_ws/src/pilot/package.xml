@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>pilot</name>
+  <version>0.0.0</version>
+  <description>Activate Autopilot on JetSon</description>
+
+  <maintainer email="tdat.nguyen93@gmail.com">Dat Nguyen</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>joy</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  
+  <run_depend>joy</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+</package>
