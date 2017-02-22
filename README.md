@@ -13,7 +13,7 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 ### Dependencies:
 -----------------
 #### Hardwares:
-1. RC Car - RedCat Volcano EPX (stock - no mod) + Extra battery
+1. RC Car - [RedCat Volcano EPX](https://www.amazon.com/Redcat-Racing-Electric-Volcano-Included/dp/B00HVBVNVG/ref=sr_1_2?ie=UTF8&qid=1487805887&sr=8-2&keywords=RedCat+Volcano+EPX) (stock - no mod) + [Extra battery](https://www.amazon.com/Redcat-Racing-HX-3800MH-B-Battery-7-2V-Connector/dp/B00D2539IU/ref=sr_1_1?ie=UTF8&qid=1487805956&sr=8-1&keywords=Redcat-Racing+HX-3800MH)
 2. NVIDIA Jetson TK1
 3. Teensy 3.2
 3. Intel RealSense R200
