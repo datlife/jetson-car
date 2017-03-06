@@ -1,7 +1,5 @@
 '''
-This script activate pilot mode to take control over Jetson Car.
-
-However, one can use joystick to stop by pressing X button
+AutoPilot Model
 '''
 
 # Keras Model
