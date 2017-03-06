@@ -41,6 +41,7 @@ JetsonHacks provides many helpful scripts to automate the process. I will avoid 
  3. Install [grinch Kernel](http://www.jetsonhacks.com/2015/05/26/install-grinch-kernel-for-l4t-21-3-on-nvidia-jetson-tk1) (allow to have more driver options)
  4. Install [ROS Indigo & Teensy Driver for Jetson TK1](https://raw.githubusercontent.com/dat-ai/jetson-car/master/setup/tk1_ros_setup.sh) - Run this script on TK1
  5. Clone this repo and set up ROS workspace
+ 
 ```shell
 # Clone the repo
 cd ~
@@ -53,7 +54,7 @@ cd ..
 catkin_make
 ```
 
-6. Set up ROS environment
+ 6. Set up ROS environment
 ```shell
 # Add this line to the end of ./.bashrc file
 source jetson-car/devel/setup.bash
@@ -68,20 +69,23 @@ source jetson-car/devel/setup.bash
 ### Test AutoPilot
 ------------------
 
-1. Open a new terminal
+* Open a new terminal
 ```shell
 roscore
 ```
-2. Open another new terminal
+
+* Open another new terminal
 ```shell
 roslaunch jetson_joystick jetson_joystick.launch
 ```
-3. Activate Autopilot
+
+* Activate Autopilot
 ```shell
 cd jetson-car
 # Load pre-train model and drive autonomously
 python drive.py model/cnn.json
 ```
+
 ### Author(s):
 --------------
 * [**Dat Nguyen**](https://github.com/dat-ai)
