@@ -1,5 +1,6 @@
 /*
   Arduino ROS node for Jetson Car
+  This code is run on Teensy 3.2, not Arduino
   MIT License
 */
 

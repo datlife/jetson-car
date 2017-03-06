@@ -13,12 +13,12 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 ### Dependencies:
 -----------------
 #### Hardwares:
-1. RC Car - RedCat Volcano EPX (stock - no mod) + Extra battery
+1. RC Car - [RedCat Volcano EPX](https://www.amazon.com/Redcat-Racing-Electric-Volcano-Included/dp/B00HVBVNVG/ref=sr_1_2?ie=UTF8&qid=1487805887&sr=8-2&keywords=RedCat+Volcano+EPX) (stock - no mod) + [Extra battery](https://www.amazon.com/Redcat-Racing-HX-3800MH-B-Battery-7-2V-Connector/dp/B00D2539IU/ref=sr_1_1?ie=UTF8&qid=1487805956&sr=8-1&keywords=Redcat-Racing+HX-3800MH)
 2. NVIDIA Jetson TK1
 3. Teensy 3.2
 3. Intel RealSense R200
-4. Intel Network 7260
-5. Ultrasonic Sensor
+4. Intel Network 7260 Wireless Card m-pcie
+5. Ultrasonic Sensor(s)
 
 #### Softwares:
 
@@ -28,7 +28,7 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 4. Keras using TensorFlow as backend
 
 
-### Installation Guide:
+### Installation Guide: (To be Updated)
 ----------------------
  
 #### Software Setup
@@ -39,7 +39,6 @@ JetsonHacks provides many helpful scripts to automate the process. I will avoid 
  2. Install [postFlash](https://github.com/jetsonhacks/postFlash) (Enabled USB 3.0, some helpful tools for development) 
  3. Install [grinch Kernel](http://www.jetsonhacks.com/2015/05/26/install-grinch-kernel-for-l4t-21-3-on-nvidia-jetson-tk1) (allow to have more driver options)
  4. Install [ROS Indigo & Teensy Driver for Jetson TK1](https://raw.githubusercontent.com/dat-ai/jetson-car/master/setup/tk1_ros_setup.sh) - Run this script on TK1
- 5. 
  
 #### Hardware Setup
 
