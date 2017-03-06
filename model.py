@@ -1,18 +1,15 @@
-# This script describes how to build the model architecture for this project.
-# This script is re-used some codes from object DatNet in DatNet.py
+'''
+This script describes how to build the model architecture for this project.
+
+Note: this file re-used some codes from object DatNet in DatNet.
+'''
+
+
 # Import necessary Keras methods to use in this file
 from keras.models import Model
 from keras.layers import Convolution2D, Dense, Dropout, BatchNormalization, AveragePooling2D
 from keras.layers import Input, Flatten, merge, Lambda, Activation
-from keras.optimizers import Adam
-from keras.objectives import mean_squared_error
 from keras.regularizers import l2
-
-
-# Data processors
-import numpy as np
-import cv2
-
 from FLAGS import *
 
 
@@ -119,9 +116,10 @@ def _bottleneck_layer(input_tensor, nb_filters, filter_sz, stage,
 
     return x
 
-def main(pre_trained_weight_path=None, input_shape=None):
 
+def main(pre_trained_weight_path=None, input_shape=None):
     # Build new model
+    # Determine the shape of input
     if input_shape is not None:
         shape = input_shape
     else:
