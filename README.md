@@ -26,6 +26,7 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 2. Grinch Kernel 21.4
 3. ROS Indingo for ARM
 4. Keras using TensorFlow as backend
+5. TensorFlow 0.8 (this is the latest version Jetson TK1 could support now)
 
 
 ### Installation Guide: (To be Updated)
@@ -39,11 +40,45 @@ JetsonHacks provides many helpful scripts to automate the process. I will avoid 
  2. Install [postFlash](https://github.com/jetsonhacks/postFlash) (Enabled USB 3.0, some helpful tools for development) 
  3. Install [grinch Kernel](http://www.jetsonhacks.com/2015/05/26/install-grinch-kernel-for-l4t-21-3-on-nvidia-jetson-tk1) (allow to have more driver options)
  4. Install [ROS Indigo & Teensy Driver for Jetson TK1](https://raw.githubusercontent.com/dat-ai/jetson-car/master/setup/tk1_ros_setup.sh) - Run this script on TK1
- 
+ 5. Clone this repo and set up ROS workspace
+ ```shell
+# Clone the repo
+cd ~
+git clone https://github.com/dat-ai/jetson-car
+
+# Set up standard ROS workspace
+cd jetson-car/src/
+catkin_init_make
+cd ..
+catkin_make
+```
+6. Set up ROS environment
+```shell
+# Add this line to the end of ./.bashrc file
+source jetson-car/devel/setup.bash
+```
 #### Hardware Setup
 
+* To be update *
 
 
+### Test AutoPilot
+------------------
+
+1. Open a new terminal
+```shell
+roscore
+```
+2. Open another new terminal
+```shell
+roslaunch jetson_joystick jetson_joystick.launch
+```
+3. Activate Autopilot
+```shell
+cd jetson-car
+# Load pre-train model and drive autonomously
+python drive.py model/cnn.json
+```
 ### Author(s):
 --------------
 * [**Dat Nguyen**](https://github.com/dat-ai)
