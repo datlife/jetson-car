@@ -1,4 +1,3 @@
 <launch>
-     <node pkg="rosbag" type="record" name="rosbag_record_cam"  args="record -o /home/ubuntu/bag/img /usb_cam/image_raw" />
-     <node pkg="rosbag" type="record" name="rosbag_record_joy"  args="record -o /home/ubuntu/bag/joy /car_info" />
+     <node pkg="rosbag" type="record" name="rosbag_record_cam"  args="record -o /home/ubuntu/bag/img /usb_cam/image_raw /car_info" />
 </launch>

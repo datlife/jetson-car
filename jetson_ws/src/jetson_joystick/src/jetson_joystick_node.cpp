@@ -29,7 +29,6 @@ class JoyStick{
         ros::NodeHandle node_handle_;
 	ros::Publisher  car_pub_;
         ros::Subscriber joy_sub_;
-
         int             linear_;
         int             angular_;
         double          l_scale_;
@@ -91,7 +90,7 @@ void JoyStick::_driver(const sensor_msgs::Joy::ConstPtr& joy){
     	car.throttle = l_scale_*joy->axes[linear_];
     }
      
-    car.header.stamp = ros::Time::now();
+    car.header.stamp = ros::Time::now();  // used to be dDisabled on Mar 03, 2017 because I will combined car msg with usb_cam msg, which already contain header
     car_pub_.publish(car);
     previous[0] =  car.steer;
     previous[1] =  car.throttle;

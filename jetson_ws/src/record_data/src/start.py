@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 '''
 This script is used to start/stop record rosbag using Joy ROS message
 '''
@@ -31,6 +30,7 @@ def terminate_process_and_children(p):
     for pid_str in ps_output.split("\n")[:-1]:
             os.kill(int(pid_str), signal.SIGINT)
     p.terminate()
+
 def start():
    rospy.init_node("recorder", anonymous=True)
    joy_listener = rospy.Subscriber("joy", Joy, callback)
