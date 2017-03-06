@@ -1,8 +1,0 @@
-prefix=/home/datinfo/jetson-car/jetson_ws/devel
-
-Name: pilot
-Description: Description of pilot
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/datinfo/jetson-car/jetson_ws/devel/lib 
-Requires: 

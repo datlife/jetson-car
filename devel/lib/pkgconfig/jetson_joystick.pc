@@ -1,8 +1,0 @@
-prefix=/home/datinfo/jetson-car/jetson_ws/devel
-
-Name: jetson_joystick
-Description: Description of jetson_joystick
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/datinfo/jetson-car/jetson_ws/devel/lib 
-Requires: rc_car_msgs joy roscpp

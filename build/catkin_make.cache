@@ -1,2 +1,0 @@
-jetson_joystick:pilot:rc_car_msgs:record_data:usb_cam
--DCATKIN_DEVEL_PREFIX=/home/datinfo/jetson-car/jetson_ws/devel -DCMAKE_INSTALL_PREFIX=/home/datinfo/jetson-car/jetson_ws/install -G Unix Makefiles
