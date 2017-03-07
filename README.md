@@ -62,8 +62,18 @@ source jetson-car/devel/setup.bash
 
 #### Hardware Setup
 
-* To be update *
+##### 1. Install Teensy Driver
+##### 2. Install IMU Razor 9DoF
+Instead of installing on random workspace, we are going to install IMU razor 9Dof as a node in our `jetson_car`
+```shell
+# go to source directory
+cd ~/jetson-car/src/
 
+# Now, we are going to install IMU Razor by following the article below
+git clone https://github.com/KristofRobot/razor_imu_9dof
+
+```
+Well written article described how to install IMU Razor on ROS Machine [here](https://github.com/KristofRobot/razor_imu_9dof)
 
 
 ### Test AutoPilot
