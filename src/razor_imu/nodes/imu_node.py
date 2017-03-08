@@ -42,7 +42,11 @@ from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 
 PAUSE_LOGGING       =  b' '    #  Space - Pause SD/UART logging
 DISABLE_TIME        =  b't'    #  Enable/disable time log (milliseconds)
-ENABLE_CALIB_MODE   =  b'x'   #  Enable Calibration mode
+DISABLE_COMPASS     =  b'm'    #  Enable/Disable Compass
+ENABLE_QUAT         =  b'q'
+ENABLE_EULER        =  b'e'
+
+# ENABLE_CALIB_MODE   =  b'x'   #  Enable Calibration mode **NOT WORKING YET**
 
 degrees2rad         =  math.pi/180.0
 imu_yaw_calibration = 0.
@@ -121,6 +125,19 @@ magn_ellipsoid_center = rospy.get_param('~magn_ellipsoid_center', [0, 0, 0])
 magn_ellipsoid_transform = rospy.get_param('~magn_ellipsoid_transform', [[0, 0, 0], [0, 0, 0], [0, 0, 0]])
 imu_yaw_calibration = rospy.get_param('~imu_yaw_calibration', 0.0)
 
+'''
+NOT WORKING YET!
+# Start Calibration
+rospy.loginfo("Writing calibration values to razor IMU board... Please wait 8 seconds")
+ser.write(ENABLE_CALIB_MODE)
+ser.write(PAUSE_LOGGING)  # Enable Logging
+ser.flushInput()
+calib_data = ser.readlines()
+calib_data_print = "Printing set calibration values:\r\n"
+for line in calib_data:
+    calib_data_print += line
+rospy.loginfo(calib_data_print)
+'''
 
 roll=0
 pitch=0
@@ -131,28 +148,17 @@ rospy.sleep(3) # Sleep for 5 seconds to wait for the board to boot
 
 ### configure board ###
 
-# Disable LOG
-ser.write(PAUSE_LOGGING)
-# Disable time stamp
-ser.write(DISABLE_TIME)
 
-# Start Calibration
-rospy.loginfo("Writing calibration values to razor IMU board... Please wait 8 seconds")
-ser.write(ENABLE_CALIB_MODE)
 # Orientation covariance estimation:
 imuMsg.orientation_covariance = ORIENT_COVARIANCE
 imuMsg.angular_velocity_covariance = ANGL_VEL_COVARIANCE
 imuMsg.linear_acceleration_covariance = LIN_ACCEL_COVARIANCE
 
-ser.write(PAUSE_LOGGING)  # Enable Logging
-ser.flushInput()
-calib_data = ser.readlines()
-calib_data_print = "Printing set calibration values:\r\n"
-for line in calib_data:
-    calib_data_print += line
-rospy.loginfo(calib_data_print)
-
-
+ser.write(PAUSE_LOGGING)
+ser.write(DISABLE_TIME)
+ser.write(DISABLE_COMPASS)
+ser.write(ENABLE_EULER)
+ser.write(ENABLE_QUAT)
 while not rospy.is_shutdown():
     line = ser.readline()
     # IMU data: <timeMS>, <accelX>, <accelY>, <accelZ>, <gyroX>, <gyroY>, <gyroZ>, <magX>, <magY>, <magZ>
@@ -201,12 +207,9 @@ while not rospy.is_shutdown():
         diag_msg.name = 'Razor_Imu'
         diag_msg.level = DiagnosticStatus.OK
         diag_msg.message = 'Received AHRS measurement'
-        diag_msg.values.append(KeyValue('roll (deg)',
-                                str(roll*(180.0/math.pi))))
-        diag_msg.values.append(KeyValue('pitch (deg)',
-                                str(pitch*(180.0/math.pi))))
-        diag_msg.values.append(KeyValue('yaw (deg)',
-                                str(yaw*(180.0/math.pi))))
+        diag_msg.values.append(KeyValue('roll (deg)', str(roll*(180.0/math.pi))))
+        diag_msg.values.append(KeyValue('pitch (deg)', str(pitch*(180.0/math.pi))))
+        diag_msg.values.append(KeyValue('yaw (deg)', str(yaw*(180.0/math.pi))))
         diag_msg.values.append(KeyValue('sequence number', str(seq)))
         diag_arr.status.append(diag_msg)
         diag_pub.publish(diag_arr)
