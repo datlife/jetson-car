@@ -42,21 +42,25 @@
 // Serial Commands //
 /////////////////////
 #define PAUSE_LOGGING     ' ' // Space - Pause SD/UART logging
-#define ENABLE_TIME       't' // Enable/disable time log (milliseconds)
+#define ENABLE_TIME       'T' // Enable/disable time log (milliseconds)
 #define ENABLE_ACCEL      'a' // Enable/disable accelerometer log (ax, ay, az)
 #define ENABLE_GYRO       'g' // Enable/disable gyroscope log (gx, gy, gz)
-#define ENABLE_COMPASS    'm' // Enable/disable magnetometer log (mx, my, mz)
-#define ENABLE_CALC       'c' // Enable/disable calculated values
-#define ENABLE_QUAT       'q' // Enable/disable quaternion logging (qw, qx, qy, qz)
-#define ENABLE_EULER      'e' // Enable/disable estimated euler angles (roll, pitch, yaw)
-#define ENABLE_HEADING    'h' // Enable/disable estimated heading logging
+#define ENABLE_COMPASS    'M' // Enable/disable magnetometer log (mx, my, mz)
+#define ENABLE_QUAT       'Q' // Enable/disable quaternion logging (qw, qx, qy, qz)
+#define ENABLE_EULER      'E' // Enable/disable estimated euler angles (roll, pitch, yaw)
 
+#define ENABLE_HEADING    'h' // Enable/disable estimated heading logging
+#define ENABLE_CALC       'c' // Enable/disable calculated values
 #define SET_LOG_RATE      'r' // Adjust logging rate from 1-200 Hz (in 10 Hz increments)
 #define SET_ACCEL_FSR     'A' // Set accelerometer FSR (2, 4, 8, 16g)
 #define SET_GYRO_FSR      'G' // Set gyroscope FSR (250, 500, 1000, 2000 dps)
 #define ENABLE_SD_LOGGING 's' // Enable/disable SD-card logging
 #define ENABLE_CALIB_MODE 'x' //Enable Calibration mode
 
+#define DISABLE_TIME      't'
+#define DISABLE_COMPASS   'm'
+#define DISABLE_QUAT      'q'
+#define DISABLE_EULER     'e'
 
 ////////////////
 // LED Config //

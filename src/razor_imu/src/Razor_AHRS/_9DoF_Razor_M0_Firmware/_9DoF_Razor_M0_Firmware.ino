@@ -307,8 +307,11 @@ void parseSerialInput(char c)
     enableSerialLogging = !enableSerialLogging;
     break;
 
-  case ENABLE_TIME: // Enable time (milliseconds) logging
-    enableTimeLog = !enableTimeLog;
+  case DISABLE_TIME: // Enable time (milliseconds) logging
+    enableTimeLog = false;
+    break;
+  case ENABLE_TIME:
+    enableTimeLog = true;
     break;
 
   case ENABLE_ACCEL: // Enable/disable accelerometer logging
@@ -320,19 +323,30 @@ void parseSerialInput(char c)
     break;
 
   case ENABLE_COMPASS: // Enable/disable magnetometer logging
-    enableCompass = !enableCompass;
+    enableCompass = true;
     break;
 
+  case DISABLE_COMPASS: // Enable/disable magnetometer logging
+    enableCompass = false;
+    break;
   case ENABLE_CALC: // Enable/disable calculated value logging
     enableCalculatedValues = !enableCalculatedValues;
     break;
 
   case ENABLE_QUAT: // Enable/disable quaternion logging
-    enableQuat = !enableQuat;
+    enableQuat = true;
+    break;
+
+  case DISABLE_QUAT: // Enable/disable quaternion logging
+    enableQuat = false;
     break;
 
   case ENABLE_EULER: // Enable/disable Euler angle (roll, pitch, yaw)
-    enableEuler = !enableEuler;
+    enableEuler = true;
+    break;
+
+  case DISABLE_EULER:
+    enableEuler = false;
     break;
 
   case ENABLE_HEADING: // Enable/disable heading output

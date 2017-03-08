@@ -43,8 +43,8 @@ from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 PAUSE_LOGGING       =  b' '    #  Space - Pause SD/UART logging
 DISABLE_TIME        =  b't'    #  Enable/disable time log (milliseconds)
 DISABLE_COMPASS     =  b'm'    #  Enable/Disable Compass
-ENABLE_QUAT         =  b'q'
-ENABLE_EULER        =  b'e'
+ENABLE_QUAT         =  b'Q'
+ENABLE_EULER        =  b'E'
 
 # ENABLE_CALIB_MODE   =  b'x'   #  Enable Calibration mode **NOT WORKING YET**
 
