@@ -41,8 +41,8 @@ from razor_imu_9dof.cfg import imuConfig
 from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 
 PAUSE_LOGGING       =  b' '    #  Space - Pause SD/UART logging
-DISABLE_TIME        =  b't'    #  Enable/disable time log (milliseconds)
-DISABLE_COMPASS     =  b'm'    #  Enable/Disable Compass
+DISABLE_TIME        =  b't'    #  Disable time log (milliseconds)
+DISABLE_COMPASS     =  b'm'    #  Disable Compass
 ENABLE_QUAT         =  b'Q'
 ENABLE_EULER        =  b'E'
 
@@ -154,11 +154,15 @@ imuMsg.orientation_covariance = ORIENT_COVARIANCE
 imuMsg.angular_velocity_covariance = ANGL_VEL_COVARIANCE
 imuMsg.linear_acceleration_covariance = LIN_ACCEL_COVARIANCE
 
-ser.write(PAUSE_LOGGING)
+# ser.write(PAUSE_LOGGING)
 ser.write(DISABLE_TIME)
 ser.write(DISABLE_COMPASS)
 ser.write(ENABLE_EULER)
 ser.write(ENABLE_QUAT)
+
+# Read a sample and print
+print("Sample IMU Data:", ser.readline())
+
 while not rospy.is_shutdown():
     line = ser.readline()
     # IMU data: <timeMS>, <accelX>, <accelY>, <accelZ>, <gyroX>, <gyroY>, <gyroZ>, <magX>, <magY>, <magZ>
@@ -168,24 +172,24 @@ while not rospy.is_shutdown():
     if len(words) > 2:
 
         # This means y and z are correct for ROS, but x needs reversing
-        imuMsg.linear_acceleration.x = -float(words[0]) * accel_factor
+        imuMsg.linear_acceleration.x = float(words[0]) * accel_factor
         imuMsg.linear_acceleration.y = float(words[1]) * accel_factor
         imuMsg.linear_acceleration.z = float(words[2]) * accel_factor
 
         imuMsg.angular_velocity.x = float(words[3])
-        imuMsg.angular_velocity.y = -float(words[4])        # in ROS y axis points left (see REP 103)
-        imuMsg.angular_velocity.z = -float(words[5])        #in ROS z axis points up (see REP 103)
+        imuMsg.angular_velocity.y = float(words[4])        # in ROS y axis points left (see REP 103)
+        imuMsg.angular_velocity.z = float(words[5])        #in ROS z axis points up (see REP 103)
 
 
-        yaw_deg = -float(words[6])                          # in ROS z axis points up (see REP 103)
+        yaw_deg = -float(words[10])                          # in ROS z axis points up (see REP 103)
         yaw_deg = yaw_deg + imu_yaw_calibration
         if yaw_deg > 180.0:
             yaw_deg = yaw_deg - 360.0
         if yaw_deg < -180.0:
             yaw_deg = yaw_deg + 360.0
         yaw = yaw_deg*degrees2rad
-        pitch = -float(words[7])*degrees2rad                 # in ROS y axis points left (see REP 103)
-        roll = float(words[8])*degrees2rad
+        pitch = -float(words[11])*degrees2rad                 # in ROS y axis points left (see REP 103)
+        roll = float(words[12])*degrees2rad
 
     q = quaternion_from_euler(roll,pitch,yaw)
     imuMsg.orientation.x = q[0]
