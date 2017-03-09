@@ -1,0 +1,3 @@
+<launch>
+        <node pkg="pilot" type="activate.py" name="autopilot" output="screen"/>
+</launch>

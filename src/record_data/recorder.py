@@ -8,7 +8,7 @@ import cv2
 import threading
 import numpy as np
 
-from sensor_msgs.msg import Joy
+from rc_car_msgs.msg import CarInfo
 from sensor_msgs.msg import Image
 from rc_car_msgs.msg import CarRecorder
 
@@ -21,10 +21,10 @@ def camera_callback(camera):
         image = camera
         lock.release()
 
-def joy_callback( joy):
+def car_info_callback(carinfo):
     global steering,throttle
-    steering = joy.axes[0]
-    throttle = joy.axes[3]	
+    steering = carinfo.steer
+    throttle = carinfo.throttle	
 
 # Shared variables
 steering = 0.0
@@ -34,7 +34,7 @@ image = None
 # Set up ROS
 rospy.init_node("recorder_device", anonymous=True)
 record_pub   = rospy.Publisher("/recorder", CarRecorder, queue_size=1)
-joy_listener = rospy.Subscriber("/joy", Joy, joy_callback)
+joy_listener = rospy.Subscriber("/car_info", CarInfo, car_info_callback)
 cam_listener = rospy.Subscriber("/usb_cam/image_raw", Image, camera_callback)
 
 # Lock to acquire camera iamge

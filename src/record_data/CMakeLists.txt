@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 2.8.3)
 project(record_data)
 
 find_package(catkin REQUIRED COMPONENTS
-  joy
   rospy
   usb_cam
   rc_car_msgs
@@ -13,7 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES record_data
-   CATKIN_DEPENDS joy rospy rc_car_msgs std_msgs
+   CATKIN_DEPENDS rospy rc_car_msgs std_msgs usb_cam
 #  DEPENDS system_lib
 )
 

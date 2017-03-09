@@ -39,7 +39,7 @@ def terminate_process_and_children(p):
     p.terminate()
 
 def start():
-   rospy.init_node("recorder", anonymous=True)
+   rospy.init_node("recorder_controller", anonymous=True)
    joy_listener = rospy.Subscriber("joy", Joy, callback)
    rospy.spin()
 

@@ -1,7 +1,6 @@
+#!/usr/bin/env python
 '''
 Create Pilot Model
-
-reference: https://gist.github.com/spicavigo/3afde12b5b48b0de8e7294f1d58934c6
 '''
 # Keras Model
 import json
@@ -13,7 +12,7 @@ import time
 import cv2
 import time
 
-from pilot import Pilot
+from Pilot import Pilot
 
 
 def drive(model, image):
@@ -44,21 +43,23 @@ def drive(model, image):
 
 def load_model(args):
     # LOAD Pre-trained model
-    with open(args.model, 'r') as json_file:
+#    path = args.model
+    path = args
+    with open(path, 'r') as json_file:
         json_model = json_file.read()
         model = model_from_json(json_model)
     print('Pilot model is loaded...')
     model.compile("adam", "mse")
 
-    pre_trained_weights = args.model.replace('json', 'h5')
+    pre_trained_weights = path.replace('json', 'h5')
     model.load_weights(pre_trained_weights)
     return model
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Remote Driving')
-    parser.add_argument('model', type=str, help='Path to model json file. Model should be on the same path.')
-    args = parser.parse_args()
-
+#   parser = argparse.ArgumentParser(description='Remote Driving')
+#   parser.add_argument('model', type=str, help='Path to model json file. Model should be on the same path.')
+#   args = parser.parse_args()
+    args = '/home/ubuntu/jetson-car/src/pilot/src/cnn.json'
     print("Activating AutoPilot mode..\n")
     pilot = Pilot(lambda: load_model(args), drive)
     rospy.spin() 
