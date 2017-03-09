@@ -10,6 +10,9 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 * Understand Deep Learning concepts.
 * For Fun ( I probably end up taking the car to some autonomous racing competition. We'll see).
 
+### System Architecture
+-----------------------
+![tag](https://github.com/dat-ai/jetson-car/raw/master/docs/architecture.png)
 ### Dependencies:
 -----------------
 #### Hardwares:
