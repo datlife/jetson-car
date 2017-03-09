@@ -25,11 +25,11 @@ def drive(model, image):
     '''
     if image is None:
         return
-    start = time.clock()  # Measure how fast model makes one prediction (speed = stop - start)
     # Resize to fit the model
     image = cv2.resize(image, (160, 80), interpolation=cv2.INTER_AREA)
     # Crop the sky
     image = image[29:75, :]
+    start = time.clock()  # Measure how fast model makes one prediction (speed = stop - start)
     prediction = model.predict(image[None, :, :, :], batch_size=1)
     steering_angle = prediction[0][0]
     # throttle = prediction[0][1]

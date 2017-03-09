@@ -1,3 +1,4 @@
 <launch>
-     <node pkg="rosbag" type="record" name="rosbag_record_cam"  args="record -o /home/ubuntu/bag/img /usb_cam/image_raw /car_info" />
+     <node pkg="record_data" type="recorder.py" name="recorder_node" output="screen"/>
+     <node pkg="rosbag" type="record" name="record_bag"  args="record -o /home/ubuntu/bag/img /recorder" />
 </launch>

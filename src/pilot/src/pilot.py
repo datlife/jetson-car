@@ -52,12 +52,8 @@ class Pilot:
                          buffer=np.array(d))[:, :, ::-1]
         if self.lock.acquire(True):
             self.image = img
-            # print("Predicting... \n")
-            # To avoid create loop
-            # tf.reset_default_graph()
             if self.model is None:
                 self.model = self.get_model()
-            # Predict steering & throttle using image
             self.steering, self.throttle = self.predict(self.model, self.image)
             self.lock.release()
 
@@ -70,23 +66,4 @@ class Pilot:
         msg.steer = self.steering
         msg.throttle = self.throttle
         self.control_signal.publish(msg)
-
-    def load_model(args):
-        # LOAD Pre-trained model
-        K.clear_session()
-        with tf.Graph().as_default():
-            session = tf.Session('')
-            K.set_session(session)
-            with open(args.model, 'r') as json_file:
-                json_model = json_file.read()
-                model = model_from_json(json_model)
-            print('Pilot model is loaded...')
-            model.compile("adam", "mse")
-
-            pre_trained_weights = args.model.replace('json', 'h5')
-            model.load_weights(pre_trained_weights)
-            return model
-
-
-
 

@@ -4,23 +4,26 @@ project(rc_car_msgs)
 find_package(catkin REQUIRED COMPONENTS
   message_generation
   std_msgs
+  sensor_msgs
 )
 
 add_message_files(
     FILES
     CarInfo.msg
+    CarRecorder.msg
  )
 
 generate_messages(
    DEPENDENCIES
    std_msgs
+   sensor_msgs
    rc_car_msgs
  )
 
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES rc_car_msgs
-   CATKIN_DEPENDS message_runtime std_msgs
+   CATKIN_DEPENDS message_runtime std_msgs sensor_msgs
 #  DEPENDS system_lib
 )
 

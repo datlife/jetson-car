@@ -3,3 +3,4 @@
 ./jetson_ws/devel/*
 
 devel/
+build/

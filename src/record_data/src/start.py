@@ -12,15 +12,22 @@ from sensor_msgs.msg import Joy
 DEFAULT_LOCATION = "/home/ubuntu/bag/"
 
 def callback(joy):
-   global recording, start_rosbag
-   if joy.buttons[1] == 1:
-	recording = True
-	start_rosbag = subprocess.Popen('roslaunch record_data recorder.launch', stdin=subprocess.PIPE, shell=True)
-   	print("\n\nRosbag Recorder started...")
-   if joy.buttons[0] == 1:
-	recording = False
-	terminate_process_and_children(start_rosbag)
-	print("\n\nRosbag Recorder stopped...")
+    global recording, start_rosbag
+    if joy.buttons[1] == 1:
+        if recording is False:
+	    recording = True
+	    start_rosbag = subprocess.Popen('roslaunch record_data recorder.launch', stdin=subprocess.PIPE, shell=True)
+   	    print("\n\nRosbag Recorder started...")
+        else:
+	    print("\nRecorder has been activated already..\n")
+
+    if joy.buttons[0] == 1:
+	if recording is True:
+	    recording = False
+	    terminate_process_and_children(start_rosbag)
+	    print("\n\nRosbag Recorder stopped...")
+        else:
+	    print("\nRecorder is not activated yet...Press A to start record")
 
 def terminate_process_and_children(p):
     ps_command = subprocess.Popen("ps -o pid --ppid %d --noheaders" % p.pid, shell=True, stdout=subprocess.PIPE)
@@ -37,8 +44,6 @@ def start():
    rospy.spin()
 
 if __name__ == "__main__":
+   recording = False
    start()
-
-
-
 
