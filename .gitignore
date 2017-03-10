@@ -1,6 +1,3 @@
 .idea/
-./jetson_ws/build/*
-./jetson_ws/devel/*
-
 devel/
 build/
