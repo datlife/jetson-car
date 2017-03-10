@@ -7,14 +7,14 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 </p>
 Repository Contents
 -------------------
-* **/docs** - research papers, documents, photos related to this project
-* **/model** - a pre-trained Keras Model file (.json and .h5) to run the car autonomously
-* **/setup** - Firmwares for Teensy 3.2 & SparkFun IMU Sensor + Set up instructions for Jetson TK1
-* **/src** - ROS source directory (ROS Nodes and Launch files)
-* **/utils** - Some unittest files to make sure the car is functional
-* **/Autopilot.py** - Demo how the Autopilot model is built
-* **/FLAGS.py** - hyper-parameters and configurations for training
-* **/drive.py** - Demo on how to enable Jetson run autonomously. In practice, this script is activated through ROS launch.
+* **`/docs`** - research papers, documents, photos related to this project
+* **`/model`** - a pre-trained Keras Model file (.json and .h5) to run the car autonomously
+* **`/setup`** - Firmwares for Teensy 3.2 & SparkFun IMU Sensor + Set up instructions for Jetson TK1
+* **`/src`** - ROS source directory (ROS Nodes and Launch files)
+* **`/utils`** - Some unittest files to make sure the car is functional
+* **`/Autopilot.py`** - Demo how the Autopilot model is built
+* **`/FLAGS.py`** - hyper-parameters and configurations for training
+* **`/drive.py`** - Demo on how to enable Jetson run autonomously. In practice, this script is activated through ROS launch.
 
 ### System Architecture
 -----------------------
