@@ -113,8 +113,3 @@ python drive.py model/cnn.json
 * [JetsonHacks](http://www.jetsonhacks.com/) website provides helpful tips and tricks to work with Jetson TK1. JetsonHacks nicely simplifies the installation process with many ready-to-use scripts
 * [DuckieTown](http://duckietown.mit.edu), an MIT Course,  is a great place to learn about developing autonomous vehicles.
 * UPenn F1/10 Tutorials give a nice introduction to ROS, Hardware installation, and System Architecture for RC Car.
-
-### TODO:
-* Create an interface to switch between autonomous/maunual mode. (could it be semi-autonomous? like level 2/3)
-* Apply the advantage of Intel Realsense (IR camera) to better reconigze objects.
-
