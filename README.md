@@ -4,15 +4,27 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 
 ![alt tag](https://github.com/dat-ai/jetson-car/raw/master/docs/img/jetson-car.jpg)
 
+Repository Contents
+-------------------
+* **/docs** - research papers, documents, photos related to this project
+* **/model** - a pre-trained Keras Model file (.json and .h5) to run the car autonomously
+* **/setup** - Firmwares for Teensy 3.2 & SparkFun IMU Sensor + Set up instructions for Jetson TK1
+* **/src** - ROS source directory (ROS Nodes and Launch file)
+* **/utils** - Some test units to make sure the car is functional
+* **/Autopilot.py** - Demo how the Autopilot model is built
+* **/FLAGS.py** - hyper-parameters and configurations for training
+* **/drive.py** - Demo on how to enable Jetson run autonomously. In practice, this script is activated through ROS launch.
+
+### System Architecture
+-----------------------
+![tag](https://github.com/dat-ai/jetson-car/raw/master/docs/architecture.png)
+
 ### Goals:
 ----------
 * Get hands-on experience on autonomous vehicle development.
 * Understand Deep Learning concepts.
 * For Fun ( I probably end up taking the car to some autonomous racing competition. We'll see).
 
-### System Architecture
------------------------
-![tag](https://github.com/dat-ai/jetson-car/raw/master/docs/architecture.png)
 ### Dependencies:
 -----------------
 #### Hardwares:
@@ -67,17 +79,6 @@ source jetson-car/devel/setup.bash
 
 ##### 1. Install Teensy Driver
 ##### 2. Install IMU Razor 9DoF
-Instead of installing on random workspace, we are going to install IMU razor 9Dof as a node in our `jetson_car`
-```shell
-# go to source directory
-cd ~/jetson-car/src/
-
-# Now, we are going to install IMU Razor by following the article below
-git clone https://github.com/KristofRobot/razor_imu_9dof
-
-```
-Well written article described how to install IMU Razor on ROS Machine [here](https://github.com/KristofRobot/razor_imu_9dof)
-
 
 ### Test AutoPilot
 ------------------
