@@ -11,7 +11,7 @@ Accoding to [jetsonhacks](http://www.jetsonhacks.com/2017/03/26/intel-realsense-
 
 ----
 
-Follow wonderful instruction from JetsonHacks to createa custom Kernel Modules
+Follow wonderful instruction from JetsonHacks to create custom Kernel Modules for NVIDIA Jetson
 ```
 http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2/
 ```
