@@ -35,3 +35,7 @@ sudo apt-get  --allow-unauthenticated install ros-kinetic-rosserial-arduino ros-
 sudo apt-get  --allow-unauthenticated install ros-kinetic-joy -y
 # sudo apt-get install ros-indigo-usb-cam -y 
 
+# The current ROS version of librealsense
+sudo apt-get install ros-kinetic-librealsense -y
+sudo apt-get install ros-kinetic-cv-bridge ros-kinetic-cv-camera ros-kinetic-jsk-pcl-ros
+# Remove headers /usr/src since they DO NOT match Jetson TX2.
