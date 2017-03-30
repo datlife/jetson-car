@@ -31,7 +31,7 @@ sudo apt-get  --allow-unauthenticated install python-rosinstall -y
 ######################## Install Jetson Car Dependencies ###################################
 sudo apt-get  --allow-unauthenticated install gcc-avr -y
 sudo apt-get  --allow-unauthenticated install arduino -y
-sudo apt-get  --allow-unauthenticated install ros-kinetic-rosserial-arduino ros-indigo-rosserial ros-indigo-angles -y
+sudo apt-get  --allow-unauthenticated install ros-kinetic-rosserial-arduino ros-kinetic-rosserial ros-kinetic-angles -y
 sudo apt-get  --allow-unauthenticated install ros-kinetic-joy -y
 # sudo apt-get install ros-indigo-usb-cam -y 
 
