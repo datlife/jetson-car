@@ -1,12 +1,5 @@
 #!/bin/bash
-#Install Robot Operating System (ROS) on NVIDIA Jetson TK1
-# Maintainer of ARM builds for ROS is http://answers.ros.org/users/1034/ahendrix/
-# Information from:
-# http://wiki.ros.org/NvidiaJetsonTK1
-# http://wiki.ros.org/indigo/Installation/UbuntuARM
-# When asking questions or looking for help running ROS on NVIDIA Jetson TX2
-# use the jetson_tk1 tag on ROS answers
-# http://answers.ros.org/questions/scope:all/sort:activity-desc/tags:jetson_tk1/page:1/
+#Install Robot Operating System (ROS) on NVIDIA Jetson
 # Setup Locale
 sudo update-locale LANG=C LANGUAGE=C LC_ALL=C LC_MESSAGES=POSIX
 
