@@ -7,17 +7,18 @@ Accoding to [jetsonhacks](http://www.jetsonhacks.com/2017/03/26/intel-realsense-
 
 > **A kernel module** is code that can be accessed from the kernel on demand, without having to modify the kernel. These modules provide ancillary support for different types of devices and subsystems.
 
+----
 
-* Follow wonderful instruction from JetsonHacks to createa custom Kernel Modules
+Follow wonderful instruction from JetsonHacks to createa custom Kernel Modules
 ```
 http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2/
 ```
 
-What does the script do?
+**1. What does the script do?**
 * Download and extract Kernel Source
 * Build Kernel Source
 * Copy Kernel to /boot
 
-What do you need to to?
+**2. What do you need to to?**
 * Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`)
 * Enable `USB CH341` chipset when configuring Kernel Module
