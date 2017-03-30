@@ -5,6 +5,7 @@ Autonomous RC Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 <p align="center">
 <img src="https://github.com/dat-ai/jetson-car/raw/master/docs/img/jetson-car.jpg" width="720">
 </p>
+
 Repository Contents
 -------------------
 * **`/docs`** - research papers, documents, photos related to this project
@@ -32,7 +33,7 @@ Repository Contents
 -----------------
 #### Hardwares:
 1. RC Car - [RedCat Volcano EPX](https://www.amazon.com/Redcat-Racing-Electric-Volcano-Included/dp/B00HVBVNVG/ref=sr_1_2?ie=UTF8&qid=1487805887&sr=8-2&keywords=RedCat+Volcano+EPX) (stock - no mod) + [Extra battery](https://www.amazon.com/Redcat-Racing-HX-3800MH-B-Battery-7-2V-Connector/dp/B00D2539IU/ref=sr_1_1?ie=UTF8&qid=1487805956&sr=8-1&keywords=Redcat-Racing+HX-3800MH)
-2. NVIDIA Jetson TK1
+2. NVIDIA Jetson TX2
 3. Teensy 3.2
 3. Intel RealSense R200
 4. Intel Network 7260 Wireless Card m-pcie
@@ -40,11 +41,10 @@ Repository Contents
 
 #### Softwares:
 
-1. Stock OS for Jetson TK1 (JetPack 21.5)
-2. Grinch Kernel 21.4
-3. ROS Indingo for ARM
+1. Stock OS for Jetson TX2 (JetPack 3.0)
+3. ROS Kinetic for ARM (barebone version)
 4. Keras using TensorFlow as backend
-5. TensorFlow 0.8 (this is the latest version Jetson TK1 could support now)
+5. TensorFlow 1.0.1
 
 
 ### Installation Guide: (To be Updated)
@@ -54,10 +54,9 @@ Repository Contents
 
 JetsonHacks provides many helpful scripts to automate the process. I will avoid to reproduce his wonderful works.
 
- 1. Install [JetPack 21.5](https://developer.nvidia.com/embedded/jetpack) (Ubuntu + CUDA 6.5 + cuDNN v2 + OpenCV4Tegra)
+ 1. Install stock OS using [JetPack 3.0](https://developer.nvidia.com/embedded/jetpack) (Ubuntu 16.04 + CUDA 8.0 + cuDNN v5 + OpenCV4Tegra)
  2. Install [postFlash](https://github.com/jetsonhacks/postFlash) (Enabled USB 3.0, some helpful tools for development) 
- 3. Install [grinch Kernel](http://www.jetsonhacks.com/2015/05/26/install-grinch-kernel-for-l4t-21-3-on-nvidia-jetson-tk1) (allow to have more driver options)
- 4. Install [ROS Indigo & Teensy Driver for Jetson TK1](https://raw.githubusercontent.com/dat-ai/jetson-car/master/setup/tk1_ros_setup.sh) - Run this script on TK1
+ 4. Install [ROS Kinetic & Teensy Driver for Jetson TK1](https://raw.githubusercontent.com/dat-ai/jetson-car/master/setup/tk1_ros_setup.sh) - Run this script on TK1
  5. Clone this repo and set up ROS workspace
  
 ```shell
@@ -75,7 +74,7 @@ catkin_make
  6. Set up ROS environment
 ```shell
 # Add this line to the end of ./.bashrc file
-source jetson-car/devel/setup.bash
+echo "source jetson-car/devel/setup.bash" >> ~/.bashrc
 ```
 
 #### Hardware Setup
