@@ -18,10 +18,10 @@ wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo 
 
 # Installation
 sudo apt-get update
-sudo apt-get install ros-kinetic-ros-base -y
+sudo apt-get  --allow-unauthenticated install ros-kinetic-ros-base -y
 
 # Initialize rosdep
-sudo apt-get install python-rosdep -y
+sudo apt-get  --allow-unauthenticated install python-rosdep -y
 sudo c_rehash /etc/ssl/certs
 sudo rosdep init
 
@@ -33,12 +33,12 @@ source ~/.bashrc
 
 
 # Install rosinstall
-sudo apt-get install python-rosinstall -y
+sudo apt-get  --allow-unauthenticated install python-rosinstall -y
 
 ######################## Install Jetson Car Dependencies ###################################
-sudo apt-get install gcc-avr
-sudo apt-get install arduino -y
-sudo apt-get install ros-kinetic-rosserial-arduino ros-indigo-rosserial ros-indigo-angles -y
-sudo apt-get install ros-kinetic-joy -y
+sudo apt-get  --allow-unauthenticated install gcc-avr
+sudo apt-get  --allow-unauthenticated install arduino -y
+sudo apt-get  --allow-unauthenticated install ros-kinetic-rosserial-arduino ros-indigo-rosserial ros-indigo-angles -y
+sudo apt-get  --allow-unauthenticated install ros-kinetic-joy -y
 # sudo apt-get install ros-indigo-usb-cam -y 
 
