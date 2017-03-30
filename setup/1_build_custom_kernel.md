@@ -1,6 +1,6 @@
 # Build Custom Kernel Modules on Jetson TX2
 
-The purpose is to allow NVIDIA Jetson to detect additional image formats from Stereo Camera Intel Realsense, by enabling kernel module `uvcvideo`
+The purpose is to allow NVIDIA Jetson detect additional image formats from Stereo Camera Intel Realsense, by enabling **USB Video Class Module**.
 
 Accoding to [jetsonhacks](http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/), we can understand kernel and kernel module in Linux as following:
 
