@@ -17,7 +17,7 @@ from Pilot import Pilot
 
 def drive(model, image):
     '''
-    Make prediction  on steering angle given an image
+    Make prediction on steering angle given an image
     :param model:
     :param image:
     :return:
@@ -27,12 +27,12 @@ def drive(model, image):
     # Resize to fit the model
     image = cv2.resize(image, (160, 80), interpolation=cv2.INTER_AREA)
     # Crop the sky
-    image = image[29:75, :]
+    image = image[34:80, :]
     start = time.clock()  # Measure how fast model makes one prediction (speed = stop - start)
     prediction = model.predict(image[None, :, :, :], batch_size=1)
     steering_angle = prediction[0][0]
     # throttle = prediction[0][1]
-    throttle = 0.001
+    throttle = 0.000
     end = time.clock()
     print "Steer: {:5.4f} Throttle {:5.4f} in {:5.4f}ms".format(steering_angle, throttle, (end - start))
 
@@ -59,7 +59,7 @@ if __name__ == "__main__":
 #   parser = argparse.ArgumentParser(description='Remote Driving')
 #   parser.add_argument('model', type=str, help='Path to model json file. Model should be on the same path.')
 #   args = parser.parse_args()
-    args = '/home/ubuntu/jetson-car/src/pilot/src/cnn.json'
+    args = '/home/nvidia/jetson-car/src/pilot/src/cnn.json'
     print("Activating AutoPilot mode..\n")
     pilot = Pilot(lambda: load_model(args), drive)
     rospy.spin() 

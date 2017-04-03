@@ -3,7 +3,6 @@ project(record_data)
 
 find_package(catkin REQUIRED COMPONENTS
   rospy
-  usb_cam
   rc_car_msgs
   std_msgs
 )
@@ -12,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES record_data
-   CATKIN_DEPENDS rospy rc_car_msgs std_msgs usb_cam
+   CATKIN_DEPENDS rospy rc_car_msgs std_msgs
 #  DEPENDS system_lib
 )
 

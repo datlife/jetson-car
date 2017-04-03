@@ -38,7 +38,6 @@ class JoyStick{
         bool            emergency_brake;
 	bool            running_autonomous;
 	bool		is_recording;
-
         void 		joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
 	void 		_driver(const sensor_msgs::Joy::ConstPtr& joy);
     public:
@@ -89,9 +88,16 @@ void JoyStick::_driver(const sensor_msgs::Joy::ConstPtr& joy){
     	car.steer    = a_scale_*joy->axes[angular_];
     	car.throttle = l_scale_*joy->axes[linear_];
     }
-     
+    if (joy->axes[7] == ON){
+ 	running_autonomous=1;
+    }
+    if (joy->axes[5] ==ON){
+        running_autonomous =0;
+    } 
     car.header.stamp = ros::Time::now();  // used to be dDisabled on Mar 03, 2017 because I will combined car msg with usb_cam msg, which already contain header
-    car_pub_.publish(car);
+    if (running_autonomous == 0){
+        car_pub_.publish(car);
+    }
     previous[0] =  car.steer;
     previous[1] =  car.throttle;
 }
