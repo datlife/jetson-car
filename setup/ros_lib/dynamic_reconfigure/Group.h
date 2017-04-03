@@ -13,13 +13,18 @@ namespace dynamic_reconfigure
   class Group : public ros::Msg
   {
     public:
-      const char* name;
-      const char* type;
-      uint8_t parameters_length;
-      dynamic_reconfigure::ParamDescription st_parameters;
-      dynamic_reconfigure::ParamDescription * parameters;
-      int32_t parent;
-      int32_t id;
+      typedef const char* _name_type;
+      _name_type name;
+      typedef const char* _type_type;
+      _type_type type;
+      uint32_t parameters_length;
+      typedef dynamic_reconfigure::ParamDescription _parameters_type;
+      _parameters_type st_parameters;
+      _parameters_type * parameters;
+      typedef int32_t _parent_type;
+      _parent_type parent;
+      typedef int32_t _id_type;
+      _id_type id;
 
     Group():
       name(""),
@@ -34,20 +39,21 @@ namespace dynamic_reconfigure
     {
       int offset = 0;
       uint32_t length_name = strlen(this->name);
-      memcpy(outbuffer + offset, &length_name, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_name);
       offset += 4;
       memcpy(outbuffer + offset, this->name, length_name);
       offset += length_name;
       uint32_t length_type = strlen(this->type);
-      memcpy(outbuffer + offset, &length_type, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_type);
       offset += 4;
       memcpy(outbuffer + offset, this->type, length_type);
       offset += length_type;
-      *(outbuffer + offset++) = parameters_length;
-      *(outbuffer + offset++) = 0;
-      *(outbuffer + offset++) = 0;
-      *(outbuffer + offset++) = 0;
-      for( uint8_t i = 0; i < parameters_length; i++){
+      *(outbuffer + offset + 0) = (this->parameters_length >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (this->parameters_length >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (this->parameters_length >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (this->parameters_length >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->parameters_length);
+      for( uint32_t i = 0; i < parameters_length; i++){
       offset += this->parameters[i].serialize(outbuffer + offset);
       }
       union {
@@ -77,7 +83,7 @@ namespace dynamic_reconfigure
     {
       int offset = 0;
       uint32_t length_name;
-      memcpy(&length_name, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_name, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_name; ++k){
           inbuffer[k-1]=inbuffer[k];
@@ -86,7 +92,7 @@ namespace dynamic_reconfigure
       this->name = (char *)(inbuffer + offset-1);
       offset += length_name;
       uint32_t length_type;
-      memcpy(&length_type, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_type, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_type; ++k){
           inbuffer[k-1]=inbuffer[k];
@@ -94,12 +100,15 @@ namespace dynamic_reconfigure
       inbuffer[offset+length_type-1]=0;
       this->type = (char *)(inbuffer + offset-1);
       offset += length_type;
-      uint8_t parameters_lengthT = *(inbuffer + offset++);
+      uint32_t parameters_lengthT = ((uint32_t) (*(inbuffer + offset))); 
+      parameters_lengthT |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1); 
+      parameters_lengthT |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2); 
+      parameters_lengthT |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3); 
+      offset += sizeof(this->parameters_length);
       if(parameters_lengthT > parameters_length)
         this->parameters = (dynamic_reconfigure::ParamDescription*)realloc(this->parameters, parameters_lengthT * sizeof(dynamic_reconfigure::ParamDescription));
-      offset += 3;
       parameters_length = parameters_lengthT;
-      for( uint8_t i = 0; i < parameters_length; i++){
+      for( uint32_t i = 0; i < parameters_length; i++){
       offset += this->st_parameters.deserialize(inbuffer + offset);
         memcpy( &(this->parameters[i]), &(this->st_parameters), sizeof(dynamic_reconfigure::ParamDescription));
       }

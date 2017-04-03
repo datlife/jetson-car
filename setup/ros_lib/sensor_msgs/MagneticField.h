@@ -14,8 +14,10 @@ namespace sensor_msgs
   class MagneticField : public ros::Msg
   {
     public:
-      std_msgs::Header header;
-      geometry_msgs::Vector3 magnetic_field;
+      typedef std_msgs::Header _header_type;
+      _header_type header;
+      typedef geometry_msgs::Vector3 _magnetic_field_type;
+      _magnetic_field_type magnetic_field;
       float magnetic_field_covariance[9];
 
     MagneticField():
@@ -30,7 +32,7 @@ namespace sensor_msgs
       int offset = 0;
       offset += this->header.serialize(outbuffer + offset);
       offset += this->magnetic_field.serialize(outbuffer + offset);
-      for( uint8_t i = 0; i < 9; i++){
+      for( uint32_t i = 0; i < 9; i++){
       offset += serializeAvrFloat64(outbuffer + offset, this->magnetic_field_covariance[i]);
       }
       return offset;
@@ -41,7 +43,7 @@ namespace sensor_msgs
       int offset = 0;
       offset += this->header.deserialize(inbuffer + offset);
       offset += this->magnetic_field.deserialize(inbuffer + offset);
-      for( uint8_t i = 0; i < 9; i++){
+      for( uint32_t i = 0; i < 9; i++){
       offset += deserializeAvrFloat64(inbuffer + offset, &(this->magnetic_field_covariance[i]));
       }
      return offset;

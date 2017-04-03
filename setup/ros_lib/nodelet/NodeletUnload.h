@@ -13,7 +13,8 @@ static const char NODELETUNLOAD[] = "nodelet/NodeletUnload";
   class NodeletUnloadRequest : public ros::Msg
   {
     public:
-      const char* name;
+      typedef const char* _name_type;
+      _name_type name;
 
     NodeletUnloadRequest():
       name("")
@@ -24,7 +25,7 @@ static const char NODELETUNLOAD[] = "nodelet/NodeletUnload";
     {
       int offset = 0;
       uint32_t length_name = strlen(this->name);
-      memcpy(outbuffer + offset, &length_name, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_name);
       offset += 4;
       memcpy(outbuffer + offset, this->name, length_name);
       offset += length_name;
@@ -35,7 +36,7 @@ static const char NODELETUNLOAD[] = "nodelet/NodeletUnload";
     {
       int offset = 0;
       uint32_t length_name;
-      memcpy(&length_name, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_name, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_name; ++k){
           inbuffer[k-1]=inbuffer[k];
@@ -54,7 +55,8 @@ static const char NODELETUNLOAD[] = "nodelet/NodeletUnload";
   class NodeletUnloadResponse : public ros::Msg
   {
     public:
-      bool success;
+      typedef bool _success_type;
+      _success_type success;
 
     NodeletUnloadResponse():
       success(0)

@@ -13,7 +13,8 @@ static const char MUXDELETE[] = "topic_tools/MuxDelete";
   class MuxDeleteRequest : public ros::Msg
   {
     public:
-      const char* topic;
+      typedef const char* _topic_type;
+      _topic_type topic;
 
     MuxDeleteRequest():
       topic("")
@@ -24,7 +25,7 @@ static const char MUXDELETE[] = "topic_tools/MuxDelete";
     {
       int offset = 0;
       uint32_t length_topic = strlen(this->topic);
-      memcpy(outbuffer + offset, &length_topic, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_topic);
       offset += 4;
       memcpy(outbuffer + offset, this->topic, length_topic);
       offset += length_topic;
@@ -35,7 +36,7 @@ static const char MUXDELETE[] = "topic_tools/MuxDelete";
     {
       int offset = 0;
       uint32_t length_topic;
-      memcpy(&length_topic, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_topic, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_topic; ++k){
           inbuffer[k-1]=inbuffer[k];

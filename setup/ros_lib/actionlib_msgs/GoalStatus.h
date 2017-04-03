@@ -13,9 +13,12 @@ namespace actionlib_msgs
   class GoalStatus : public ros::Msg
   {
     public:
-      actionlib_msgs::GoalID goal_id;
-      uint8_t status;
-      const char* text;
+      typedef actionlib_msgs::GoalID _goal_id_type;
+      _goal_id_type goal_id;
+      typedef uint8_t _status_type;
+      _status_type status;
+      typedef const char* _text_type;
+      _text_type text;
       enum { PENDING =  0    };
       enum { ACTIVE =  1    };
       enum { PREEMPTED =  2    };
@@ -41,7 +44,7 @@ namespace actionlib_msgs
       *(outbuffer + offset + 0) = (this->status >> (8 * 0)) & 0xFF;
       offset += sizeof(this->status);
       uint32_t length_text = strlen(this->text);
-      memcpy(outbuffer + offset, &length_text, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_text);
       offset += 4;
       memcpy(outbuffer + offset, this->text, length_text);
       offset += length_text;
@@ -55,7 +58,7 @@ namespace actionlib_msgs
       this->status =  ((uint8_t) (*(inbuffer + offset)));
       offset += sizeof(this->status);
       uint32_t length_text;
-      memcpy(&length_text, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_text, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_text; ++k){
           inbuffer[k-1]=inbuffer[k];

@@ -12,10 +12,12 @@ namespace sensor_msgs
   class ChannelFloat32 : public ros::Msg
   {
     public:
-      const char* name;
-      uint8_t values_length;
-      float st_values;
-      float * values;
+      typedef const char* _name_type;
+      _name_type name;
+      uint32_t values_length;
+      typedef float _values_type;
+      _values_type st_values;
+      _values_type * values;
 
     ChannelFloat32():
       name(""),
@@ -27,15 +29,16 @@ namespace sensor_msgs
     {
       int offset = 0;
       uint32_t length_name = strlen(this->name);
-      memcpy(outbuffer + offset, &length_name, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_name);
       offset += 4;
       memcpy(outbuffer + offset, this->name, length_name);
       offset += length_name;
-      *(outbuffer + offset++) = values_length;
-      *(outbuffer + offset++) = 0;
-      *(outbuffer + offset++) = 0;
-      *(outbuffer + offset++) = 0;
-      for( uint8_t i = 0; i < values_length; i++){
+      *(outbuffer + offset + 0) = (this->values_length >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (this->values_length >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (this->values_length >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (this->values_length >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->values_length);
+      for( uint32_t i = 0; i < values_length; i++){
       union {
         float real;
         uint32_t base;
@@ -54,7 +57,7 @@ namespace sensor_msgs
     {
       int offset = 0;
       uint32_t length_name;
-      memcpy(&length_name, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_name, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_name; ++k){
           inbuffer[k-1]=inbuffer[k];
@@ -62,12 +65,15 @@ namespace sensor_msgs
       inbuffer[offset+length_name-1]=0;
       this->name = (char *)(inbuffer + offset-1);
       offset += length_name;
-      uint8_t values_lengthT = *(inbuffer + offset++);
+      uint32_t values_lengthT = ((uint32_t) (*(inbuffer + offset))); 
+      values_lengthT |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1); 
+      values_lengthT |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2); 
+      values_lengthT |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3); 
+      offset += sizeof(this->values_length);
       if(values_lengthT > values_length)
         this->values = (float*)realloc(this->values, values_lengthT * sizeof(float));
-      offset += 3;
       values_length = values_lengthT;
-      for( uint8_t i = 0; i < values_length; i++){
+      for( uint32_t i = 0; i < values_length; i++){
       union {
         float real;
         uint32_t base;

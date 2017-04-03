@@ -14,20 +14,34 @@ namespace rosgraph_msgs
   class TopicStatistics : public ros::Msg
   {
     public:
-      const char* topic;
-      const char* node_pub;
-      const char* node_sub;
-      ros::Time window_start;
-      ros::Time window_stop;
-      int32_t delivered_msgs;
-      int32_t dropped_msgs;
-      int32_t traffic;
-      ros::Duration period_mean;
-      ros::Duration period_stddev;
-      ros::Duration period_max;
-      ros::Duration stamp_age_mean;
-      ros::Duration stamp_age_stddev;
-      ros::Duration stamp_age_max;
+      typedef const char* _topic_type;
+      _topic_type topic;
+      typedef const char* _node_pub_type;
+      _node_pub_type node_pub;
+      typedef const char* _node_sub_type;
+      _node_sub_type node_sub;
+      typedef ros::Time _window_start_type;
+      _window_start_type window_start;
+      typedef ros::Time _window_stop_type;
+      _window_stop_type window_stop;
+      typedef int32_t _delivered_msgs_type;
+      _delivered_msgs_type delivered_msgs;
+      typedef int32_t _dropped_msgs_type;
+      _dropped_msgs_type dropped_msgs;
+      typedef int32_t _traffic_type;
+      _traffic_type traffic;
+      typedef ros::Duration _period_mean_type;
+      _period_mean_type period_mean;
+      typedef ros::Duration _period_stddev_type;
+      _period_stddev_type period_stddev;
+      typedef ros::Duration _period_max_type;
+      _period_max_type period_max;
+      typedef ros::Duration _stamp_age_mean_type;
+      _stamp_age_mean_type stamp_age_mean;
+      typedef ros::Duration _stamp_age_stddev_type;
+      _stamp_age_stddev_type stamp_age_stddev;
+      typedef ros::Duration _stamp_age_max_type;
+      _stamp_age_max_type stamp_age_max;
 
     TopicStatistics():
       topic(""),
@@ -51,17 +65,17 @@ namespace rosgraph_msgs
     {
       int offset = 0;
       uint32_t length_topic = strlen(this->topic);
-      memcpy(outbuffer + offset, &length_topic, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_topic);
       offset += 4;
       memcpy(outbuffer + offset, this->topic, length_topic);
       offset += length_topic;
       uint32_t length_node_pub = strlen(this->node_pub);
-      memcpy(outbuffer + offset, &length_node_pub, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_node_pub);
       offset += 4;
       memcpy(outbuffer + offset, this->node_pub, length_node_pub);
       offset += length_node_pub;
       uint32_t length_node_sub = strlen(this->node_sub);
-      memcpy(outbuffer + offset, &length_node_sub, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_node_sub);
       offset += 4;
       memcpy(outbuffer + offset, this->node_sub, length_node_sub);
       offset += length_node_sub;
@@ -182,7 +196,7 @@ namespace rosgraph_msgs
     {
       int offset = 0;
       uint32_t length_topic;
-      memcpy(&length_topic, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_topic, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_topic; ++k){
           inbuffer[k-1]=inbuffer[k];
@@ -191,7 +205,7 @@ namespace rosgraph_msgs
       this->topic = (char *)(inbuffer + offset-1);
       offset += length_topic;
       uint32_t length_node_pub;
-      memcpy(&length_node_pub, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_node_pub, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_node_pub; ++k){
           inbuffer[k-1]=inbuffer[k];
@@ -200,7 +214,7 @@ namespace rosgraph_msgs
       this->node_pub = (char *)(inbuffer + offset-1);
       offset += length_node_pub;
       uint32_t length_node_sub;
-      memcpy(&length_node_sub, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_node_sub, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_node_sub; ++k){
           inbuffer[k-1]=inbuffer[k];

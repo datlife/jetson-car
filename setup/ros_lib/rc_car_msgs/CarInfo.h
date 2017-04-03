@@ -13,9 +13,12 @@ namespace rc_car_msgs
   class CarInfo : public ros::Msg
   {
     public:
-      std_msgs::Header header;
-      float throttle;
-      float steer;
+      typedef std_msgs::Header _header_type;
+      _header_type header;
+      typedef float _throttle_type;
+      _throttle_type throttle;
+      typedef float _steer_type;
+      _steer_type steer;
 
     CarInfo():
       header(),

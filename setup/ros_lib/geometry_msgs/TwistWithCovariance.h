@@ -13,7 +13,8 @@ namespace geometry_msgs
   class TwistWithCovariance : public ros::Msg
   {
     public:
-      geometry_msgs::Twist twist;
+      typedef geometry_msgs::Twist _twist_type;
+      _twist_type twist;
       float covariance[36];
 
     TwistWithCovariance():
@@ -26,7 +27,7 @@ namespace geometry_msgs
     {
       int offset = 0;
       offset += this->twist.serialize(outbuffer + offset);
-      for( uint8_t i = 0; i < 36; i++){
+      for( uint32_t i = 0; i < 36; i++){
       offset += serializeAvrFloat64(outbuffer + offset, this->covariance[i]);
       }
       return offset;
@@ -36,7 +37,7 @@ namespace geometry_msgs
     {
       int offset = 0;
       offset += this->twist.deserialize(inbuffer + offset);
-      for( uint8_t i = 0; i < 36; i++){
+      for( uint32_t i = 0; i < 36; i++){
       offset += deserializeAvrFloat64(inbuffer + offset, &(this->covariance[i]));
       }
      return offset;

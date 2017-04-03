@@ -13,7 +13,8 @@ namespace geometry_msgs
   class AccelWithCovariance : public ros::Msg
   {
     public:
-      geometry_msgs::Accel accel;
+      typedef geometry_msgs::Accel _accel_type;
+      _accel_type accel;
       float covariance[36];
 
     AccelWithCovariance():
@@ -26,7 +27,7 @@ namespace geometry_msgs
     {
       int offset = 0;
       offset += this->accel.serialize(outbuffer + offset);
-      for( uint8_t i = 0; i < 36; i++){
+      for( uint32_t i = 0; i < 36; i++){
       offset += serializeAvrFloat64(outbuffer + offset, this->covariance[i]);
       }
       return offset;
@@ -36,7 +37,7 @@ namespace geometry_msgs
     {
       int offset = 0;
       offset += this->accel.deserialize(inbuffer + offset);
-      for( uint8_t i = 0; i < 36; i++){
+      for( uint32_t i = 0; i < 36; i++){
       offset += deserializeAvrFloat64(inbuffer + offset, &(this->covariance[i]));
       }
      return offset;

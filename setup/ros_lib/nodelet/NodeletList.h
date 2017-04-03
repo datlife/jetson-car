@@ -38,9 +38,10 @@ static const char NODELETLIST[] = "nodelet/NodeletList";
   class NodeletListResponse : public ros::Msg
   {
     public:
-      uint8_t nodelets_length;
-      char* st_nodelets;
-      char* * nodelets;
+      uint32_t nodelets_length;
+      typedef char* _nodelets_type;
+      _nodelets_type st_nodelets;
+      _nodelets_type * nodelets;
 
     NodeletListResponse():
       nodelets_length(0), nodelets(NULL)
@@ -50,13 +51,14 @@ static const char NODELETLIST[] = "nodelet/NodeletList";
     virtual int serialize(unsigned char *outbuffer) const
     {
       int offset = 0;
-      *(outbuffer + offset++) = nodelets_length;
-      *(outbuffer + offset++) = 0;
-      *(outbuffer + offset++) = 0;
-      *(outbuffer + offset++) = 0;
-      for( uint8_t i = 0; i < nodelets_length; i++){
+      *(outbuffer + offset + 0) = (this->nodelets_length >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (this->nodelets_length >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (this->nodelets_length >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (this->nodelets_length >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->nodelets_length);
+      for( uint32_t i = 0; i < nodelets_length; i++){
       uint32_t length_nodeletsi = strlen(this->nodelets[i]);
-      memcpy(outbuffer + offset, &length_nodeletsi, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_nodeletsi);
       offset += 4;
       memcpy(outbuffer + offset, this->nodelets[i], length_nodeletsi);
       offset += length_nodeletsi;
@@ -67,14 +69,17 @@ static const char NODELETLIST[] = "nodelet/NodeletList";
     virtual int deserialize(unsigned char *inbuffer)
     {
       int offset = 0;
-      uint8_t nodelets_lengthT = *(inbuffer + offset++);
+      uint32_t nodelets_lengthT = ((uint32_t) (*(inbuffer + offset))); 
+      nodelets_lengthT |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1); 
+      nodelets_lengthT |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2); 
+      nodelets_lengthT |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3); 
+      offset += sizeof(this->nodelets_length);
       if(nodelets_lengthT > nodelets_length)
         this->nodelets = (char**)realloc(this->nodelets, nodelets_lengthT * sizeof(char*));
-      offset += 3;
       nodelets_length = nodelets_lengthT;
-      for( uint8_t i = 0; i < nodelets_length; i++){
+      for( uint32_t i = 0; i < nodelets_length; i++){
       uint32_t length_st_nodelets;
-      memcpy(&length_st_nodelets, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_st_nodelets, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_st_nodelets; ++k){
           inbuffer[k-1]=inbuffer[k];

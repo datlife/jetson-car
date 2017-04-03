@@ -13,7 +13,8 @@ namespace geometry_msgs
   class PoseWithCovariance : public ros::Msg
   {
     public:
-      geometry_msgs::Pose pose;
+      typedef geometry_msgs::Pose _pose_type;
+      _pose_type pose;
       float covariance[36];
 
     PoseWithCovariance():
@@ -26,7 +27,7 @@ namespace geometry_msgs
     {
       int offset = 0;
       offset += this->pose.serialize(outbuffer + offset);
-      for( uint8_t i = 0; i < 36; i++){
+      for( uint32_t i = 0; i < 36; i++){
       offset += serializeAvrFloat64(outbuffer + offset, this->covariance[i]);
       }
       return offset;
@@ -36,7 +37,7 @@ namespace geometry_msgs
     {
       int offset = 0;
       offset += this->pose.deserialize(inbuffer + offset);
-      for( uint8_t i = 0; i < 36; i++){
+      for( uint32_t i = 0; i < 36; i++){
       offset += deserializeAvrFloat64(inbuffer + offset, &(this->covariance[i]));
       }
      return offset;

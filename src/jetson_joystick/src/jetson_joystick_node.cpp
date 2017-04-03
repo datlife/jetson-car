@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <ros/ros.h>
 #include <sensor_msgs/Joy.h>      // Joy msg for Jetson JoyStick to subscribe signals from joystick.
-#include <rc_car_msgs/CarInfo.h> // Tesing simpler message
+#include <rc_car_msgs/CarController.h> // Tesing simpler message
 
 #define START_BUTTON  6
 #define STEERING_JOY  0
@@ -64,15 +64,14 @@ JoyStick::JoyStick():
     node_handle_.param("scale_linear", l_scale_, l_scale_);
 
     // Setup Ros Publisher and Subscriber
-    car_pub_ = node_handle_.advertise<rc_car_msgs::CarInfo>("car_info", 1, true);
+    car_pub_ = node_handle_.advertise<rc_car_msgs::CarController>("car_controller", 1, true);
     joy_sub_ = node_handle_.subscribe<sensor_msgs::Joy>("joy", 10, &JoyStick::joyCallback, this);
 }
 
 
 void JoyStick::_driver(const sensor_msgs::Joy::ConstPtr& joy){
-
     enum {OFF, ON};
-    rc_car_msgs::CarInfo car; 
+    rc_car_msgs::CarController car; 
 
     // EMERGENCY BRAKE
     if (joy->buttons[4] == ON || joy->buttons[5] == ON){
@@ -88,16 +87,19 @@ void JoyStick::_driver(const sensor_msgs::Joy::ConstPtr& joy){
     	car.steer    = a_scale_*joy->axes[angular_];
     	car.throttle = l_scale_*joy->axes[linear_];
     }
+    // If Autonomous Mode is enabled, Display Publisher from this node.
     if (joy->axes[7] == ON){
- 	running_autonomous=1;
+        if(running_autonomous==OFF)
+ 	        running_autonomous=ON;
     }
     if (joy->axes[5] ==ON){
-        running_autonomous =0;
-    } 
-    car.header.stamp = ros::Time::now();  // used to be dDisabled on Mar 03, 2017 because I will combined car msg with usb_cam msg, which already contain header
-    if (running_autonomous == 0){
-        car_pub_.publish(car);
+        if(running_autonomous==ON)
+            running_autonomous =OFF;
     }
+    car.header.stamp = ros::Time::now();  // used to be dDisabled on Mar 03, 2017 because I will combined car msg with usb_cam msg, which already contain header
+
+    if (running_autonomous != ON)
+        car_pub_.publish(car);
     previous[0] =  car.steer;
     previous[1] =  car.throttle;
 }

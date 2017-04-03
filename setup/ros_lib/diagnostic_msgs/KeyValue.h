@@ -12,8 +12,10 @@ namespace diagnostic_msgs
   class KeyValue : public ros::Msg
   {
     public:
-      const char* key;
-      const char* value;
+      typedef const char* _key_type;
+      _key_type key;
+      typedef const char* _value_type;
+      _value_type value;
 
     KeyValue():
       key(""),
@@ -25,12 +27,12 @@ namespace diagnostic_msgs
     {
       int offset = 0;
       uint32_t length_key = strlen(this->key);
-      memcpy(outbuffer + offset, &length_key, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_key);
       offset += 4;
       memcpy(outbuffer + offset, this->key, length_key);
       offset += length_key;
       uint32_t length_value = strlen(this->value);
-      memcpy(outbuffer + offset, &length_value, sizeof(uint32_t));
+      varToArr(outbuffer + offset, length_value);
       offset += 4;
       memcpy(outbuffer + offset, this->value, length_value);
       offset += length_value;
@@ -41,7 +43,7 @@ namespace diagnostic_msgs
     {
       int offset = 0;
       uint32_t length_key;
-      memcpy(&length_key, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_key, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_key; ++k){
           inbuffer[k-1]=inbuffer[k];
@@ -50,7 +52,7 @@ namespace diagnostic_msgs
       this->key = (char *)(inbuffer + offset-1);
       offset += length_key;
       uint32_t length_value;
-      memcpy(&length_value, (inbuffer + offset), sizeof(uint32_t));
+      arrToVar(length_value, (inbuffer + offset));
       offset += 4;
       for(unsigned int k= offset; k< offset+length_value; ++k){
           inbuffer[k-1]=inbuffer[k];

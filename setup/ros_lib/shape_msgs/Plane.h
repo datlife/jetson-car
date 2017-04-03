@@ -22,7 +22,7 @@ namespace shape_msgs
     virtual int serialize(unsigned char *outbuffer) const
     {
       int offset = 0;
-      for( uint8_t i = 0; i < 4; i++){
+      for( uint32_t i = 0; i < 4; i++){
       offset += serializeAvrFloat64(outbuffer + offset, this->coef[i]);
       }
       return offset;
@@ -31,7 +31,7 @@ namespace shape_msgs
     virtual int deserialize(unsigned char *inbuffer)
     {
       int offset = 0;
-      for( uint8_t i = 0; i < 4; i++){
+      for( uint32_t i = 0; i < 4; i++){
       offset += deserializeAvrFloat64(inbuffer + offset, &(this->coef[i]));
       }
      return offset;
