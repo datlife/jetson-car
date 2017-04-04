@@ -1,0 +1,32 @@
+<launch>
+
+ <!-- launch usb_cam launchfile -->
+ <include file="$(find usb_cam)/launch/usb_cam.launch" />
+
+ <!-- Serial Arduino Node -->
+  <node pkg="rosserial_python" type="serial_node.py" name="serial_node">
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="115200"/>
+  </node>
+
+ <!-- Joy node -->
+  <node respawn="true" pkg="joy" type="joy_node" name="jetson_joy" >
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="deadzone" value="0.12" />
+  </node>
+ 
+ <!-- Recorder Node -->
+  <node pkg="record_data" name="recorder" type="start.py" output="screen"> 
+  </node>
+
+ <!-- Pilot Node -->
+  <node pkg="perception" name="autonomous_controller" type="controller.py" output="screen"/>
+
+  <!-- Perception Node -->
+  <param name="axis_linear" value="3" type="int"/>
+  <param name="axis_angular" value="0" type="int"/>
+  <param name="scale_linear" value="0.5" type="double"/>
+  <param name="scale_angular" value="1.0" type="double"/>
+
+  <node pkg="perception" type="perception_node" name="jetson_teleop"/>
+</launch>

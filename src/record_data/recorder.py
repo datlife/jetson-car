@@ -43,6 +43,7 @@ steering = 0.0
 throttle = 0.0
 image = None
 depth_img = None
+seq = 1
 
 # Set up ROS
 rospy.init_node("recorder_device", anonymous=True)
@@ -52,29 +53,32 @@ cam_listener = rospy.Subscriber("/usb_cam/image_raw", Image, camera_callback)
 # cam_listener = rospy.Subscriber("/camera/rgb/image_rect_color_drop", Image, camera_callback)
 # depth_cam_listener = rospy.Subscriber("camera/depth/image_rect_raw_drop", Image, depth_cam_callback)
 
+
 # Lock to acquire camera iamge
 lock = threading.RLock()
 
-# Set up CV Bridge 
+
+# Set up CV Bridge to transform ROS Image to OpenCV Image
 cv_bridge = CvBridge()
+
 # Keep publishing info until rospy is shut down
 print("\n\nStart publishing data via /recorder [steering, throttle] and images is saved at /home/nvidia/bag/imgs.\n Press 'X' to stop the recording process.\n")
 
-seq = 1
 while not rospy.is_shutdown():
     if image is None:
       	continue
     # Convert image to RGB color space
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    
+    # Create image filename for current frame
+    fname = str(timestamp)+"_"+str(seq) +"_"+str(round(steering, 6)) + "_"+ str(round(throttle,6)) 
+    fname = RGB_IMG_PATH+fname+".jpg"
+    cv2.imwrite(fname, image)
+
     timestamp = rospy.get_rostime()
     # publish data  
     msg = CarRecorder()
     msg.steer = steering
     msg.throttle = throttle
-    fname = str(timestamp)+"_"+str(seq) +"_"+str(round(steering, 6)) + "_"+ str(round(throttle,6)) 
-    fname = RGB_IMG_PATH+fname+".jpg"
-    cv2.imwrite(fname, image)
     msg.img_path = fname
     record_pub.publish(msg)
     seq +=1

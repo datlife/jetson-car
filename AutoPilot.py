@@ -17,7 +17,7 @@ import threading
 import roslib
 import rospy
 
-# ROS mesages
+# ROS message
 from sensor_msgs.msg import Joy, Image  # we could combine Image into CarInfo
 from rc_car_msgs.msg import CarInfo
 
@@ -39,7 +39,7 @@ class Pilot:
         self.camera = rospy.Subscriber('/usb_cam/image_raw', Image, self.callback, queue_size = 1)
         self.joy = rospy.Subscriber('/joy', Joy)
 
-        # Lock which waiting for keras model to make prediction
+        # Lock which waiting for Keras model to make prediction
         self.lock = threading.RLock()
         rospy.Timer(rospy.Duration(0.02), self.send_control)
 
@@ -59,7 +59,7 @@ class Pilot:
             self.steering, self.throttle = self.predict(self.model, self.image)
             self.lock.release()
 
-    def send_control(self, event):
+    def send_control(self):
         if self.image is None:
             return
             # Publish a rc_car_msgs
@@ -72,7 +72,7 @@ class Pilot:
         msg.throttle = self.throttle
         self.control_signal.publish(msg)
 
-    def load_model(args):
+    def load_model(self, args):
         # LOAD Pre-trained model
         K.clear_session()
         with tf.Graph().as_default():
