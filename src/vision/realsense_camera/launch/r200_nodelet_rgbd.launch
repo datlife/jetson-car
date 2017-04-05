@@ -109,4 +109,10 @@
 
   </group> <!-- camera -->
 
+    <node pkg="topic_tools" type="drop" name="dropRGB"
+        args= "camera/rgb/image_rect_color 1 2 camera/rgb/image_rect_color_drop" />
+
+    <node pkg="topic_tools" type="drop" name="dropDepth"
+        args= "camera/depth/image_rect_raw 1 2 camera/depth/image_rect_raw_drop" />
+
 </launch>

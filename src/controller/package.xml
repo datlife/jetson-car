@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>perception</name>
+  <name>controller</name>
   <version>0.0.0</version>
   <description>Activate autonomous/manual mode</description>
   <maintainer email="tdat.nguyen93@gmail.com">Dat Nguyen</maintainer>

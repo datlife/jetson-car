@@ -1,0 +1,4 @@
+<launch>
+     <node pkg="record_data" type="recorder.py" name="recorder_node" output="screen"/>
+     <node pkg="rosbag" type="record" name="record_bag"  args="record -o /home/nvidia/bag/img /recorder" />
+</launch>

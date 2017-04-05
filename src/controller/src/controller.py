@@ -17,7 +17,7 @@ def callback(joy):
     if joy.buttons[7] == 1:
         if autonomous is False:
             autonomous = True
-            activate_pilot = subprocess.Popen('roslaunch perception autopilot.launch', stdin=subprocess.PIPE, shell=True)
+            activate_pilot = subprocess.Popen('roslaunch controller autopilot.launch', stdin=subprocess.PIPE, shell=True)
             print("\n\nStarting Autonomous Mode.")
         else:
             print("\nAutonomous has been activated already..\n")

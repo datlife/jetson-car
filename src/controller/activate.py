@@ -52,9 +52,8 @@ def load_model(args):
     return model
 
 if __name__ == "__main__":
-    args = '/home/nvidia/jetson-car/src/perception/src/cnn.json'
+    args = '/home/nvidia/jetson-car/src/controller/src/cnn.json'
     print("Activating AutoPilot model..\n")
     pilot = Pilot(lambda: load_model(args), drive)
-    rospy.spin() 
-
+    rospy.spin()
 

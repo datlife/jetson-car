@@ -1,7 +1,7 @@
 <launch>
 
- <!-- launch usb_cam launchfile -->
- <include file="$(find usb_cam)/launch/usb_cam.launch" />
+ <!-- launch realsense_cam launchfile -->
+ <include file="$(find realsense_camera)/launch/start.launch" />
 
  <!-- Serial Arduino Node -->
   <node pkg="rosserial_python" type="serial_node.py" name="serial_node">
@@ -20,13 +20,13 @@
   </node>
 
  <!-- Pilot Node -->
-  <node pkg="perception" name="autonomous_controller" type="controller.py" output="screen"/>
+  <node pkg="controller" name="autonomous_controller" type="controller.py" output="screen"/>
 
   <!-- Perception Node -->
-  <param name="axis_linear" value="3" type="int"/>
-  <param name="axis_angular" value="0" type="int"/>
   <param name="scale_linear" value="0.5" type="double"/>
   <param name="scale_angular" value="1.0" type="double"/>
+  <param name="axis_linear" value="3" type="int"/>
+  <param name="axis_angular" value="0" type="int"/>
 
-  <node pkg="perception" type="perception_node" name="jetson_teleop"/>
+  <node pkg="controller" type="controller_node" name="jetson_teleop"/>
 </launch>

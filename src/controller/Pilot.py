@@ -15,6 +15,7 @@ import numpy as np
 import cv2
 import threading
 import time
+
 # ROS libraries
 import roslib
 import rospy
@@ -37,38 +38,39 @@ class Pilot:
         self.model = None
         self.get_model = get_model_call_back
         self.predict = model_callback
-	self.completed_cycle = False
-	self.start = 0.
+        self.completed_cycle = False
+        self.start = 0.
+        self.lock = threading.RLock()
+
         # Load Keras Model - Publish topic - CarController
         rospy.init_node("pilot_steering_model", anonymous=True)
         self.joy = rospy.Subscriber('joy', Joy, self.joy_callback)
         self.control_signal = rospy.Publisher('/car_controller', CarController, queue_size=1)
-        self.camera = rospy.Subscriber('/usb_cam/image_raw', Image, self.callback, queue_size=1)
+        self.camera = rospy.Subscriber('/camera/rgb/image_rect_color', Image, self.callback, queue_size=1)
+
         # Lock which waiting for Keras model to make prediction
-        self.lock = threading.RLock()
         rospy.Timer(rospy.Duration(0.005), self.send_control)
 
     def joy_callback(self, joy):
         global throttle
-        throttle = joy.axes[3]
+        throttle = joy.axes[3] # Let user can manual throttle
 
     def callback(self, camera):
         global steering, throttle
         if self.lock.acquire(True):
-	    image = cv_bridge.imgmsg_to_cv2(camera)
-            self.image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            self.image = cv_bridge.imgmsg_to_cv2(camera)
             if self.model is None:
                 self.model = self.get_model()
             steering, _ = self.predict(self.model, self.image)
-	    self.completed_cycle = True
+            self.completed_cycle = True
             self.lock.release()
 
     def send_control(self, event):
         global steering, throttle
         if self.image is None:
             return
-	if self.completed_cycle is False:
-	    return
+        if self.completed_cycle is False:
+            return
         # Publish a rc_car_msgs
         msg = CarController()
         msg.header.stamp = rospy.Time.now()
@@ -76,6 +78,6 @@ class Pilot:
         msg.throttle = throttle
         self.control_signal.publish(msg)
         print "Steer: {:5.4f} Throttle {:5.4f}".format(steering, throttle)
-	self.completed_cycle = False
+        self.completed_cycle = False
 
 
