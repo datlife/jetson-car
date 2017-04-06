@@ -13,9 +13,6 @@ Repository Contents
 * **`/setup`** - Firmwares for Teensy 3.2 & SparkFun IMU Sensor + Set up instructions for Jetson TK1
 * **`/src`** - ROS source directory (ROS Nodes and Launch files)
 * **`/utils`** - Some unittest files to make sure the car is functional
-* **`/Autopilot.py`** - Demo how the Autopilot model is built
-* **`/FLAGS.py`** - hyper-parameters and configurations for training
-* **`/drive.py`** - Demo on how to enable Jetson run autonomously. In practice, this script is activated through ROS launch.
 
 ### System Architecture
 -----------------------
