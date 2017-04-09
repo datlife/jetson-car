@@ -53,7 +53,7 @@ JetsonHacks provides many helpful scripts to automate the process. I will avoid 
 
  1. Install stock OS using [JetPack 3.0](https://developer.nvidia.com/embedded/jetpack) (Ubuntu 16.04 + CUDA 8.0 + cuDNN v5 + OpenCV4Tegra)
  2. Install [postFlash](https://github.com/jetsonhacks/postFlash) (Enabled USB 3.0, some helpful tools for development) 
- 4. Install [ROS Kinetic & Teensy Driver for Jetson TK1](https://raw.githubusercontent.com/dat-ai/jetson-car/master/setup/tk1_ros_setup.sh) - Run this script on TK1
+ 4. Install [ROS Kinetic & Teensy Driver for Jetson TK1](https://github.com/dat-ai/jetson-car/blob/master/setup/tx2_ros_install.sh) - Run this script on TX2.
  5. Clone this repo and set up ROS workspace
  
 ```shell
