@@ -78,7 +78,7 @@ while not rospy.is_shutdown():
     if image is None:
       	continue
     # Convert image to RGB color space
-#    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     # Create image filename for current frame
     timestamp = rospy.get_rostime()
     # RGB image

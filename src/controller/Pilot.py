@@ -59,6 +59,7 @@ class Pilot:
         global steering, throttle
         if self.lock.acquire(True):
             self.image = cv_bridge.imgmsg_to_cv2(camera)
+	    self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
             if self.model is None:
                 self.model = self.get_model()
             steering, _ = self.predict(self.model, self.image)

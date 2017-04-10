@@ -128,7 +128,7 @@ class DatNet(object):
         x = Dropout(0.5)(x)
         x = Dense(256, name='fc3', activation='relu')(x)
         x = Dropout(0.5)(x)
-        x = Dense(OUTPUT_DIM, name='output_2')(x)
+        x = Dense(3, name='output_1')(x)
         model = Model(input=frame, output=x)
 
         # Load weight manually
