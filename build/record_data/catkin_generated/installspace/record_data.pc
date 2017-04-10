@@ -1,0 +1,8 @@
+prefix=/home/nvidia/jetson-car/install
+
+Name: record_data
+Description: Description of record_data
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/nvidia/jetson-car/install/lib 
+Requires: rospy rc_car_msgs std_msgs

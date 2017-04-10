@@ -1,0 +1,8 @@
+prefix=/home/nvidia/jetson-car/devel
+
+Name: controller
+Description: Description of controller
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/nvidia/jetson-car/devel/lib 
+Requires: rc_car_msgs joy roscpp

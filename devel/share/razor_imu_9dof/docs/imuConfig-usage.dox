@@ -1,0 +1,7 @@
+\subsubsection usage Usage
+\verbatim
+<node name="razor_imu_9dof" pkg="razor_imu_9dof" type="razor_imu_9dof">
+  <param name="yaw_calibration" type="double" value="0.0" />
+</node>
+\endverbatim
+

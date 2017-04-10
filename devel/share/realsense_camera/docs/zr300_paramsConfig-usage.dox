@@ -1,0 +1,45 @@
+\subsubsection usage Usage
+\verbatim
+<node name="realsense_camera" pkg="realsense_camera" type="realsense_camera">
+  <param name="enable_depth" type="bool" value="True" />
+  <param name="color_backlight_compensation" type="int" value="0" />
+  <param name="color_brightness" type="int" value="0" />
+  <param name="color_contrast" type="int" value="50" />
+  <param name="color_exposure" type="int" value="166" />
+  <param name="color_gain" type="int" value="64" />
+  <param name="color_gamma" type="int" value="300" />
+  <param name="color_hue" type="int" value="0" />
+  <param name="color_saturation" type="int" value="64" />
+  <param name="color_sharpness" type="int" value="50" />
+  <param name="color_white_balance" type="int" value="4600" />
+  <param name="r200_lr_gain" type="int" value="400" />
+  <param name="r200_lr_exposure" type="int" value="164" />
+  <param name="color_enable_auto_exposure" type="int" value="1" />
+  <param name="color_enable_auto_white_balance" type="int" value="1" />
+  <param name="r200_lr_auto_exposure_enabled" type="int" value="0" />
+  <param name="r200_emitter_enabled" type="int" value="1" />
+  <param name="r200_depth_clamp_min" type="int" value="0" />
+  <param name="r200_depth_clamp_max" type="int" value="65535" />
+  <param name="fisheye_exposure" type="int" value="40" />
+  <param name="fisheye_gain" type="int" value="0" />
+  <param name="fisheye_enable_auto_exposure" type="int" value="1" />
+  <param name="fisheye_auto_exposure_mode" type="int" value="0" />
+  <param name="fisheye_auto_exposure_antiflicker_rate" type="int" value="60" />
+  <param name="fisheye_auto_exposure_pixel_sample_rate" type="int" value="1" />
+  <param name="fisheye_auto_exposure_skip_frames" type="int" value="2" />
+  <param name="frames_queue_size" type="int" value="20" />
+  <param name="hardware_logger_enabled" type="int" value="0" />
+  <param name="r200_dc_preset" type="int" value="5" />
+  <param name="r200_dc_estimate_median_decrement" type="int" value="5" />
+  <param name="r200_dc_estimate_median_increment" type="int" value="5" />
+  <param name="r200_dc_median_threshold" type="int" value="235" />
+  <param name="r200_dc_score_minimum_threshold" type="int" value="27" />
+  <param name="r200_dc_score_maximum_threshold" type="int" value="420" />
+  <param name="r200_dc_texture_count_threshold" type="int" value="8" />
+  <param name="r200_dc_texture_difference_threshold" type="int" value="80" />
+  <param name="r200_dc_second_peak_threshold" type="int" value="70" />
+  <param name="r200_dc_neighbor_threshold" type="int" value="90" />
+  <param name="r200_dc_lr_threshold" type="int" value="12" />
+</node>
+\endverbatim
+

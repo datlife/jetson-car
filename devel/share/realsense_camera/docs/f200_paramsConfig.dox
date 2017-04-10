@@ -1,0 +1,23 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~enable_depth" : \b [bool] Enable Depth min: False, default: True, max: True
+- \b "~color_backlight_compensation" : \b [int] Backlight Compensation min: 0, default: 1, max: 4
+- \b "~color_brightness" : \b [int] Brightness min: 0, default: 55, max: 255
+- \b "~color_contrast" : \b [int] Contrast min: 16, default: 32, max: 64
+- \b "~color_gain" : \b [int] Gain min: 64, default: 64, max: 2540
+- \b "~color_gamma" : \b [int] Gamma min: 100, default: 220, max: 280
+- \b "~color_hue" : \b [int] Hue min: -22, default: 0, max: 22
+- \b "~color_saturation" : \b [int] Saturation min: 0, default: 128, max: 255
+- \b "~color_sharpness" : \b [int] Sharpness min: 0, default: 0, max: 7
+- \b "~color_white_balance" : \b [int] White Balance min: 2500, default: 3200, max: 6500
+- \b "~color_exposure" : \b [int] Exposure min: 39, default: 156, max: 10000
+- \b "~color_enable_auto_white_balance" : \b [int] Enable Auto White Balance min: 0, default: 1, max: 1
+- \b "~color_enable_auto_exposure" : \b [int] Enable Auto Exposure min: 0, default: 1, max: 1
+- \b "~f200_laser_power" : \b [int] Laser Power min: 0, default: 16, max: 16
+- \b "~f200_accuracy" : \b [int] Accuracy min: 1, default: 2, max: 3
+- \b "~f200_motion_range" : \b [int] Motion Range min: 0, default: 1, max: 100
+- \b "~f200_filter_option" : \b [int] Filter Option min: 0, default: 5, max: 7
+- \b "~f200_confidence_threshold" : \b [int] Confidence Threshold min: 0, default: 6, max: 15
+

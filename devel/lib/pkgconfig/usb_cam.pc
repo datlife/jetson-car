@@ -1,0 +1,8 @@
+prefix=/home/nvidia/jetson-car/devel
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.3.4
+Cflags: -I/home/nvidia/jetson-car/src/vision/usb_cam/include
+Libs: -L/home/nvidia/jetson-car/devel/lib -lusb_cam
+Requires: 

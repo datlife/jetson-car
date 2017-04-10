@@ -1,0 +1,34 @@
+\subsubsection usage Usage
+\verbatim
+<node name="realsense_camera" pkg="realsense_camera" type="realsense_camera">
+  <param name="enable_depth" type="bool" value="True" />
+  <param name="color_backlight_compensation" type="int" value="0" />
+  <param name="color_brightness" type="int" value="0" />
+  <param name="color_contrast" type="int" value="50" />
+  <param name="color_gain" type="int" value="64" />
+  <param name="color_gamma" type="int" value="300" />
+  <param name="color_hue" type="int" value="0" />
+  <param name="color_saturation" type="int" value="64" />
+  <param name="color_sharpness" type="int" value="50" />
+  <param name="color_white_balance" type="int" value="4600" />
+  <param name="color_enable_auto_white_balance" type="int" value="1" />
+  <param name="color_exposure" type="int" value="156" />
+  <param name="color_enable_auto_exposure" type="int" value="1" />
+  <param name="f200_laser_power" type="int" value="16" />
+  <param name="f200_accuracy" type="int" value="1" />
+  <param name="f200_motion_range" type="int" value="9" />
+  <param name="f200_filter_option" type="int" value="5" />
+  <param name="f200_confidence_threshold" type="int" value="3" />
+  <param name="sr300_auto_range_enable_motion_versus_range" type="int" value="1" />
+  <param name="sr300_auto_range_enable_laser" type="int" value="1" />
+  <param name="sr300_auto_range_min_motion_versus_range" type="int" value="180" />
+  <param name="sr300_auto_range_max_motion_versus_range" type="int" value="605" />
+  <param name="sr300_auto_range_start_motion_versus_range" type="int" value="303" />
+  <param name="sr300_auto_range_min_laser" type="int" value="2" />
+  <param name="sr300_auto_range_max_laser" type="int" value="16" />
+  <param name="sr300_auto_range_start_laser" type="int" value="-1" />
+  <param name="sr300_auto_range_upper_threshold" type="int" value="1250" />
+  <param name="sr300_auto_range_lower_threshold" type="int" value="650" />
+</node>
+\endverbatim
+

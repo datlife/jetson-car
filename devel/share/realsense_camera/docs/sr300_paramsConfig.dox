@@ -1,0 +1,33 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~enable_depth" : \b [bool] Enable Depth min: False, default: True, max: True
+- \b "~color_backlight_compensation" : \b [int] Backlight Compensation min: 0, default: 0, max: 4
+- \b "~color_brightness" : \b [int] Brightness min: -64, default: 0, max: 64
+- \b "~color_contrast" : \b [int] Contrast min: 0, default: 50, max: 100
+- \b "~color_gain" : \b [int] Gain min: 0, default: 64, max: 128
+- \b "~color_gamma" : \b [int] Gamma min: 100, default: 300, max: 500
+- \b "~color_hue" : \b [int] Hue min: -180, default: 0, max: 180
+- \b "~color_saturation" : \b [int] Saturation min: 0, default: 64, max: 100
+- \b "~color_sharpness" : \b [int] Sharpness min: 0, default: 50, max: 100
+- \b "~color_white_balance" : \b [int] White Balance min: 2800, default: 4600, max: 6500
+- \b "~color_enable_auto_white_balance" : \b [int] Enable Auto White Balance min: 0, default: 1, max: 1
+- \b "~color_exposure" : \b [int] Exposure min: 39, default: 156, max: 10000
+- \b "~color_enable_auto_exposure" : \b [int] Enable Auto Exposure min: 0, default: 1, max: 1
+- \b "~f200_laser_power" : \b [int] Laser Power min: 0, default: 16, max: 16
+- \b "~f200_accuracy" : \b [int] Accuracy min: 1, default: 1, max: 3
+- \b "~f200_motion_range" : \b [int] Motion Range min: 0, default: 9, max: 100
+- \b "~f200_filter_option" : \b [int] Filter Option min: 0, default: 5, max: 7
+- \b "~f200_confidence_threshold" : \b [int] Confidence Threshold min: 0, default: 3, max: 15
+- \b "~sr300_auto_range_enable_motion_versus_range" : \b [int] Enable Motion Versus Range min: 0, default: 1, max: 2
+- \b "~sr300_auto_range_enable_laser" : \b [int] Enable Laser min: 0, default: 1, max: 1
+- \b "~sr300_auto_range_min_motion_versus_range" : \b [int] Min Motion Versus Range min: -32767, default: 180, max: 32767
+- \b "~sr300_auto_range_max_motion_versus_range" : \b [int] Max Motion Versus Range min: -32767, default: 605, max: 32767
+- \b "~sr300_auto_range_start_motion_versus_range" : \b [int] Start Motion Versus Range min: -32767, default: 303, max: 32767
+- \b "~sr300_auto_range_min_laser" : \b [int] Min Laser min: -32767, default: 2, max: 32767
+- \b "~sr300_auto_range_max_laser" : \b [int] Max Laser min: -32767, default: 16, max: 32767
+- \b "~sr300_auto_range_start_laser" : \b [int] Start Laser min: -32767, default: -1, max: 32767
+- \b "~sr300_auto_range_upper_threshold" : \b [int] Upper Threshold min: 0, default: 1250, max: 65535
+- \b "~sr300_auto_range_lower_threshold" : \b [int] Lower Threshold min: 0, default: 650, max: 65535
+

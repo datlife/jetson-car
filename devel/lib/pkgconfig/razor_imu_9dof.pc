@@ -1,0 +1,8 @@
+prefix=/home/nvidia/jetson-car/devel
+
+Name: razor_imu_9dof
+Description: Description of razor_imu_9dof
+Version: 1.1.1
+Cflags: -I/home/nvidia/jetson-car/devel/include
+Libs: -L/home/nvidia/jetson-car/devel/lib 
+Requires: dynamic_reconfigure
