@@ -1,2 +1,0 @@
-controller:navigation/razor_imu:rc_car_msgs:record_data:vision/realsense_camera:vision/usb_cam
--DCATKIN_DEVEL_PREFIX=/home/nvidia/jetson-car/devel -DCMAKE_INSTALL_PREFIX=/home/nvidia/jetson-car/install -G Unix Makefiles

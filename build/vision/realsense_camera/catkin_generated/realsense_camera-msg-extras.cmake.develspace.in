@@ -1,2 +1,0 @@
-set(realsense_camera_MESSAGE_FILES "/home/nvidia/jetson-car/src/vision/realsense_camera/msg/IMUInfo.msg")
-set(realsense_camera_SERVICE_FILES "/home/nvidia/jetson-car/src/vision/realsense_camera/srv/CameraConfiguration.srv;/home/nvidia/jetson-car/src/vision/realsense_camera/srv/ForcePower.srv;/home/nvidia/jetson-car/src/vision/realsense_camera/srv/SetPower.srv;/home/nvidia/jetson-car/src/vision/realsense_camera/srv/IsPowered.srv;/home/nvidia/jetson-car/src/vision/realsense_camera/srv/GetIMUInfo.srv")

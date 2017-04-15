@@ -1,8 +1,0 @@
-prefix=/home/nvidia/jetson-car/install
-
-Name: realsense_camera
-Description: Description of realsense_camera
-Version: 1.8.0
-Cflags: -I/home/nvidia/jetson-car/install/include
-Libs: -L/home/nvidia/jetson-car/install/lib -lrealsense_camera_nodelet
-Requires: std_msgs message_runtime sensor_msgs librealsense

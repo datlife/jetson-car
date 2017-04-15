@@ -1,8 +1,0 @@
-prefix=/home/nvidia/jetson-car/install
-
-Name: rc_car_msgs
-Description: Description of rc_car_msgs
-Version: 0.0.0
-Cflags: -I/home/nvidia/jetson-car/install/include
-Libs: -L/home/nvidia/jetson-car/install/lib 
-Requires: message_runtime std_msgs sensor_msgs
