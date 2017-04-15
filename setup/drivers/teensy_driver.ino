@@ -25,9 +25,9 @@
 
 //===================================DEFAULT SERVO VALUES=====================================
 //Constant ESC SERVO values
-#define MAX_FORWARD    1700 //120     //MAX SPEED signal         (pulse = 2000ms)
+#define MAX_FORWARD    1900 //120     //MAX SPEED signal         (pulse = 2000ms)
 #define NEUTRAL        1500 //95      //NEUTRAL signal           (pulse = 1500ms)
-#define MAX_REVERSE    1300 //60      //MAX REVERSE SPEED signal (pulse = 1000ms)
+#define MAX_REVERSE    1100 //60      //MAX REVERSE SPEED signal (pulse = 1000ms)
 
 //Constant STEERING SERVO values
 #define MAX_LEFT       140
@@ -46,12 +46,12 @@ ros::NodeHandle nh_;
 void drive_callback(const rc_car_msgs::CarInfo& signal);
 void control_steering(const rc_car_msgs::CarInfo&);
 void control_esc(const rc_car_msgs::CarInfo& signal);
-int convert_signal(double, double, double, double , double);
+int  convert_signal(double, double, double, double , double);
 
 ros::Subscriber<rc_car_msgs::CarInfo> driveSubscriber("/car_info", &drive_callback) ;
 
 void setup(){
-    // Connect ESC and Steering Servo to PIN 7 and 8 respectively
+    // Connect ESC and Steering Servo to correct PIN
     ESC.attach(RC_ESC_PIN);
     STEER_SERVO.attach(RC_STEER_PIN);
 
