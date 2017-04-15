@@ -15,3 +15,5 @@ sudo apt-get -y install ros-kinetic-cv-bridge ros-kinetic-cv-camera ros-kinetic-
 # sudo apt-get install ros-indigo-usb-cam -y
 
 # Remove headers /usr/src since they DO NOT match Jetson TX2.
+cd /usr/src
+sudo rm -rf linux-headers-4.4.0-72* uvcvideo-1.1.1-3-realsense/
