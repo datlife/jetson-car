@@ -1,4 +1,4 @@
-# How to Set Up Jetson Car in 10 minutes
+# How to Set Up Jetson Car
 
 This README will walk through how to set up Jetson Car.
 
@@ -18,11 +18,12 @@ cd ./setup
 sudo ./scripts/1_installRos.sh
 sudo ./scripts/2_installDependencies.sh
 ```
-
+------------------------------------
 ### Install Realsense Camera Library
 http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
 
 
+----------------------------------------------
 ### Build Custom Kernel Modules on Jetson TX2
 
 The purpose is to allow NVIDIA Jetson detect additional image formats from Stereo Camera Intel Realsense, by enabling **USB Video Class Module**.
@@ -48,6 +49,7 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 * Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`)
 * Enable `USB CH341` chipset when configuring Kernel Module
 
+-------------------------------
 ###  Build catkinw_ws workspace
 cd jetson-car/src/
 catkin_init_make
