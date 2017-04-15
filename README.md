@@ -31,14 +31,14 @@ Repository Contents
 #### Hardwares: 
 * Note: I am working on Bill of Materials. Stay tuned!
 
-1. A RC Car - [RedCat Volcano EPX](https://www.amazon.com/Redcat-Racing-Electric-Volcano-Included/dp/B00HVBVNVG/ref=sr_1_2?ie=UTF8&qid=1487805887&sr=8-2&keywords=RedCat+Volcano+EPX) (stock - no mod) + [Extra battery](https://www.amazon.com/Redcat-Racing-HX-3800MH-B-Battery-7-2V-Connector/dp/B00D2539IU/ref=sr_1_1?ie=UTF8&qid=1487805956&sr=8-1&keywords=Redcat-Racing+HX-3800MH)
+1. An RC Car - [RedCat Volcano EPX](https://www.amazon.com/Redcat-Racing-Electric-Volcano-Included/dp/B00HVBVNVG/ref=sr_1_2?ie=UTF8&qid=1487805887&sr=8-2&keywords=RedCat+Volcano+EPX) (stock - no mod) + [Extra battery](https://www.amazon.com/Redcat-Racing-HX-3800MH-B-Battery-7-2V-Connector/dp/B00D2539IU/ref=sr_1_1?ie=UTF8&qid=1487805956&sr=8-1&keywords=Redcat-Racing+HX-3800MH)
 2. NVIDIA Jetson TX2
 3. Teensy 3.2
 4. Intel RealSense R200
-5. A Webcam (with H264 encoding capability) - Logitech C920
+5. USB Webcam Logitech C920
 6. Razor IMU 9DoF
-7. A 7-port USB Hub
-8. A battery 
+7. Anker 4-port USB 3.0 Hub
+8. RAVPower 23000mAh Power Bank
 
 #### Softwares:
 
@@ -53,18 +53,18 @@ Repository Contents
  
 #### Software Setup
 
-JetsonHacks provides many helpful scripts to automate the process. I will avoid to reproduce his wonderful works.
-
  1. Install stock OS using [JetPack 3.0](https://developer.nvidia.com/embedded/jetpack) (Ubuntu 16.04 + CUDA 8.0 + cuDNN v5 + OpenCV4Tegra)
- 2. Install [postFlash](https://github.com/jetsonhacks/postFlash) (Enabled USB 3.0, some helpful tools for development) 
- 4. Install [ROS Kinetic & Teensy Driver for Jetson TK1](https://github.com/dat-ai/jetson-car/blob/master/setup/tx2_ros_install.sh) - Run this script on TX2.
- 5. Clone this repo and set up ROS workspace
  
-```shell
+ 2. Clone this repo:
+ ```shell
 # Clone the repo
 cd ~
 git clone https://github.com/dat-ai/jetson-car
+```
 
+3. Run setup script to install [ROS Kinetic & Teensy Driver for Jetson TK1](https://github.com/dat-ai/jetson-car/blob/master/setup/tx2_ros_install.sh) - Run this script on TX2.
+ 
+```
 # Set up standard ROS workspace
 cd jetson-car/src/
 catkin_init_make
