@@ -1,9 +1,23 @@
-# How to Set Up the Car
+# How to Set Up Jetson Car in 10 minutes
 
-1. [Create Custom Kernel Modules](./1_build_custom_kernel.md)
-2. [Install ROS Kinetic](./2_install_ros.md)
+This README will walk through how to set up Jetson Car.
 
+### Prerequisites:
 
+1. Installed OS from JetPack 3.0
+
+------------------------------------
+### Install ROS Kinetic
+
+* Execute [scrtips/ros_setup.sh](https://github.com/dat-ai/jetson-car/blob/master/setup/tx2_ros_install.sh) to install ROS Kinetic on Jetson automatically.
+ 
+```
+# Set up standard ROS workspace
+cd jetson-car/src/
+catkin_init_make
+cd ..
+catkin_make
+```
 ### Install Realsense Camera Library
 http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
 
