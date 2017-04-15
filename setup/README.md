@@ -7,11 +7,12 @@ This README will walk through how to set up Jetson Car.
 1. Installed OS from JetPack 3.0
 
 ------------------------------------
-### Install ROS Kinetic
+### Install ROS Kinetic & Dedenpencies
 
-* Execute [`scripts/1_installRos.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/tx2_ros_install.sh) to install ROS Kinetic on Jetson automatically.
+* Execute [`scripts/1_installRos.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/1_installRos.sh) and [`scripts/2_installDependencies.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/2_installDependencies.sh) to run automatically.
 ```
 sudo ./scripts/1_installRos.sh
+sudo ./scripts/2_installDependencies.sh
 ```
 
 ### Install Realsense Camera Library
