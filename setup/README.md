@@ -9,8 +9,12 @@ This README will walk through how to set up Jetson Car.
 ------------------------------------
 ### Install ROS Kinetic & Dedenpencies
 
+
 * Execute [`scripts/1_installRos.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/1_installRos.sh) and [`scripts/2_installDependencies.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/2_installDependencies.sh) to run automatically.
 ```
+# Optional: make sure you are in `setup` directorty
+cd ./setup
+
 sudo ./scripts/1_installRos.sh
 sudo ./scripts/2_installDependencies.sh
 ```
