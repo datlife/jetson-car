@@ -26,3 +26,6 @@ rosdep update
 # Environment Setup
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
+
+# Install rosinstall
+sudo apt-get -y install python-rosinstall
