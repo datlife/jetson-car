@@ -1,5 +1,5 @@
 #!/bin/bash
-#Install Robot Operating System (ROS) on NVIDIA Jetson
+# Install Robot Operating System (ROS) on NVIDIA Jetson
 # Setup Locale
 sudo update-locale LANG=C LANGUAGE=C LC_ALL=C LC_MESSAGES=POSIX
 
@@ -11,32 +11,18 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C
 
 # Installation
 sudo apt-get update
-sudo apt-get  --allow-unauthenticated install ros-kinetic-ros-base -y
+sudo apt-get  -y install ros-kinetic-ros-base
 
 # Initialize rosdep
-sudo apt-get  --allow-unauthenticated install python-rosdep -y
+sudo apt-get  -y install python-rosdep
+
+# There were some issues with Jeton TX2 Certificates, this is a workaround to run rosdep init
 sudo c_rehash /etc/ssl/certs
 sudo rosdep init
 
 # To find available packages, use:
 rosdep update
+
 # Environment Setup
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
-
-
-# Install rosinstall
-sudo apt-get  --allow-unauthenticated install python-rosinstall -y
-
-######################## Install Jetson Car Dependencies ###################################
-sudo apt-get  --allow-unauthenticated install gcc-avr -y
-sudo apt-get  --allow-unauthenticated install arduino -y
-sudo apt-get  --allow-unauthenticated install ros-kinetic-rosserial-arduino ros-kinetic-rosserial ros-kinetic-angles -y
-sudo apt-get  --allow-unauthenticated install ros-kinetic-joy -y
-# sudo apt-get install ros-indigo-usb-cam -y 
-
-# The current ROS version of librealsense
-sudo apt-get install ros-kinetic-librealsense -y
-sudo apt-get install ros-kinetic-cv-bridge ros-kinetic-cv-camera ros-kinetic-jsk-pcl-ros-utils ros-kinetic-roslint -y
-
-# Remove headers /usr/src since they DO NOT match Jetson TX2.
