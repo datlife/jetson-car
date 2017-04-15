@@ -50,41 +50,10 @@ Repository Contents
 
 ### Installation Guide: (To be Updated)
 ----------------------
- 
-#### Software Setup
+Please check `setup/README.md`
 
- 1. Install stock OS using [JetPack 3.0](https://developer.nvidia.com/embedded/jetpack) (Ubuntu 16.04 + CUDA 8.0 + cuDNN v5 + OpenCV4Tegra)
- 
- 2. Clone this repo:
- ```shell
-# Clone the repo
-cd ~
-git clone https://github.com/dat-ai/jetson-car
-```
-
-3. Run setup script to install [ROS Kinetic & Teensy Driver for Jetson TK1](https://github.com/dat-ai/jetson-car/blob/master/setup/tx2_ros_install.sh) - Run this script on TX2.
- 
-```
-# Set up standard ROS workspace
-cd jetson-car/src/
-catkin_init_make
-cd ..
-catkin_make
-```
-
- 6. Set up ROS environment
-```shell
-# Add this line to the end of ./.bashrc file
-echo "source jetson-car/devel/setup.bash" >> ~/.bashrc
-```
-
-#### Hardware Setup
-
-##### 1. Install Teensy Driver
-##### 2. Install IMU Razor 9DoF
-
-### Test AutoPilot
-------------------
+### How to use
+--------------
 
 * Open a new terminal
 ```shell
@@ -93,15 +62,12 @@ roscore
 
 * Open another new terminal
 ```shell
-roslaunch jetson_joystick jetson_joystick.launch
+roslaunch controller manual.launch
 ```
 
-* Activate Autopilot
-```shell
-cd jetson-car
-# Load pre-train model and drive autonomously
-python drive.py model/cnn.json
-```
+* From Joystick, press Right Trigger button to activate Autopilot 
+* In order to stop, press the small Right button to stop Autopilot
+
 
 ### Author(s):
 --------------
