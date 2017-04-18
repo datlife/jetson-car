@@ -4,9 +4,9 @@ How to Set Up Jetson Car
 This README will walk through how to set up Jetson Car.
 
 
+
 Hardware / Bill Of Materials
 ----------------------------
-* Note: I am working on Bill of Materials. Stay tuned!
 
 
 | **Item**                                         | **Unit** | **Price** | **Notes**                                                     |
@@ -23,6 +23,7 @@ Hardware / Bill Of Materials
 | M3 Male Female Standoff Screw Nut Assortment Kit | 2        | $9.79               |                                                               |
 
 
+
 Software
 --------
 
@@ -32,6 +33,8 @@ Software
 | ROS Kinetic for ARM     | kinetic-ros-bare     |
 | Keras                   | 2.0.2                |
 | TensorFlow              | 1.0.1                |
+
+
 
 
 
@@ -53,6 +56,8 @@ sudo ./scripts/2_installDependencies.sh
 http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
 
 
+
+
 #### 2. Build Custom Kernel Modules
 ----------------------------------
 
@@ -69,16 +74,21 @@ Follow instruction from JetsonHacks to create custom Kernel Modules for NVIDIA J
 http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2/
 
 
+
 **2.a. What the scripts do:**
 * Download and extract Kernel Source
 * Build Kernel Source
 * Copy Kernel to /boot
+
 
 **2.b. What do you need to to?**
 * Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`) in
 * Click `Ctrl F` to enable the following two Modules.
 * Enable `USB CH341` chipset
 * Enable `USB CDC ACM SUPPORT` to allow detect Arduino
+
+
+
 
 
 ####  3. Build catkinw_ws workspace
