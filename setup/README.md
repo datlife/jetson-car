@@ -50,14 +50,6 @@ sudo ./scripts/1_installRos.sh
 sudo ./scripts/2_installDependencies.sh
 ```
 
-
-#### 1. Install Realsense Library
---------------------------------
-http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
-
-
-
-
 #### 2. Build Custom Kernel Modules
 ----------------------------------
 
@@ -88,6 +80,15 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 * Enable `USB CDC ACM SUPPORT` to allow detect Arduino
 
 
+#### 1. Install Realsense Library
+--------------------------------
+http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
+
+
+
+* Install librealsense
+* Update kernel module to detect realsense format
+* 
 
 
 
