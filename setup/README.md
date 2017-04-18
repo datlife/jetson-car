@@ -7,16 +7,18 @@ This README will walk through how to set up Jetson Car.
 Hardware / Bill Of Materials
 ----------------------------
 * Note: I am working on Bill of Materials. Stay tuned!
-
-1. An RC Car - [RedCat Volcano EPX](https://www.amazon.com/Redcat-Racing-Electric-Volcano-Included/dp/B00HVBVNVG/ref=sr_1_2?ie=UTF8&qid=1487805887&sr=8-2&keywords=RedCat+Volcano+EPX) (stock - no mod) + [Extra battery](https://www.amazon.com/Redcat-Racing-HX-3800MH-B-Battery-7-2V-Connector/dp/B00D2539IU/ref=sr_1_1?ie=UTF8&qid=1487805956&sr=8-1&keywords=Redcat-Racing+HX-3800MH)
-2. NVIDIA Jetson TX2
-3. Teensy 3.2
-4. Intel RealSense R200
-5. USB Webcam Logitech C920
-6. Razor IMU 9DoF
-7. Anker 4-port USB 3.0 Hub
-8. RAVPower 23000mAh Power Bank
-
+| **Item**                                         | **Unit** | **Estimated Price** | **Notes**                                                     |
+|--------------------------------------------------|----------|---------------------|---------------------------------------------------------------|
+| RedCat Volcano EPX Brushed                       | 1        | $139.99             |                                                               |
+| NVIDIA Jetson TX2                                | 1        | $599.99             | If you are a student, you can apply for 50% student discount. |
+| Teensy 3.2                                       | 1        | $29.95              |                                                               |
+| Intel RealSense R200                             | 1        | $109.00             |                                                               |
+| Logitech C920 USB Webcam                         | 1        | $61.50              | H264 encoded MJPEG                                            |
+| Sparkfun Razor IMU 9DoF                          | 1        | $49.95              |                                                               |
+| Anker 4-Port USB 3.0 Ultra Slim                  | 1        | $9.99               |                                                               |
+| RAVPower 23000mAh Power Bank                     | 1        | $60                 | Used on Amazon                                                |
+| ABS Plastic 12'' x 12'' x 0.125''                | 2        | $9.85               |                                                               |
+| M3 Male Female Standoff Screw Nut Assortment Kit | 2        | $9.79               |                                                               |
 Software
 --------
 
