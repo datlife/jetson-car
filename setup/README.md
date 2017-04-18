@@ -69,6 +69,7 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 * Press `Ctrl F` to enable the following two Modules.
 * Enable `USB CH341` chipset
 * Enable `USB CDC ACM SUPPORT` to allow detect Teensy and IMU Driver
+* Enable `JOYDEV` to allow Joystick deteceted
 
 #### 2. Install ROS Kinetic
 
