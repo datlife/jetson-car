@@ -45,13 +45,15 @@ cd ./setup
 sudo ./scripts/1_installRos.sh
 sudo ./scripts/2_installDependencies.sh
 ```
-------------------------------------
-### Install Realsense Camera Library
+
+
+### 1. Install Realsense Library
+--------------------------------
 http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
 
 
-----------------------------------------------
-### Build Custom Kernel Modules on Jetson TX2
+### 2. Build Custom Kernel Modules
+----------------------------------
 
 The purpose is to allow NVIDIA Jetson detect additional image formats from Stereo Camera Intel Realsense
 
@@ -74,10 +76,13 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 
 **2. What do you need to to?**
 * Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`)
-* Enable `USB CH341` chipset when configuring Kernel Module
+* Enable `USB CH341` chipset
+* Enable `USB_ACM_CAM` chipset to allow detect Arduino
 
--------------------------------
+
 ###  Build catkinw_ws workspace
+-------------------------------
+
 ```
 cd jetson-car/src/
 catkin_init_make
