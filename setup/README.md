@@ -69,18 +69,18 @@ Follow instruction from JetsonHacks to create custom Kernel Modules for NVIDIA J
 http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2/
 ```
 
-**1. What the scripts do:**
+**2.a. What the scripts do:**
 * Download and extract Kernel Source
 * Build Kernel Source
 * Copy Kernel to /boot
 
-**2. What do you need to to?**
+**2.b. What do you need to to?**
 * Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`)
 * Enable `USB CH341` chipset
 * Enable `USB_ACM_CAM` chipset to allow detect Arduino
 
 
-###  Build catkinw_ws workspace
+###  3. Build catkinw_ws workspace
 -------------------------------
 
 ```
