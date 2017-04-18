@@ -9,10 +9,10 @@ Hardware / Bill Of Materials
 * Note: I am working on Bill of Materials. Stay tuned!
 
 
-| **Item**                                         | **Unit** | **Estimated Price** | **Notes**                                                     |
+| **Item**                                         | **Unit** | **Price** | **Notes**                                                     |
 |--------------------------------------------------|----------|---------------------|---------------------------------------------------------------|
 | RedCat Volcano EPX Brushed                       | 1        | $139.99             |                                                               |
-| NVIDIA Jetson TX2                                | 1        | $599.99             | If you are a student, you can apply for 50% student discount. |
+| NVIDIA Jetson TX2                                | 1        | $599.99             | If you are a student, you can apply for EDU discount. |
 | Teensy 3.2                                       | 1        | $29.95              |                                                               |
 | Intel RealSense R200                             | 1        | $109.00             |                                                               |
 | Logitech C920 USB Webcam                         | 1        | $61.50              | H264 encoded MJPEG                                            |
