@@ -78,7 +78,9 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 
 -------------------------------
 ###  Build catkinw_ws workspace
+```
 cd jetson-car/src/
 catkin_init_make
 cd ..
 catkin_make
+```
