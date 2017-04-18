@@ -26,11 +26,12 @@ Hardware / Bill Of Materials
 Software
 --------
 
-| Stock OS for Jetson TX2 |
-|-------------------------|
-| ROS Kinetic for ARM     |
-| Keras 2                 |
-| TensorFlow 1.0.1        |
+| Software                | Version              |
+|-------------------------|----------------------|
+| Stock OS for Jetson TX2 | JetPack 3.0 (27.0.1) |
+| ROS Kinetic for ARM     | kinetic-ros-bare     |
+| Keras                   | 2.0.2                |
+| TensorFlow              | 1.0.1                |
 
 
 
@@ -47,12 +48,12 @@ sudo ./scripts/2_installDependencies.sh
 ```
 
 
-### 1. Install Realsense Library
+#### 1. Install Realsense Library
 --------------------------------
 http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
 
 
-### 2. Build Custom Kernel Modules
+#### 2. Build Custom Kernel Modules
 ----------------------------------
 
 The purpose is to allow NVIDIA Jetson detect additional image formats from Stereo Camera Intel Realsense
@@ -80,7 +81,7 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 * Enable `USB_ACM_CAM` chipset to allow detect Arduino
 
 
-###  3. Build catkinw_ws workspace
+####  3. Build catkinw_ws workspace
 -------------------------------
 
 ```
