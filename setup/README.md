@@ -7,6 +7,8 @@ This README will walk through how to set up Jetson Car.
 Hardware / Bill Of Materials
 ----------------------------
 * Note: I am working on Bill of Materials. Stay tuned!
+
+
 | **Item**                                         | **Unit** | **Estimated Price** | **Notes**                                                     |
 |--------------------------------------------------|----------|---------------------|---------------------------------------------------------------|
 | RedCat Volcano EPX Brushed                       | 1        | $139.99             |                                                               |
