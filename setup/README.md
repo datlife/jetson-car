@@ -60,14 +60,14 @@ The purpose is to allow NVIDIA Jetson detect additional image formats from Stere
 One can understand kernel and kernel module in Linux as following:
 
 > **The kernel** is the code that is the base of the operating system, the interface between hardware and the application code.
+
 > **A kernel module** is code that can be accessed from the kernel on demand, without having to modify the kernel. These modules provide ancillary support for different types of devices and subsystems.
 - [jetsonhacks](http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/),
 ----
 
 Follow instruction from JetsonHacks to create custom Kernel Modules for NVIDIA Jetson
-```
 http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2/
-```
+
 
 **2.a. What the scripts do:**
 * Download and extract Kernel Source
