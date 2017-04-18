@@ -76,9 +76,10 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 * Copy Kernel to /boot
 
 **2.b. What do you need to to?**
-* Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`)
+* Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`) in
+* Click `Ctrl F` to enable the following two Modules.
 * Enable `USB CH341` chipset
-* Enable `USB_ACM_CAM` chipset to allow detect Arduino
+* Enable `USB CDC ACM SUPPORT` to allow detect Arduino
 
 
 ####  3. Build catkinw_ws workspace
