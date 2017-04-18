@@ -56,9 +56,8 @@ http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia
 #### 2. Build Custom Kernel Modules
 ----------------------------------
 
-The purpose is to allow NVIDIA Jetson detect additional image formats from Stereo Camera Intel Realsense
+The purpose is to allow NVIDIA Jetson detect additional image formats from Stereo Camera Intel Realsense, Teensy and IMU driver correctly.
 
-One can understand kernel and kernel module in Linux as following:
 
 > **The kernel** is the code that is the base of the operating system, the interface between hardware and the application code.
 
