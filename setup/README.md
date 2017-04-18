@@ -41,16 +41,7 @@ Software
 Installation Steps
 ------------------
 
-* Execute [`scripts/1_installRos.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/1_installRos.sh) and [`scripts/2_installDependencies.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/2_installDependencies.sh) to run automatically.
-```
-# Optional: make sure you are in `setup` directorty
-cd ./setup
-
-sudo ./scripts/1_installRos.sh
-sudo ./scripts/2_installDependencies.sh
-```
-
-#### 2. Build Custom Kernel Modules
+#### 1. Build Custom Kernel Modules
 ----------------------------------
 
 The purpose is to allow NVIDIA Jetson detect additional image formats from Stereo Camera Intel Realsense, Teensy and IMU driver correctly.
@@ -67,32 +58,42 @@ http://www.jetsonhacks.com/2017/03/25/build-kernel-and-modules-nvidia-jetson-tx2
 
 
 
-**2.a. What the scripts do:**
+**1.a. What the scripts do:**
 * Download and extract Kernel Source
 * Build Kernel Source
 * Copy Kernel to /boot
 
 
-**2.b. What do you need to to?**
+**1.b. What do you need to to?**
 * Create a custom kernel name (e.g `4.4.0-jetson-car-1.0`) in
 * Click `Ctrl F` to enable the following two Modules.
 * Enable `USB CH341` chipset
-* Enable `USB CDC ACM SUPPORT` to allow detect Arduino
+* Enable `USB CDC ACM SUPPORT` to allow detect Teensy and IMU Driver
 
+#### 2. Install ROS Kinetic
 
-#### 1. Install Realsense Library
+* Execute [`scripts/1_installRos.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/1_installRos.sh) and [`scripts/2_installDependencies.sh`](https://github.com/dat-ai/jetson-car/blob/master/setup/scripts/2_installDependencies.sh) to run automatically.
+```
+# Optional: make sure you are in `setup` directorty
+cd ./setup
+
+sudo ./scripts/1_installRos.sh
+sudo ./scripts/2_installDependencies.sh
+```
+
+#### 3. Install Realsense Library
 --------------------------------
 http://www.jetsonhacks.com/2017/03/26/intel-realsense-camera-installation-nvidia-jetson-tx2/
 
 
-
 * Install librealsense
 * Update kernel module to detect realsense format
-* 
+* Build new Kernel Module with patched from Intelcd 
 
+####  4. Install Intel Realsense ROS Package
+http://www.jetsonhacks.com/2017/03/29/intel-realsense-package-for-ros-on-nvidia-jetson-tx2/
 
-
-####  3. Build catkinw_ws workspace
+####  5. Build catkinw_ws workspace
 -------------------------------
 
 ```
