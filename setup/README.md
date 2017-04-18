@@ -21,13 +21,17 @@ Hardware / Bill Of Materials
 | RAVPower 23000mAh Power Bank                     | 1        | $60                 | Used on Amazon                                                |
 | ABS Plastic 12'' x 12'' x 0.125''                | 2        | $9.85               |                                                               |
 | M3 Male Female Standoff Screw Nut Assortment Kit | 2        | $9.79               |                                                               |
+
+
 Software
 --------
 
-1. Stock OS for Jetson TX2 (JetPack 3.0)
-3. ROS Kinetic for ARM (barebone version)
-4. Keras using TensorFlow as backend
-5. TensorFlow 1.0.1
+| Stock OS for Jetson TX2 |
+|-------------------------|
+| ROS Kinetic for ARM     |
+| Keras 2                 |
+| TensorFlow 1.0.1        |
+
 
 
 Installation Steps
