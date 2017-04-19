@@ -19,8 +19,8 @@ System Architecture
 </p>
 
 
-Installation Guide:
--------------------
+Setup Instruction:
+------------------
 Please check [`setup/README.md`](./setup/README.md)
 
 
@@ -37,7 +37,10 @@ roscore
 roslaunch controller manual.launch
 ```
 
+* Use joystick to test drive around
+
 * From Joystick, press Right Trigger button to activate Autopilot 
+
 * In order to stop, press the small Right button to stop Autopilot
 
 
