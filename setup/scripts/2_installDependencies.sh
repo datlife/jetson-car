@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Install Jetson Car Dependencies
 
@@ -14,6 +13,7 @@ sudo apt-get -y install ros-kinetic-cv-bridge ros-kinetic-cv-camera ros-kinetic-
 sudo apt-get -y install v4l-utils 
 
 # The current ROS version of librealsense
+# NOT WORKING yet
 # sudo apt-get -y install ros-kinetic-librealsense
 # Remove headers /usr/src since they DO NOT match Jetson TX2.
 # cd /usr/src

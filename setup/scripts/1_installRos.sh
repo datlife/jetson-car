@@ -18,7 +18,7 @@ sudo apt-get  -y install python-rosdep
 
 # There were some issues with Jeton TX2 Certificates, this is a workaround to run rosdep init
 sudo c_rehash /etc/ssl/certs
-sudo rosdep init
+rosdep init
 
 # To find available packages, use:
 rosdep update
