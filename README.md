@@ -39,7 +39,7 @@ roslaunch controller manual.launch
 
 * Use joystick to test drive around
 <p align="center">
-<img src="https://github.com/dat-ai/jetson-car/raw/master/docs/img/controller.png" width="640">
+<img src="https://github.com/dat-ai/jetson-car/raw/master/docs/img/controller.jpg" width="640">
 </p>
 * From Joystick, press Right Trigger button to activate Autopilot 
 
