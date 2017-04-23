@@ -3,7 +3,7 @@ Jetson Autonomous RC Car
 Autonomous RC Race Car using ROS and Keras/TensorFlow. Inspired by JetsonHacks
 
 <p align="center">
-<img src="https://github.com/dat-ai/jetson-car/raw/master/docs/img/jetson-car.jpg" width="720">
+<img src="https://github.com/dat-ai/jetson-car/raw/master/docs/img/car.png" width="720">
 </p>
 
 Repository Contents
