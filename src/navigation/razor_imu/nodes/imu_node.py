@@ -1,5 +1,13 @@
 #!/usr/bin/env python
 
+'''
+This node is used to publish the /imu node in ROS
+
+Hardware: 
+Sparksfun 9DoF IMU M0 (2017 - latest version)
+
+'''
+
 # Copyright (c) 2012, Tang Tiong Yew
 # All rights reserved.
 #
@@ -38,19 +46,12 @@ from sensor_msgs.msg import Imu
 from tf.transformations import quaternion_from_euler
 from dynamic_reconfigure.server import Server
 from razor_imu_9dof.cfg import imuConfig
-from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 
 PAUSE_LOGGING       =  b' '    #  Space - Pause SD/UART logging
 DISABLE_TIME        =  b't'    #  Disable time log (milliseconds)
 DISABLE_COMPASS     =  b'm'    #  Disable Compass
 ENABLE_QUAT         =  b'Q'
 ENABLE_EULER        =  b'E'
-
-# ENABLE_CALIB_MODE   =  b'x'   #  Enable Calibration mode **NOT WORKING YET**
-
-degrees2rad         =  math.pi/180.0
-imu_yaw_calibration = 0.
-accel_factor        = 9.806 / 256.0    # sensor reports accel as 256.0 = 1G (9.8m/s^2). Convert to m/s^2.
 
 # Covariance estimation:
 ORIENT_COVARIANCE = [
@@ -60,9 +61,9 @@ ORIENT_COVARIANCE = [
 ]
 
 ANGL_VEL_COVARIANCE = [
-    0.02, 0 , 0,
-    0 , 0.02, 0,
-    0 , 0 , 0.02
+0.02, 0 , 0,
+0 , 0.02, 0,
+0 , 0 , 0.02
 ]
 
 LIN_ACCEL_COVARIANCE = [
@@ -70,6 +71,9 @@ LIN_ACCEL_COVARIANCE = [
 0 , 0.04, 0,
 0 , 0 , 0.04
 ]
+
+
+imu_yaw_calibration = 0.
 # Callback for dynamic reconfigure requests
 def reconfig_callback(config, level):
     global imu_yaw_calibration
@@ -87,12 +91,11 @@ diag_pub = rospy.Publisher('diagnostics', DiagnosticArray, queue_size=1)
 diag_pub_time = rospy.get_time();
 
 # ################### SERIAL PORT SET UP ######################
-default_port='/dev/ttyUSB0'
-port = rospy.get_param('~port', default_port)
+default_port='/dev/ttyACM1'
 # Check your COM port and baud rate
-rospy.loginfo("Opening %s...", port)
+rospy.loginfo("Opening %s...", default_port)
 try:
-    ser = serial.Serial(port=port, baudrate=57600, timeout=1)
+    ser = serial.Serial(port=default_port, baudrate=115200, timeout=1)
 except serial.serialutil.SerialException:
     rospy.logerr("IMU not found at port "+port + ". Did you specify the correct port in the launch file?")
     #exit
@@ -125,19 +128,7 @@ magn_ellipsoid_center = rospy.get_param('~magn_ellipsoid_center', [0, 0, 0])
 magn_ellipsoid_transform = rospy.get_param('~magn_ellipsoid_transform', [[0, 0, 0], [0, 0, 0], [0, 0, 0]])
 imu_yaw_calibration = rospy.get_param('~imu_yaw_calibration', 0.0)
 
-'''
-NOT WORKING YET!
-# Start Calibration
-rospy.loginfo("Writing calibration values to razor IMU board... Please wait 8 seconds")
-ser.write(ENABLE_CALIB_MODE)
-ser.write(PAUSE_LOGGING)  # Enable Logging
-ser.flushInput()
-calib_data = ser.readlines()
-calib_data_print = "Printing set calibration values:\r\n"
-for line in calib_data:
-    calib_data_print += line
-rospy.loginfo(calib_data_print)
-'''
+#@TODO : Calibration
 
 roll=0
 pitch=0
@@ -146,76 +137,54 @@ seq=0
 rospy.loginfo("Giving the razor IMU board 3 seconds to boot...")
 rospy.sleep(3) # Sleep for 5 seconds to wait for the board to boot
 
-### configure board ###
-
-
-# Orientation covariance estimation:
-imuMsg.orientation_covariance = ORIENT_COVARIANCE
-imuMsg.angular_velocity_covariance = ANGL_VEL_COVARIANCE
-imuMsg.linear_acceleration_covariance = LIN_ACCEL_COVARIANCE
-
-# ser.write(PAUSE_LOGGING)
+#################################
+### IMU Board Configuration #####
+#################################
 ser.write(DISABLE_TIME)
 ser.write(DISABLE_COMPASS)
 ser.write(ENABLE_EULER)
 ser.write(ENABLE_QUAT)
 
+# Orientation covariance estimation
+imuMsg.orientation_covariance = ORIENT_COVARIANCE
+imuMsg.angular_velocity_covariance = ANGL_VEL_COVARIANCE
+imuMsg.linear_acceleration_covariance = LIN_ACCEL_COVARIANCE
+
 # Read a sample and print
-print("Sample IMU Data:", ser.readline())
+# @TODO : bug when disable and enable TIME
+
+sample = ser.readline()
+print("IMU Format:<accelX>, <accelY>, <accelZ>, <gyroX>, <gyroY>, <gyroZ>, <quatW>, <quatX>, <quatY>, <quatZ>, <pitch>, <roll>, <yaw>")
+print("Sample Data: " +  sample)
 
 while not rospy.is_shutdown():
     line = ser.readline()
-    # IMU data: <timeMS>, <accelX>, <accelY>, <accelZ>, <gyroX>, <gyroY>, <gyroZ>, <magX>, <magY>, <magZ>
+    # IMU data: <timeMS>, <accelX>, <accelY>, <accelZ>, <gyroX>, <gyroY>, <gyroZ>, <quatW>, <quatX>, <quatY>, <quatZ>, <pitch>, <roll>, <yaw>
 
-    #f.write(line)                     # Write to the output log file
-    words = string.split(line,",")    # Fields split
-    if len(words) > 2:
-
-        # This means y and z are correct for ROS, but x needs reversing
-        imuMsg.linear_acceleration.x = float(words[0]) * accel_factor
-        imuMsg.linear_acceleration.y = float(words[1]) * accel_factor
-        imuMsg.linear_acceleration.z = float(words[2]) * accel_factor
-
-        imuMsg.angular_velocity.x = float(words[3])
-        imuMsg.angular_velocity.y = float(words[4])        # in ROS y axis points left (see REP 103)
-        imuMsg.angular_velocity.z = float(words[5])        #in ROS z axis points up (see REP 103)
-
-
-        yaw_deg = -float(words[10])                          # in ROS z axis points up (see REP 103)
-        yaw_deg = yaw_deg + imu_yaw_calibration
-        if yaw_deg > 180.0:
-            yaw_deg = yaw_deg - 360.0
-        if yaw_deg < -180.0:
-            yaw_deg = yaw_deg + 360.0
-        yaw = yaw_deg*degrees2rad
-        pitch = -float(words[11])*degrees2rad                 # in ROS y axis points left (see REP 103)
-        roll = float(words[12])*degrees2rad
-
-    q = quaternion_from_euler(roll,pitch,yaw)
-    imuMsg.orientation.x = q[0]
-    imuMsg.orientation.y = q[1]
-    imuMsg.orientation.z = q[2]
-    imuMsg.orientation.w = q[3]
-    imuMsg.header.stamp= rospy.Time.now()
-    imuMsg.header.frame_id = 'base_imu_link'
-    imuMsg.header.seq = seq
-    seq = seq + 1
-    pub.publish(imuMsg)
-
-    if (diag_pub_time < rospy.get_time()) :
-        diag_pub_time += 1
-        diag_arr = DiagnosticArray()
-        diag_arr.header.stamp = rospy.get_rostime()
-        diag_arr.header.frame_id = '1'
-        diag_msg = DiagnosticStatus()
-        diag_msg.name = 'Razor_Imu'
-        diag_msg.level = DiagnosticStatus.OK
-        diag_msg.message = 'Received AHRS measurement'
-        diag_msg.values.append(KeyValue('roll (deg)', str(roll*(180.0/math.pi))))
-        diag_msg.values.append(KeyValue('pitch (deg)', str(pitch*(180.0/math.pi))))
-        diag_msg.values.append(KeyValue('yaw (deg)', str(yaw*(180.0/math.pi))))
-        diag_msg.values.append(KeyValue('sequence number', str(seq)))
-        diag_arr.status.append(diag_msg)
-        diag_pub.publish(diag_arr)
+    measurement = string.split(line,",")    # Fields split
+    if len(measurement) > 2:
+#@TODO: CORRECT IMU MEASUREMENT 
+# Unceted/Kalman filter?
         
+        # This means y and z are correct for ROS, but x needs reversing
+	# Linear Acceleration
+        imuMsg.linear_acceleration.x = float(measurement[0])
+        imuMsg.linear_acceleration.y = float(measurement[1])
+        imuMsg.linear_acceleration.z = float(measurement[2])
+        # Angular Velocity
+        imuMsg.angular_velocity.x = float(measurement[3])
+        imuMsg.angular_velocity.y = float(measurement[4])        # in ROS y axis points left (see REP 103)
+        imuMsg.angular_velocity.z = float(measurement[5])        #in ROS z axis points up (see REP 103)
+        # Quaterion 
+        imuMsg.orientation.w = float(measurement[6])
+        imuMsg.orientation.x = float(measurement[7])
+        imuMsg.orientation.y = float(measurement[8])
+        imuMsg.orientation.z = float(measurement[9])
+   
+        imuMsg.header.stamp= rospy.Time.now()
+        imuMsg.header.frame_id = 'base_imu_link'
+        imuMsg.header.seq = seq
+        seq = seq + 1
+        pub.publish(imuMsg)
+
 ser.close()

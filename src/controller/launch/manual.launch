@@ -1,7 +1,8 @@
 <launch>
 
+
  <!-- launch realsense_cam launchfile -->
- <include file="$(find realsense_camera)/launch/start.launch" />
+ <include file="$(find usb_cam)/launch/start.launch" />
 
  <!-- Serial Arduino Node -->
   <node pkg="rosserial_python" type="serial_node.py" name="serial_node">
