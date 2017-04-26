@@ -10,21 +10,15 @@ and quaternion values from the MPU-9250's digital motion processor
 (DMP). It prints those values to a serial port and, if a card is
 present, an SD card.
 
-Values printed can be configured using the serial port. Settings
-can be modified using the included "config.h" file.
-
-Resources:
-SparkFun MPU9250-DMP Arduino Library:
-  https://github.com/sparkfun/SparkFun_MPU-9250-DMP_Arduino_Library
-FlashStorage Arduino Library
-  https://github.com/cmaglie/FlashStorage
-
 Development environment specifics:
   Firmware developed using Arduino IDE 1.6.12
 
 Hardware:
   SparkFun 9DoF Razor IMU M0 (SEN-14001)
   https://www.sparkfun.com/products/14001
+
+Modified by:
+Dat Thanh Nguyen
 ******************************************************************************/
 // MPU-9250 Digital Motion Processing (DMP) Library
 #include <SparkFunMPU9250-DMP.h>
@@ -41,19 +35,19 @@ MPU9250_DMP imu; // Create an instance of the MPU9250_DMP class
 // Logging Control Globals //
 /////////////////////////////
 // Defaults all set in config.h
-bool enableSDLogging = ENABLE_SD_LOGGING;
-bool enableSerialLogging = ENABLE_UART_LOGGING;
-bool enableTimeLog = ENABLE_TIME_LOG;
+bool enableSDLogging        = ENABLE_SD_LOGGING;
+bool enableSerialLogging    = ENABLE_UART_LOGGING;
+bool enableTimeLog          = ENABLE_TIME_LOG;
 bool enableCalculatedValues = ENABLE_CALCULATED_LOG;
-bool enableAccel = ENABLE_ACCEL_LOG;
-bool enableGyro = ENABLE_GYRO_LOG;
-bool enableCompass = ENABLE_MAG_LOG;
-bool enableQuat = ENABLE_QUAT_LOG;
-bool enableEuler = ENABLE_EULER_LOG;
-bool enableHeading = ENABLE_HEADING_LOG;
-unsigned short accelFSR = IMU_ACCEL_FSR;
-unsigned short gyroFSR = IMU_GYRO_FSR;
-unsigned short fifoRate = DMP_SAMPLE_RATE;
+bool enableAccel            = ENABLE_ACCEL_LOG;
+bool enableGyro             = ENABLE_GYRO_LOG;
+bool enableCompass          = ENABLE_MAG_LOG;
+bool enableQuat             = ENABLE_QUAT_LOG;
+bool enableEuler            = ENABLE_EULER_LOG;
+bool enableHeading          = ENABLE_HEADING_LOG;
+unsigned short accelFSR     = IMU_ACCEL_FSR;
+unsigned short gyroFSR      = IMU_GYRO_FSR;
+unsigned short fifoRate     = DMP_SAMPLE_RATE;
 
 /////////////////////
 // SD Card Globals //
@@ -135,12 +129,10 @@ bool initIMU(void)
   imu.setCompassSampleRate(IMU_COMPASS_SAMPLE_RATE);   // Set compass sample rate: between 4-100Hz
 
   unsigned short dmpFeatureMask = 0;                   // Configure digital motion processor. Use the FIFO to get data from the DMP.
-  if (ENABLE_GYRO_CALIBRATION) {
-    dmpFeatureMask |= DMP_FEATURE_SEND_CAL_GYRO;       // Gyro calibration re-calibrates the gyro after a set amount of no motion detected
-  }
-
+  dmpFeatureMask |= DMP_FEATURE_GYRO_CAL;             // calibrate Gyro data
   dmpFeatureMask |= DMP_FEATURE_SEND_RAW_ACCEL;       // Add accel and quaternion's to the DMP
   dmpFeatureMask |= DMP_FEATURE_6X_LP_QUAT;
+  dmpFeatureMask |= DMP_FEATURE_SEND_CAL_GYRO;       // Gyro calibration re-calibrates the gyro after a set amount of no motion detected
   imu.dmpBegin(dmpFeatureMask, fifoRate);             // Initialize the DMP, and set the FIFO's update rate:
 
   return true; // Return success
@@ -392,7 +384,7 @@ void parseSerialInput(char c)
     imu.dmpEnableFeatures(DMP_FEATURE_SEND_CAL_GYRO);
     break;
 */
-  case ENABLE_SD_LOGGING: // Enable/disable SD card logging
+  case ENABLE_SD: // Enable/disable SD card logging
     enableSDLogging = !enableSDLogging;
     break;
 
