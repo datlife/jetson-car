@@ -6,6 +6,9 @@ This node is used to publish the /imu node in ROS
 Hardware: 
 Sparksfun 9DoF IMU M0 (2017 - latest version)
 
+Author: Tang Tiong Yew
+
+Modified by: Dat Nguyen
 '''
 
 # Copyright (c) 2012, Tang Tiong Yew
@@ -55,9 +58,9 @@ ENABLE_EULER        =  b'E'
 
 # Covariance estimation:
 ORIENT_COVARIANCE = [
-0.0025 , 0 , 0,
-0, 0.0025, 0,
-0, 0, 0.0025
+0.005 , 0 , 0,
+0, 0.005, 0,
+0, 0, 0.005
 ]
 
 ANGL_VEL_COVARIANCE = [
@@ -87,8 +90,6 @@ def reconfig_callback(config, level):
 rospy.init_node("razor_node")
 srv = Server(imuConfig, reconfig_callback)     # define dynamic_reconfigure callback
 pub = rospy.Publisher('imu', Imu, queue_size=1) #We only care about the most recent measurement, i.e. queue_size=1
-diag_pub = rospy.Publisher('diagnostics', DiagnosticArray, queue_size=1)
-diag_pub_time = rospy.get_time();
 
 # ################### SERIAL PORT SET UP ######################
 default_port='/dev/ttyACM1'
@@ -102,7 +103,6 @@ except serial.serialutil.SerialException:
     sys.exit(0)
 
 # ################### INIT & CALIBRATION ######################
-imuMsg = Imu()
 
 #accelerometer
 accel_x_min = rospy.get_param('~accel_x_min', -250.0)
@@ -134,6 +134,8 @@ roll=0
 pitch=0
 yaw=0
 seq=0
+degrees2rad = math.pi/180.0
+
 rospy.loginfo("Giving the razor IMU board 3 seconds to boot...")
 rospy.sleep(3) # Sleep for 5 seconds to wait for the board to boot
 
@@ -145,12 +147,12 @@ ser.write(DISABLE_COMPASS)
 ser.write(ENABLE_EULER)
 ser.write(ENABLE_QUAT)
 
+imuMsg = Imu()
 # Orientation covariance estimation
 imuMsg.orientation_covariance = ORIENT_COVARIANCE
 imuMsg.angular_velocity_covariance = ANGL_VEL_COVARIANCE
 imuMsg.linear_acceleration_covariance = LIN_ACCEL_COVARIANCE
 
-# Read a sample and print
 # @TODO : bug when disable and enable TIME
 
 sample = ser.readline()
@@ -159,28 +161,40 @@ print("Sample Data: " +  sample)
 
 while not rospy.is_shutdown():
     line = ser.readline()
-    # IMU data: <timeMS>, <accelX>, <accelY>, <accelZ>, <gyroX>, <gyroY>, <gyroZ>, <quatW>, <quatX>, <quatY>, <quatZ>, <pitch>, <roll>, <yaw>
-
     measurement = string.split(line,",")    # Fields split
     if len(measurement) > 2:
 #@TODO: CORRECT IMU MEASUREMENT 
-# Unceted/Kalman filter?
-        
-        # This means y and z are correct for ROS, but x needs reversing
+# Unceted/Kalman filter? robot_localization package
+
+        # Followed REP-103 ROS
+        # http://www.ros.org/reps/rep-0103.html
+
 	# Linear Acceleration
-        imuMsg.linear_acceleration.x = float(measurement[0])
+        imuMsg.linear_acceleration.x = float(measurement[0])   
         imuMsg.linear_acceleration.y = float(measurement[1])
-        imuMsg.linear_acceleration.z = float(measurement[2])
+        imuMsg.linear_acceleration.z = -float(measurement[2])   # Gravity force should pull down
+
         # Angular Velocity
         imuMsg.angular_velocity.x = float(measurement[3])
-        imuMsg.angular_velocity.y = float(measurement[4])        # in ROS y axis points left (see REP 103)
-        imuMsg.angular_velocity.z = float(measurement[5])        #in ROS z axis points up (see REP 103)
-        # Quaterion 
+        imuMsg.angular_velocity.y = float(measurement[4])        
+        imuMsg.angular_velocity.z = float(measurement[5])  
+
+        # Euler angle
+        pitch = float(measurement[9])*degrees2rad
+        roll  = float(measurement[10])*degrees2rad
+        yaw   = float(measurement[11])*degrees2rad
+  
+        # Quaterion
         imuMsg.orientation.w = float(measurement[6])
         imuMsg.orientation.x = float(measurement[7])
         imuMsg.orientation.y = float(measurement[8])
         imuMsg.orientation.z = float(measurement[9])
-   
+
+# 	q = quaternion_from_euler(yaw, pitch, roll, 'rzyx')	
+#        imuMsg.orientation.w = q[0]
+#        imuMsg.orientation.x = q[1]
+#        imuMsg.orientation.y = q[2]
+#        imuMsg.orientation.z = q[3]
         imuMsg.header.stamp= rospy.Time.now()
         imuMsg.header.frame_id = 'base_imu_link'
         imuMsg.header.seq = seq
