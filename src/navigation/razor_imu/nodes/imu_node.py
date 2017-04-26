@@ -7,8 +7,10 @@ Hardware:
 Sparksfun 9DoF IMU M0 (2017 - latest version)
 
 Author: Tang Tiong Yew
-
 Modified by: Dat Nguyen
+
+Issue:
+If gyrometer is not calibrated well. Restart IMU and let IMU stay still for 8 seconds
 '''
 
 # Copyright (c) 2012, Tang Tiong Yew
