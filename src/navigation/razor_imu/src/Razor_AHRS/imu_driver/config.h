@@ -18,23 +18,23 @@
 // Select the Serial port to log to. Either SERIAL_PORT_USBVIRTUAL
 // or LOG_PORT SERIAL_PORT_HARDWARE (SerialUSB or Serial1)
 #define LOG_PORT SERIAL_PORT_USBVIRTUAL
-#define SERIAL_BAUD_RATE 115200 // Serial port baud
+#define SERIAL_BAUD_RATE    115200 // Serial port baud
 
 /////////////////////////
 // IMU Default Configs //
 /////////////////////////
 // Note: Some of these params can be overwritten using serial
 //  commands. These are just defaults on initial programming
-#define DMP_SAMPLE_RATE    100          // Logging/DMP sample rate(4-200 Hz)
-#define IMU_COMPASS_SAMPLE_RATE 100     // Compass sample rate (4-100 Hz)
-#define IMU_AG_SAMPLE_RATE 100          // Accel/gyro sample rate Must be between 4Hz and 1kHz
+#define DMP_SAMPLE_RATE    50          // Logging/DMP sample rate(4-200 Hz)
+#define IMU_COMPASS_SAMPLE_RATE 50    // Compass sample rate (4-100 Hz)
+#define IMU_AG_SAMPLE_RATE 50          // Accel/gyro sample rate Must be between 4Hz and 1kHz
 
 /////////////////////////
 // IMU Range Value     //
 /////////////////////////
-#define IMU_ACCEL_FSR      2            // Accel full-scale range (2, 4, 8, or 16)
-#define IMU_GYRO_FSR       500         // Gyro full-scale range (250, 500, 1000, or 2000)
-#define IMU_AG_LPF         5            // Accel/Gyro LPF corner frequency (5, 10, 20, 42, 98, or 188 Hz)
+#define IMU_ACCEL_FSR      2             // Accel full-scale range (2, 4, 8, or 16)
+#define IMU_GYRO_FSR       500          // Gyro full-scale range (250, 500, 1000, or 2000)
+#define IMU_AG_LPF         20             // Accel/Gyro LPF corner frequency (5, 10, 20, 42, 98, or 188 Hz) <-- LOW PASS FILTER
 #define ENABLE_GYRO_CALIBRATION true
 
 
@@ -54,7 +54,7 @@
 #define SET_LOG_RATE      'r' // Adjust logging rate from 1-200 Hz (in 10 Hz increments)
 #define SET_ACCEL_FSR     'A' // Set accelerometer FSR (2, 4, 8, 16g)
 #define SET_GYRO_FSR      'G' // Set gyroscope FSR (250, 500, 1000, 2000 dps)
-#define ENABLE_SD_LOGGING 's' // Enable/disable SD-card logging
+#define ENABLE_SD         's' // Enable/disable SD-card logging
 #define ENABLE_CALIB_MODE 'x' //Enable Calibration mode
 
 #define DISABLE_TIME      't'
