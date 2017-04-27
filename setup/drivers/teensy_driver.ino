@@ -57,10 +57,14 @@ unsigned int  rpm;                 // revolutions per minutes
 float         velocity;            // velocity
 unsigned long timeold;
 
+//================================= ROS VARIABLES============================================
 // Set up ROS nodes
 ros::NodeHandle nh_;
 rc_car_msgs::CarInfo carinfo;
 rc_car_msgs::CarController controller;
+ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
+ros::Publisher carState("car_info", &carinfo);
+
 //================================FUNCTION PROTOTYPES==========================================
 void drive_callback(const rc_car_msgs::CarController& signal);
 void init_rpm_monitor();
@@ -68,18 +72,14 @@ void control_steering(const rc_car_msgs::CarController&);
 void control_esc(const rc_car_msgs::CarController& signal);
 void calculate_rpm();
 int  convert_signal(double, double, double, double , double);
-
 void counter() {pulses_per_sec++;}
 
-ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
-ros::Publisher carState("car_info", &carinfo);
 void setup(){
     // Connect ESC and Steering Servo and RPM Monitor to correct PIN
     ESC.attach(RC_ESC_PIN);
     STEER_SERVO.attach(RC_STEER_PIN);
 
     init_rpm_monitor();
-
     ESC.writeMicroseconds(NEUTRAL);
     STEER_SERVO.write(MIDDLE);
     pinMode(13, OUTPUT);
