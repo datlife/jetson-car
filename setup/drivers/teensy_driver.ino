@@ -2,6 +2,12 @@
   Arduino ROS node for Jetson Car
   This code is run on Teensy 3.2, not Arduino
   MIT License
+
+Hardwares:
+   Teensy 3.2
+   Photoelectronic Encoder 
+   ESC Controller
+   Servo COntroller
 */
 
 #if defined(ARDUINO) && ARDUINO >= 100
@@ -18,10 +24,11 @@
 #include <std_msgs/Int32.h>
 #include <std_msgs/Empty.h>
 #include <geometry_msgs/Twist.h>
-#include <rc_car_msgs/CarInfo.h>
+#include <rc_car_msgs/CarController.h>
 //====================================DEFAULT PINS============================================
 #define RC_ESC_PIN     4       // PWM PIN 7 for RC ESC Servo
 #define RC_STEER_PIN   5       // PWM PIN 13 for RC Steer Servo
+#define ENCODER_PIN     2      // The pin the encoder signal output is connected  
 
 //===================================DEFAULT SERVO VALUES=====================================
 //Constant ESC SERVO values
@@ -33,9 +40,20 @@
 #define MAX_LEFT       140
 #define MIDDLE         95
 #define MAX_RIGHT      50
+
+//=================================DEFAULT RPM MONITOR VALUES ===============================
+#define TIRE_DIAMETER   0.12    // in meter, to calcuate linear speed
+#define PULSES_PER_TURN 20
+#define KM_TO_MILE      0.62137
+
 //=================================GLOBAL VARIABLES============================================
 Servo STEER_SERVO;         // steering servo of my RC car [RedCat Volcano EPX]
 Servo ESC;                 // Electric Speed Control for RC
+
+volatile byte pulses_per_sec;      // number of pulses
+unsigned int  rpm;                 // revolutions per minutes
+int           velocity;            // velocity
+unsigned long timeold;
 
 // Set up ROS nodes
 ros::NodeHandle nh_;
@@ -43,19 +61,24 @@ ros::NodeHandle nh_;
 //ros::Publisher chatter("arduino_publisher", &str_msg);
 
 //================================FUNCTION PROTOTYPES==========================================
-void drive_callback(const rc_car_msgs::CarInfo& signal);
-void control_steering(const rc_car_msgs::CarInfo&);
-void control_esc(const rc_car_msgs::CarInfo& signal);
+void drive_callback(const rc_car_msgs::CarController& signal);
+void init_rpm_monitor();
+void control_steering(const rc_car_msgs::CarController&);
+void control_esc(const rc_car_msgs::CarController& signal);
+void calculate_rpm();
 int  convert_signal(double, double, double, double , double);
 
-ros::Subscriber<rc_car_msgs::CarInfo> driveSubscriber("/car_info", &drive_callback) ;
+void counter() {pulses_per_sec++;}
+
+ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
 
 void setup(){
-    // Connect ESC and Steering Servo to correct PIN
+    // Connect ESC and Steering Servo and RPM Monitor to correct PIN
     ESC.attach(RC_ESC_PIN);
     STEER_SERVO.attach(RC_STEER_PIN);
 
-    // Set everything to neutral
+    init_rpm_monitor();
+
     ESC.writeMicroseconds(NEUTRAL);
     STEER_SERVO.write(MIDDLE);
     pinMode(13, OUTPUT);
@@ -75,12 +98,20 @@ void loop(){
     delay(1);
 }
 
-
-void drive_callback(const rc_car_msgs::CarInfo& signal){
+void init_rpm_monitor(){
+    pinMode(ENCODER_PIN, INPUT);
+    //Interrupt 0 is digital pin 2, so that is where the IR detector is connected
+    attachInterrupt(ENCODER_PIN, counter, RISING);
+    // Initialize
+    pulses_per_sec = 0;
+    rpm = 0;
+    timeold = 0; 
+}
+void drive_callback(const rc_car_msgs::CarController& signal){
     control_steering(signal);
     control_esc(signal);
 }
-void control_steering(const rc_car_msgs::CarInfo& signal){
+void control_steering(const rc_car_msgs::CarController& signal){
     int steer_angle = convert_signal(signal.steer, -1.0, 1.0, MAX_RIGHT, MAX_LEFT);
 
     if (steer_angle < MAX_RIGHT) steer_angle = MAX_RIGHT;
@@ -91,7 +122,7 @@ void control_steering(const rc_car_msgs::CarInfo& signal){
     //chatter.publish(&str_msg);
 }
 
-void control_esc(const rc_car_msgs::CarInfo& signal) {
+void control_esc(const rc_car_msgs::CarController& signal) {
     int throttle = convert_signal(signal.throttle, 0.0, 1.0, NEUTRAL, MAX_FORWARD);
     if (throttle < MAX_REVERSE) throttle = MAX_REVERSE;
     if (throttle > MAX_FORWARD)  throttle = MAX_FORWARD;
@@ -100,4 +131,33 @@ void control_esc(const rc_car_msgs::CarInfo& signal) {
 }
 int convert_signal(double toMap, double in_min, double in_max, double out_min, double out_max){
     return (toMap - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+/*
+   Wheel Encoder to monitor RPM using Photoelectronic Encoder
+   Hardare:
+
+*/
+
+
+void calculate_rpm(){
+  if (millis() - timeold >= 1000) { /*Uptade every one second, this will be equal to reading frecuency (Hz).*/
+    
+    //Don't process interrupts during calculations
+    detachInterrupt(0);
+    // How many revolutions happened in minutes based on 1s
+    rpm = pulses_per_sec * (60 * 1000 / PULSES_PER_TURN ) / (millis() - timeold);
+    // http://people.wku.edu/david.neal/117/Unit2/AngVel.pdf
+    // Angular to Linear Velocity : v = radius * w
+    velocity = rpm * (PI / 60) *(TIRE_DIAMETER) * KM_TO_MILE * 3.6 ; // to mph
+    //Write it out to serial port
+    Serial.print("RPM = ");
+    Serial.print(rpm, DEC);
+    Serial.print("  || Speed = ");
+    Serial.print(velocity, DEC);
+    Serial.println(" mph");
+    pulses_per_sec = 0;
+    timeold = millis();
+    //Restart the interrupt processing
+    attachInterrupt(0, counter, FALLING);
+  }
 }
