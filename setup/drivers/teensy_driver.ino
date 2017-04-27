@@ -25,6 +25,8 @@ Hardwares:
 #include <std_msgs/Empty.h>
 #include <geometry_msgs/Twist.h>
 #include <rc_car_msgs/CarController.h>
+#include <rc_car_msgs/CarInfo.h>
+
 //====================================DEFAULT PINS============================================
 #define RC_ESC_PIN     4       // PWM PIN 7 for RC ESC Servo
 #define RC_STEER_PIN   5       // PWM PIN 13 for RC Steer Servo
@@ -45,21 +47,20 @@ Hardwares:
 #define TIRE_DIAMETER   0.12    // in meter, to calcuate linear speed
 #define PULSES_PER_TURN 20
 #define KM_TO_MILE      0.62137
-
+#define UPDATE_RATE     300
 //=================================GLOBAL VARIABLES============================================
 Servo STEER_SERVO;         // steering servo of my RC car [RedCat Volcano EPX]
 Servo ESC;                 // Electric Speed Control for RC
 
 volatile byte pulses_per_sec;      // number of pulses
 unsigned int  rpm;                 // revolutions per minutes
-int           velocity;            // velocity
+float         velocity;            // velocity
 unsigned long timeold;
 
 // Set up ROS nodes
 ros::NodeHandle nh_;
-//std_msgs::Int32 str_msg;
-//ros::Publisher chatter("arduino_publisher", &str_msg);
-
+rc_car_msgs::CarInfo carinfo;
+rc_car_msgs::CarController controller;
 //================================FUNCTION PROTOTYPES==========================================
 void drive_callback(const rc_car_msgs::CarController& signal);
 void init_rpm_monitor();
@@ -71,7 +72,7 @@ int  convert_signal(double, double, double, double , double);
 void counter() {pulses_per_sec++;}
 
 ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
-
+ros::Publisher carState("car_info", &carinfo);
 void setup(){
     // Connect ESC and Steering Servo and RPM Monitor to correct PIN
     ESC.attach(RC_ESC_PIN);
@@ -88,16 +89,28 @@ void setup(){
     Serial.println("Arduino starting");
     delay(30);
     nh_.initNode();
-    //nh_.advertise(chatter);
     nh_.subscribe(driveSubscriber);
+    nh_.advertise(carState);
     delay(1000);
 }
 
 void loop(){
+    calculate_rpm();
     nh_.spinOnce();
     delay(1);
 }
 
+void drive_callback(const rc_car_msgs::CarController& signal){
+    control_steering(signal);
+    control_esc(signal);
+    controller = signal;
+}
+void publish_state(const rc_car_msgs::CarController &signal){
+  carinfo.speed = velocity;
+  carinfo.steer = signal.steer;
+  carinfo.throttle = signal.throttle;
+  carState.publish(&carinfo);
+}
 void init_rpm_monitor(){
     pinMode(ENCODER_PIN, INPUT);
     //Interrupt 0 is digital pin 2, so that is where the IR detector is connected
@@ -107,19 +120,12 @@ void init_rpm_monitor(){
     rpm = 0;
     timeold = 0; 
 }
-void drive_callback(const rc_car_msgs::CarController& signal){
-    control_steering(signal);
-    control_esc(signal);
-}
+
 void control_steering(const rc_car_msgs::CarController& signal){
     int steer_angle = convert_signal(signal.steer, -1.0, 1.0, MAX_RIGHT, MAX_LEFT);
-
     if (steer_angle < MAX_RIGHT) steer_angle = MAX_RIGHT;
     if (steer_angle > MAX_LEFT)  steer_angle = MAX_LEFT;
-    
     STEER_SERVO.write(steer_angle);
-    //str_msg.data = steer_angle;
-    //chatter.publish(&str_msg);
 }
 
 void control_esc(const rc_car_msgs::CarController& signal) {
@@ -132,12 +138,6 @@ void control_esc(const rc_car_msgs::CarController& signal) {
 int convert_signal(double toMap, double in_min, double in_max, double out_min, double out_max){
     return (toMap - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
-/*
-   Wheel Encoder to monitor RPM using Photoelectronic Encoder
-   Hardare:
-
-*/
-
 
 void calculate_rpm(){
   if (millis() - timeold >= 1000) { /*Uptade every one second, this will be equal to reading frecuency (Hz).*/
@@ -149,15 +149,15 @@ void calculate_rpm(){
     // http://people.wku.edu/david.neal/117/Unit2/AngVel.pdf
     // Angular to Linear Velocity : v = radius * w
     velocity = rpm * (PI / 60) *(TIRE_DIAMETER) * KM_TO_MILE * 3.6 ; // to mph
-    //Write it out to serial port
-    Serial.print("RPM = ");
-    Serial.print(rpm, DEC);
-    Serial.print("  || Speed = ");
-    Serial.print(velocity, DEC);
-    Serial.println(" mph");
+
+    // Reset
     pulses_per_sec = 0;
     timeold = millis();
+    
     //Restart the interrupt processing
     attachInterrupt(0, counter, FALLING);
+  }
+  if (millis() - timeold >= UPDATE_RATE){
+        publish_state(controller);
   }
 }
