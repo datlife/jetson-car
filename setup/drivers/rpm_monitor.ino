@@ -1,8 +1,9 @@
 /*
    Wheel Encoder to monitor RPM using Photoelectronic Encoder
    Hardare:
-   Teensy 3.2 
-   Photoelectronic Encoder (two IR
+   **** 1. Teensy 3.2
+   **** 2. Photoelectronic Encoder (two IR
+   @TODO: Improve Accuracy and Maximum RPM .. currently is 750 RPM MAX.. above that, the result is unreliable
 */
 
 
@@ -17,7 +18,7 @@ int          velocity;
 // The number of pulses per revolution - depends on your index disc!!
 volatile byte pulses_per_sec;      // number of pulses
 unsigned long timeold;
-void counter(){
+void counter() {
   pulses_per_sec++;
 }
 
@@ -45,8 +46,9 @@ void loop()
     // How many revolutions happened in minutes based on 1s
     rpm = pulses_per_sec * (60 * 1000 / PULSES_PER_TURN ) / (millis() - timeold);
     // http://people.wku.edu/david.neal/117/Unit2/AngVel.pdf
-    velocity = rpm * (2 * PI / 60) * TIRE_DIAMETER * KM_TO_MILE * 3600/1000 ; // to mph
-     
+    // Angular to Linear Velocity : v = radius * w  ( w: angular vel (rad/s)
+    // v = (diameter/2)*/(2pi/60)*rpm  = rpm*(pi/60)*diamter
+    velocity = rpm * (PI / 60) *(TIRE_DIAMETER) * KM_TO_MILE * 3.6 ; // to mph
     //Write it out to serial port
     Serial.print("RPM = ");
     Serial.print(rpm, DEC);
