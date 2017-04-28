@@ -43,7 +43,7 @@ Hardwares:
 #define TIRE_DIAMETER   0.12    // in meter, to calcuate linear speed
 #define PULSES_PER_TURN 20
 #define KM_TO_MILE      0.62137
-#define UPDATE_RATE     2000
+#define UPDATE_RATE     100
 //=================================GLOBAL VARIABLES============================================
 Servo STEER_SERVO;         // steering servo of my RC car [RedCat Volcano EPX]
 Servo ESC;                 // Electric Speed Control for RC
@@ -54,6 +54,7 @@ unsigned int  velocity;            // velocity
 unsigned long timeold;
 float         steer_temp = 0.0;
 float         throttle_temp =0.0;
+IntervalTimer publish_timer;
 
 //================================FUNCTION PROTOTYPES==========================================
 void drive_callback(const rc_car_msgs::CarController& signal);
@@ -63,12 +64,11 @@ void control_esc(const rc_car_msgs::CarController& signal);
 void calculate_rpm();
 int  convert_signal(double, double, double, double , double);
 void counter() {pulses_per_sec++;}
-
+void publish_car_info();
 // Set up ROS nodes
 ros::NodeHandle nh_;
 
 ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
-
 rc_car_msgs::CarInfo carinfo;
 ros::Publisher car_pub("car_info", &carinfo);
 
@@ -91,6 +91,7 @@ void setup(){
     nh_.subscribe(driveSubscriber);
     nh_.advertise(car_pub);
     delay(500);
+    publish_timer.begin(publish_car_info, 30000);
 }
 
 void loop(){
@@ -115,7 +116,13 @@ void drive_callback(const rc_car_msgs::CarController& signal){
     throttle_temp = signal.throttle;
  }
 
-
+void publish_car_info(){
+      carinfo.steer = steer_temp;
+      carinfo.throttle = throttle_temp;
+      carinfo.speed = velocity;
+      carinfo.rpm   = rpm;
+      car_pub.publish(&carinfo);
+}
 void control_steering(const rc_car_msgs::CarController& signal){
     int steer_angle = convert_signal(signal.steer, -1.0, 1.0, MAX_RIGHT, MAX_LEFT);
     if (steer_angle < MAX_RIGHT) steer_angle = MAX_RIGHT;
@@ -139,26 +146,20 @@ void calculate_rpm(){
     
     //Don't process interrupts during calculations
     detachInterrupt(0);
+    
     // How many revolutions happened in minutes based on 1s
     rpm = pulses_per_sec * (60 * 1000 / PULSES_PER_TURN ) / (millis() - timeold);
+    
     // http://people.wku.edu/david.neal/117/Unit2/AngVel.pdf
     // Angular to Linear Velocity : v = radius * w
     velocity = rpm * (PI / 60) *(TIRE_DIAMETER) * KM_TO_MILE * 3.6 ; // to mph
 
     // Reset
     pulses_per_sec = 0;
-
-   if (millis() - timeold >= UPDATE_RATE){
-      carinfo.steer = steer_temp;
-      carinfo.throttle = throttle_temp;
-      carinfo.speed = velocity;
-      carinfo.rpm   = rpm;
-      car_pub.publish(&carinfo);
-   }
     timeold = millis();
     
     //Restart the interrupt processing
-    attachInterrupt(0, counter, FALLING);
+    attachInterrupt(ENCODER_PIN, counter, RISING);
   }
 
 }
