@@ -56,14 +56,8 @@ volatile byte pulses_per_sec;      // number of pulses
 unsigned int  rpm;                 // revolutions per minutes
 float         velocity;            // velocity
 unsigned long timeold;
-
-//================================= ROS VARIABLES============================================
-// Set up ROS nodes
-ros::NodeHandle nh_;
-rc_car_msgs::CarInfo carinfo;
-rc_car_msgs::CarController controller;
-ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
-ros::Publisher carState("car_info", &carinfo);
+float         steer_temp = 0.0;
+float         throttle_temp =0.0;
 
 //================================FUNCTION PROTOTYPES==========================================
 void drive_callback(const rc_car_msgs::CarController& signal);
@@ -74,12 +68,21 @@ void calculate_rpm();
 int  convert_signal(double, double, double, double , double);
 void counter() {pulses_per_sec++;}
 
+// Set up ROS nodes
+ros::NodeHandle nh_;
+
+ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
+
+rc_car_msgs::CarInfo carinfo;
+ros::Publisher carState("car_info", &carinfo);
+
 void setup(){
     // Connect ESC and Steering Servo and RPM Monitor to correct PIN
     ESC.attach(RC_ESC_PIN);
     STEER_SERVO.attach(RC_STEER_PIN);
 
     init_rpm_monitor();
+
     ESC.writeMicroseconds(NEUTRAL);
     STEER_SERVO.write(MIDDLE);
     pinMode(13, OUTPUT);
@@ -99,18 +102,6 @@ void loop(){
     nh_.spinOnce();
     delay(1);
 }
-
-void drive_callback(const rc_car_msgs::CarController& signal){
-    control_steering(signal);
-    control_esc(signal);
-    controller = signal;
-}
-void publish_state(const rc_car_msgs::CarController &signal){
-  carinfo.speed = velocity;
-  carinfo.steer = signal.steer;
-  carinfo.throttle = signal.throttle;
-  carState.publish(&carinfo);
-}
 void init_rpm_monitor(){
     pinMode(ENCODER_PIN, INPUT);
     //Interrupt 0 is digital pin 2, so that is where the IR detector is connected
@@ -120,6 +111,14 @@ void init_rpm_monitor(){
     rpm = 0;
     timeold = 0; 
 }
+
+void drive_callback(const rc_car_msgs::CarController& signal){
+    control_steering(signal);
+    control_esc(signal);
+    steer_temp = signal.steer;
+    throttle_temp = signal.throttle;
+ }
+
 
 void control_steering(const rc_car_msgs::CarController& signal){
     int steer_angle = convert_signal(signal.steer, -1.0, 1.0, MAX_RIGHT, MAX_LEFT);
@@ -158,6 +157,10 @@ void calculate_rpm(){
     attachInterrupt(0, counter, FALLING);
   }
   if (millis() - timeold >= UPDATE_RATE){
-        publish_state(controller);
+          carinfo.steer = steer_temp;
+          carinfo.throttle = throttle_temp;
+          carinfo.speed = velocity;
+          carinfo.rpm   = rpm;
+          carState.publish(&carinfo);
   }
 }
