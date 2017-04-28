@@ -18,12 +18,8 @@ Hardwares:
 
 #include <Servo.h>
 #include <ros.h>
-//#define USB_USBCON
-#include <std_msgs/UInt16.h>
-#include <std_msgs/String.h>
-#include <std_msgs/Int32.h>
-#include <std_msgs/Empty.h>
-#include <geometry_msgs/Twist.h>
+#define USB_USBCON
+
 #include <rc_car_msgs/CarController.h>
 #include <rc_car_msgs/CarInfo.h>
 
@@ -47,14 +43,14 @@ Hardwares:
 #define TIRE_DIAMETER   0.12    // in meter, to calcuate linear speed
 #define PULSES_PER_TURN 20
 #define KM_TO_MILE      0.62137
-#define UPDATE_RATE     300
+#define UPDATE_RATE     2000
 //=================================GLOBAL VARIABLES============================================
 Servo STEER_SERVO;         // steering servo of my RC car [RedCat Volcano EPX]
 Servo ESC;                 // Electric Speed Control for RC
 
 volatile byte pulses_per_sec;      // number of pulses
 unsigned int  rpm;                 // revolutions per minutes
-float         velocity;            // velocity
+unsigned int  velocity;            // velocity
 unsigned long timeold;
 float         steer_temp = 0.0;
 float         throttle_temp =0.0;
@@ -74,27 +70,27 @@ ros::NodeHandle nh_;
 ros::Subscriber<rc_car_msgs::CarController> driveSubscriber("/car_controller", &drive_callback) ;
 
 rc_car_msgs::CarInfo carinfo;
-ros::Publisher carState("car_info", &carinfo);
+ros::Publisher car_pub("car_info", &carinfo);
 
 void setup(){
     // Connect ESC and Steering Servo and RPM Monitor to correct PIN
     ESC.attach(RC_ESC_PIN);
     STEER_SERVO.attach(RC_STEER_PIN);
 
-    init_rpm_monitor();
-
+    // ============== INITIALZING STATES ==================
     ESC.writeMicroseconds(NEUTRAL);
     STEER_SERVO.write(MIDDLE);
+    init_rpm_monitor();
     pinMode(13, OUTPUT);
 
-    //Set up Serial library / baundrate (how many bytes can send in a second)
+    // =============== Set up Serial ======================
     Serial.begin(115200);
     Serial.println("Arduino starting");
     delay(30);
     nh_.initNode();
     nh_.subscribe(driveSubscriber);
-    nh_.advertise(carState);
-    delay(1000);
+    nh_.advertise(car_pub);
+    delay(500);
 }
 
 void loop(){
@@ -151,16 +147,18 @@ void calculate_rpm(){
 
     // Reset
     pulses_per_sec = 0;
+
+   if (millis() - timeold >= UPDATE_RATE){
+      carinfo.steer = steer_temp;
+      carinfo.throttle = throttle_temp;
+      carinfo.speed = velocity;
+      carinfo.rpm   = rpm;
+      car_pub.publish(&carinfo);
+   }
     timeold = millis();
     
     //Restart the interrupt processing
     attachInterrupt(0, counter, FALLING);
   }
-  if (millis() - timeold >= UPDATE_RATE){
-          carinfo.steer = steer_temp;
-          carinfo.throttle = throttle_temp;
-          carinfo.speed = velocity;
-          carinfo.rpm   = rpm;
-          carState.publish(&carinfo);
-  }
+
 }
