@@ -21,7 +21,7 @@ System Architecture
 
 Setup Instruction:
 ------------------
-Please check [`setup/README.md`](./setup/README.md)
+Please check [`docs/setup/README.md`](./docs/setup/README.md)
 
 
 Usage Example
