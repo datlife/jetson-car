@@ -11,9 +11,7 @@ import argparse
 import time
 import cv2
 import time
-
 from Pilot import Pilot
-
 
 def drive(model, image):
     '''
@@ -52,7 +50,8 @@ def load_model(args):
     return model
 
 if __name__ == "__main__":
-    args = '/home/nvidia/jetson-car/src/controller/src/cnn.json'
+    
+    args = rospy.get_param('model_path')
     print("Activating AutoPilot model..\n")
     pilot = Pilot(lambda: load_model(args), drive)
     rospy.spin()

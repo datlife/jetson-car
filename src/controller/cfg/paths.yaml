@@ -1,0 +1,3 @@
+# PATHS ARE USED in each nodes, will be used via launch file under `rosparam load iyaml_file`
+model_path: "/home/nvidia/jetson-car/models/basic_steering_model.json"
+

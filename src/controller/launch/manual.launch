@@ -1,5 +1,7 @@
 <launch>
 
+ <!-- Set Parameter Sever -->
+ <rosparam  file="$(find controller)/cfg/paths.yaml" command="load"/>
 
 
  <!-- Serial Arduino Node -->
