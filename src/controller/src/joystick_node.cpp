@@ -115,7 +115,6 @@ void JoyStick::_manual_mode(const sensor_msgs::Joy::ConstPtr& joy){
     	car.throttle = l_scale_*joy->axes[linear_];
     }
 
-    car.header.stamp = ros::Time::now();
     car_pub_.publish(car);
     previous[0] =  car.steer;
     previous[1] =  car.throttle;

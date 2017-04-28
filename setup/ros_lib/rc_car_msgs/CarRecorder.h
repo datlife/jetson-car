@@ -18,14 +18,14 @@ namespace rc_car_msgs
       _steer_type steer;
       typedef float _throttle_type;
       _throttle_type throttle;
-      typedef float _velocity_type;
-      _velocity_type velocity;
+      typedef float _speed_type;
+      _speed_type speed;
 
     CarRecorder():
       img_path(""),
       steer(0),
       throttle(0),
-      velocity(0)
+      speed(0)
     {
     }
 
@@ -60,13 +60,13 @@ namespace rc_car_msgs
       union {
         float real;
         uint32_t base;
-      } u_velocity;
-      u_velocity.real = this->velocity;
-      *(outbuffer + offset + 0) = (u_velocity.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_velocity.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_velocity.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_velocity.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->velocity);
+      } u_speed;
+      u_speed.real = this->speed;
+      *(outbuffer + offset + 0) = (u_speed.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_speed.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_speed.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_speed.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->speed);
       return offset;
     }
 
@@ -107,19 +107,19 @@ namespace rc_car_msgs
       union {
         float real;
         uint32_t base;
-      } u_velocity;
-      u_velocity.base = 0;
-      u_velocity.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_velocity.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_velocity.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_velocity.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->velocity = u_velocity.real;
-      offset += sizeof(this->velocity);
+      } u_speed;
+      u_speed.base = 0;
+      u_speed.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_speed.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_speed.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_speed.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->speed = u_speed.real;
+      offset += sizeof(this->speed);
      return offset;
     }
 
     const char * getType(){ return "rc_car_msgs/CarRecorder"; };
-    const char * getMD5(){ return "7ff232c3ef1ac97d91355af7dc5015af"; };
+    const char * getMD5(){ return "2206cee5c7121162c945e51ad73cfaaa"; };
 
   };
 

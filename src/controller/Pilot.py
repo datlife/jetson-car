@@ -74,7 +74,7 @@ class Pilot:
             return
         # Publish a rc_car_msgs
         msg = CarController()
-        msg.header.stamp = rospy.Time.now()
+#        msg.header.stamp = rospy.Time.now()
         msg.steer = steering
         msg.throttle = throttle
         self.control_signal.publish(msg)

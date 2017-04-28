@@ -30,9 +30,10 @@ def camera_callback(camera):
         lock.release()
 
 def car_info_callback(carinfo):
-    global steering,throttle
+    global steering,throttle, speed
     steering = carinfo.steer
     throttle = carinfo.throttle	
+    speed    = carinfo.speed
 
 def depth_cam_callback(depth_cam):
     global lock, depth_img, steering, throttle, cv_bridge
@@ -43,6 +44,7 @@ def depth_cam_callback(depth_cam):
 # Shared variables
 steering = 0.0
 throttle = 0.0
+speed = 0.0
 image = None
 depth_img = None
 seq = 1
@@ -50,7 +52,7 @@ seq = 1
 # Set up ROS
 rospy.init_node("recorder_device", anonymous=True)
 record_pub   = rospy.Publisher("/recorder", CarRecorder, queue_size=1)
-joy_listener = rospy.Subscriber("/car_controller", CarInfo, car_info_callback)
+joy_listener = rospy.Subscriber("/car_info", CarInfo, car_info_callback)
 cam_listener = rospy.Subscriber("/camera/rgb/image_rect_color_drop", Image, camera_callback)
 epth_cam_listener = rospy.Subscriber("camera/depth/image_rect_raw_drop", Image, depth_cam_callback)
 
@@ -92,11 +94,12 @@ while not rospy.is_shutdown():
     cv2.imwrite(depth_fname, depth_img)
     
     # new csv line
-    driving_log.writerow({'RGB Image': fname, 'Depth Image': depth_fname, 'Steering Angle': steering,'Throttle': throttle})
+    driving_log.writerow({'RGB Image': fname, 'Depth Image': depth_fname, 'Steering Angle': steering,'Throttle': throttle,'Speed': speed})
     # publish data to /car_recorder
     msg = CarRecorder()
     msg.steer = steering
     msg.throttle = throttle
+    msg.speed = speed
     msg.img_path = fname
     record_pub.publish(msg)
     seq +=1

@@ -5,7 +5,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "ros/msg.h"
-#include "std_msgs/Header.h"
 
 namespace rc_car_msgs
 {
@@ -13,15 +12,12 @@ namespace rc_car_msgs
   class CarController : public ros::Msg
   {
     public:
-      typedef std_msgs::Header _header_type;
-      _header_type header;
       typedef float _throttle_type;
       _throttle_type throttle;
       typedef float _steer_type;
       _steer_type steer;
 
     CarController():
-      header(),
       throttle(0),
       steer(0)
     {
@@ -30,7 +26,6 @@ namespace rc_car_msgs
     virtual int serialize(unsigned char *outbuffer) const
     {
       int offset = 0;
-      offset += this->header.serialize(outbuffer + offset);
       union {
         float real;
         uint32_t base;
@@ -57,7 +52,6 @@ namespace rc_car_msgs
     virtual int deserialize(unsigned char *inbuffer)
     {
       int offset = 0;
-      offset += this->header.deserialize(inbuffer + offset);
       union {
         float real;
         uint32_t base;
@@ -84,7 +78,7 @@ namespace rc_car_msgs
     }
 
     const char * getType(){ return "rc_car_msgs/CarController"; };
-    const char * getMD5(){ return "fde3dbdce53ea8efc0e0dd6ef6da3ed4"; };
+    const char * getMD5(){ return "ae9dddd03674408866a3861f459418d9"; };
 
   };
 
