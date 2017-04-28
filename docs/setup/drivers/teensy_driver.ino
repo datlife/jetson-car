@@ -91,7 +91,7 @@ void setup(){
     nh_.subscribe(driveSubscriber);
     nh_.advertise(car_pub);
     delay(500);
-    publish_timer.begin(publish_car_info, 30000);
+    publish_timer.begin(publish_car_info, 30000); // in microsecs
 }
 
 void loop(){
