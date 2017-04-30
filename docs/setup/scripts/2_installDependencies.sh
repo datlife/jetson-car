@@ -2,7 +2,7 @@
 # Install Jetson Car Dependencies
 
 # Driver for Teensy 3.2 (Arduino-ish) 
-sudo apt-get -y install gcc-avr arduino
+sudo apt-get -y install gcc-avr arduino arduino-core
 sudo apt-get -y install ros-kinetic-rosserial-arduino ros-kinetic-rosserial ros-kinetic-angles
 
 # Driver for Logitech Joystick
