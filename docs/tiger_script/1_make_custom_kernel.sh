@@ -34,10 +34,6 @@ sudo sed -i 's/.*CONFIG_USB_ACM.*/CONFIG_USB_ACM=y/' /usr/src/kernel/kernel-4.4/
 
 # 2. Enable USB_VIDEO_CLASS and USB_CH341 for Intel Realsense
 sudo sed -i 's/.*CONFIG_USB_SERIAL_CH341.*/CONFIG_USB_SERIAL_CH341=y/' /usr/src/kernel/kernel-4.4/.config
-sudo sed -i 's/.*CONFIG_USB_VIDEO_CLASS=.*/CONFIG_USB_VIDEO_CLASS=m/' /usr/src/kernel/kernel-4.4/.config
-# Download UVC Patch so Realsense Image Formats can be read
-wget --no-check-certificate https://raw.githubusercontent.com/IntelRealSense/librealsense/v1.12.1/scripts/realsense-camera-formats.patch
-sudo patch -p1 -i realsense-camera-formats.patch
 
 # 3. Enable Joy Stick support
 sudo sed -i 's/.*CONFIG_INPUT_JOYDEV.*/CONFIG_INPUT_JOYDEV=y/' /usr/src/kernel/kernel-4.4/.config
