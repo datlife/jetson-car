@@ -9,23 +9,30 @@ Hardware / Bill Of Materials
 ----------------------------
 
 
+#### Base 
+
 | **Item**                                         | **Unit** | **Price** | **Notes**                                                     |
 |--------------------------------------------------|----------|---------------------|---------------------------------------------------------------|
-| RedCat Volcano EPX Brushed                       | 1        | $139.99             |                                                               |
+| RedCat Volcano EPX Brushed                       | 1        | $139.99             |                                           |
 | NVIDIA Jetson TX2                                | 1        | $599.99             | If you are a student, you can apply for EDU discount. |
-| Teensy 3.2                                       | 1        | $29.95              |                                                               |
+| Teensy 3.2                                       | 1        | $29.95              |                                      |
+| Logitech GamePad F710 Wireless Controller        | 1        | $30.99               |                                      |
+| RAVPower 23000mAh Power Bank                     | 1        | $60                 | Used on Amazon                                   |
+
+#### Sensors
+
+| **Item**                                         | **Unit** | **Price** | **Notes**                                                     |
+|--------------------------------------------------|----------|---------------------|---------------------------------------------------------------|
 | Intel RealSense R200                             | 1        | $109.00             |                                                               |
 | Logitech C920 USB Webcam                         | 1        | $61.50              | H264 encoded MJPEG                                            |
 | Sparkfun Razor IMU 9DoF M0                         | 1        | $49.95              |                                                               |
-| UBLOX GPS NEO-6m                  | 1        | $19.99               |                                                               |
-| Logitech GamePad F710 Wireless Controller                  | 1        | $30.99               |                                                               |
+| UBLOX GPS NEO-6m                  | 1        | $19.99               |                                                               |            
+#### Accessories
 
-
-| Anker 4-Port USB 3.0 Ultra Slim                  | 1        | $9.99               |                                                               |
-
-| RAVPower 23000mAh Power Bank                     | 1        | $60                 | Used on Amazon                                                |
+| **Item**                                         | **Unit** | **Price** | **Notes**                                                     |
+|--------------------------------------------------|----------|---------------------|---------------------------------------------------------------|
 | ABS Plastic 12'' x 12'' x 0.125''                | 2        | $9.85               | To cut the base                                                              |
-| M3 Male Female Standoff Screw Nut Assortment Kit | 2        | $9.79               |                                                               |
+| M3 Male Female Standoff Screw Nut Assortment Kit | 2        | $9.79               |                            
 
 
 
