@@ -35,8 +35,6 @@ source ~/.bashrc
 # Install rosinstall
 sudo apt-get -y install python-rosinstall
 
-
-
 # Driver for Teensy 3.2 (Arduino-ish) 
 sudo apt-get -y install gcc-avr arduino arduino-core
 sudo apt-get -y install ros-kinetic-rosserial-arduino ros-kinetic-rosserial ros-kinetic-angles

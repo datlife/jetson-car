@@ -6,5 +6,5 @@ sudo echo "source export jetson-car/devel/setup.bash" >> ~/.bashrc
 export ROS_IP=192.168.1.79
 
 # Add HOST IP (your laptop/pc)
-sudo echo "192.168.1.76 dat" >> /etc/hosts
+sudo echo "192.168.1.78 dat" | sudo tee --append /etc/hosts
 

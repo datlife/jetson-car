@@ -16,7 +16,9 @@ fi
 sudo sed -i 's/.*CONFIG_USB_VIDEO_CLASS=.*/CONFIG_USB_VIDEO_CLASS=m/' .config
 sudo patch -p1 -i $HOME/librealsense/scripts/realsense-camera-formats.patch
 
+# NOTE THAT PATH NEED TO BE CHANGED
+rosdep install --from-paths jetson-car/src/vision/realsense_camera/
 
-# cd /usr/src/
-# sudo rm -rf linux-headers-4.4.0-75*
-# sudo rm -rf uvcvideo-1.1.1-3-realsense/
+cd /usr/src/
+sudo rm -rf linux-headers-4.4.0-75*
+sudo rm -rf uvcvideo-1.1.1-3-realsense/
