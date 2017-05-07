@@ -12,12 +12,6 @@ Repository Contents
 * **`/setup`** - Firmwares for Teensy 3.2 & SparkFun IMU Sensor + Set up instructions for Jetson TK1
 * **`/src`** - ROS source directory (ROS Nodes and Launch files)
 
-System Architecture
--------------------
-<p align="center">
-<img src="https://github.com/dat-ai/jetson-car/raw/master/docs/architecture.png" width="640">
-</p>
-
 
 Setup Instruction:
 ------------------
