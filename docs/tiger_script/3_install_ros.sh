@@ -42,6 +42,8 @@ sudo apt-get -y install ros-kinetic-rosserial-arduino ros-kinetic-rosserial ros-
 # Driver for Logitech Joystick
 sudo apt-get -y install ros-kinetic-joy
 
+# Driver for SLAM2
+sudo apt-get -y install ros-kinetic-libg2o libeigen3-dev
 # Driver for USB Camera node
 # @TODO potentiall crash default Ubuntu terminal (Updated system python to 3.5). Terminator is preferred
 sudo apt-get -y install ros-kinetic-cv-bridge ros-kinetic-cv-camera ros-kinetic-jsk-pcl-ros-utils ros-kinetic-roslint
